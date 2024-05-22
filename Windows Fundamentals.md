@@ -34,7 +34,7 @@
 	* Windows equivalent of `ls`
 * `tree` graphically displays the directory structure
 
-### File System
+# File System
 * 5 types of Windows file systems, but main focus is NTFS
 * NTFS has basic and advanced permissions
 
@@ -65,12 +65,12 @@
 	* R: read-only access
 	* W: write-only access
 
-### NTFS vs. Share Permissions
+# NTFS vs. Share Permissions
 * SMB is used to connect shared resources like files and printers
 * Visualization
 ![](Windows%20Fundamentals-paste.png)
 * NTFS and share permissions are not the same, but often apply to the same shared resources
-* **Share permissions**
+### Share permissions
 
 | Permission   | Description                                                                                                                                 |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -78,7 +78,7 @@
 | Change       | Users are permitted to read, edit, delete and add files and subfolders                                                                      |
 | Read         | Users are allowed to view file & subfolder contents                                                                                         |
 
-* **NTFS basic permissions**
+### NTFS basic permissions
 
 | Permission           | Description                                                                                                                         |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -92,5 +92,19 @@
 * Similar to NTFS permissions, there is an access control list (ACL) for shared resources
 	* Basically the SMB permissions list
 * Contains access control entries (ACEs)
-	* made up of users and groups (also calle)
+	* made up of users and groups (also called security principles)
+* Windows Defender Firewall Considerations
+	* could potentially be blocking access to the SMB share
+* **It is also important to note that when a Windows system is part of a workgroup, all `netlogon` requests are authenticated against that particular Windows system's `SAM` database**
+* **When a Windows system is joined to a Windows Domain environment, all netlogon requests are authenticated against `Active Directory`**
+	* The primary difference between a workgroup and a Windows Domain in terms of authentication, is with a workgroup the local SAM database is used and in a Windows Domain a centralized network-based database (Active Directory) is used
+* Mounting to a share:
+	* `sudo mount -t cifs -o username=USER,password=PASS //TARGETIP/"Company Data" /home/user/Desktop/`
+	* If the syntax is correct and the command is not working try running: `sudo apt-get install cifs-utils` 
+* Display shares with the command `net share`
+* Computer management can also be used to monitor shared resources
+	* good places to check for information are in Shares, Sessions, and Open Files
+* Share access logs can be accessed in Event Viewer
+
+# Windows Services & 
 # Service permissions 
