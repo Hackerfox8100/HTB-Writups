@@ -213,4 +213,17 @@ sc stop wuauserv
 * One common way to work with a script in PowerShell is to import it so that all functions are then available within our current PowerShell console session: `Import-Module .\PowerView.ps1`
 *  can then either start a command and cycle through the options or type `Get-Module` to list all loaded modules and their associated commands
 * `execution policy` attempts to prevent the execution of malicious scripts, and can sometimes stop you from running scripts
-* 
+
+# Windows Management Instrumentation (WMI)
+* subsystem of PowerShell that provides system administrators with powerful tools for system monitoring
+* Some of the uses for WMI are:
+	- Status information for local/remote systems
+	- Configuring security settings on remote machines/applications
+	- Setting and changing user and group permissions
+	- Setting/modifying system properties
+	- Code execution
+	- Scheduling processes
+	- Setting up logging
+- WMI can be run via the Windows command prompt by typing `WMIC` to open an interactive shell or by running a command directly such as `wmic computersystem get name` to get the hostname
+- view a listing of WMIC commands and aliases by typing `WMIC /?`
+- WMI can be leveraged offensively for both enumeration and lateral movement.
