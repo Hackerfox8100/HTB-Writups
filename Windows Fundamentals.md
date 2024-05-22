@@ -29,6 +29,7 @@
 | Windows                    | The majority of the files required for the Windows operating system are contained here.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | System, System32, SysWOW64 | Contains all DLLs required for the core features of Windows and the Windows API. The operating system searches these folders any time a program asks to load a DLL without specifying an absolute path.                                                                                                                                                                                                                                                                                                                                                        |
 | WinSxS                     | The Windows Component Store contains a copy of all Windows components, updates, and service packs.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+
 * Explore the file system with the `dir` command
 	* Windows equivalent of `ls`
 * `tree` graphically displays the directory structure
@@ -37,8 +38,59 @@
 * 5 types of Windows file systems, but main focus is NTFS
 * NTFS has basic and advanced permissions
 
-| Permission Type |     |
-| --------------- | --- |
-|                 |     |
+| Permission Type      | Description                                                                                                                                                                                                                                                                                                                                                                                |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Full Control         | Allows reading, writing, changing, deleting of files/folders.                                                                                                                                                                                                                                                                                                                              |
+| Modify               | Allows reading, writing, and deleting of files/folders.                                                                                                                                                                                                                                                                                                                                    |
+| List Folder Contents | Allows for viewing and listing folders and subfolders as well as executing files. Folders only inherit this permission.                                                                                                                                                                                                                                                                    |
+| Read and Execute     | Allows for viewing and listing files and subfolders as well as executing files. Files and folders inherit this permission.                                                                                                                                                                                                                                                                 |
+| Write                | Allows for adding files to folders and subfolders and writing to a file.                                                                                                                                                                                                                                                                                                                   |
+| Read                 | Allows for viewing and listing of folders and subfolders and viewing a file's contents.                                                                                                                                                                                                                                                                                                    |
+| Traverse Folder      | This allows or denies the ability to move through folders to reach other files or folders. For example, a user may not have permission to list the directory contents or view files in the documents or web apps directory in this example c:\users\bsmith\documents\webapps\backups\backup_02042020.zip but with Traverse Folder permissions applied, they can access the backup archive. |
 
+* NTFS perms on files and folders can be managed through the File Explorer GUI in the security tab
+* List NTFS perms on a specific dir by running `icacls`
+* Inheritance settings
+	* (CI): container inherit
+	* (OI): object inherit
+	* (IO): inherit only
+	* (NP): do not propagate inherit
+	* (I): permission inherited from parent container
+* Access permissions
+	* F: full access
+	* D: delete access
+	* N: no access
+	* M: modify access
+	* RX: read and execute access
+	* R: read-only access
+	* W: write-only access
+
+### NTFS vs. Share Permissions
+* SMB is used to connect shared resources like files and printers
+* Visualization
+![](Windows%20Fundamentals-paste.png)
+* NTFS and share permissions are not the same, but often apply to the same shared resources
+* **Share permissions**
+
+| Permission   | Description                                                                                                                                 |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Full Control | Users are permitted to perform all actions given by Change and Read permissions as well as change permissions for NTFS files and subfolders |
+| Change       | Users are permitted to read, edit, delete and add files and subfolders                                                                      |
+| Read         | Users are allowed to view file & subfolder contents                                                                                         |
+
+* **NTFS basic permissions**
+
+| Permission           | Description                                                                                                                         |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Full Control         | Users are permitted to add, edit, move, delete files & folders as well as change NTFS permissions that apply to all allowed folders |
+| Modify               | Users are permitted or denied permissions to view and modify files and folders. This includes adding or deleting files              |
+| Read & Execute       | Users are permitted or denied permissions to read the contents of files and execute programs                                        |
+| List folder contents | Users are permitted or denied permissions to view a listing of files and subfolders                                                 |
+| Read                 | Users are permitted or denied permissions to read the contents of files                                                             |
+| Write                | Users are permitted or denied permissions to write changes to a file and add new files to a folder                                  |
+| Special Permissions  | A variety of advanced permissions options                                                                                           |
+* Similar to NTFS permissions, there is an access control list (ACL) for shared resources
+	* Basically the SMB permissions list
+* Contains access control entries (ACEs)
+	* made up of users and groups (also calle)
 # Service permissions 
