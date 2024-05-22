@@ -106,5 +106,32 @@
 	* good places to check for information are in Shares, Sessions, and Open Files
 * Share access logs can be accessed in Event Viewer
 
-# Windows Services & 
+# Windows Services & Processes
+* Services are managed via the Service Control Manager (SCM) system
+	* Accessible via the `services.msc` MMC add-in
+* Can also query and manage services through CLI using sc.exe using powershell cmdlets like `Get-Service`. Ex:
+```
+Get-Service | ? {$_.Status -eq "Running"} | select -First 2 |fl
+```
+* Service statuses can appear as Running, Stopped, or Paused, and they can be set to start manually, automatically, or on a delay at system boot
+* Three categories of services:
+	* Local services
+	* network services
+	* system services
+### Critical system services
+
+| Service                   | Description                                                                                                                                                                              |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| smss.exe                  | Session Manager SubSystem. Responsible for handling sessions on the system.                                                                                                              |
+| csrss.exe                 | Client Server Runtime Process. The user-mode portion of the Windows subsystem.                                                                                                           |
+| wininit.exe               | Starts the Wininit file .ini file that lists all of the changes to be made to Windows when the computer is restarted after installing a program.                                         |
+| logonui.exe               | Used for facilitating user login into a PC                                                                                                                                               |
+| lsass.exe                 | The Local Security Authentication Server verifies the validity of user logons to a PC or server. It generates the process responsible for authenticating users for the Winlogon service. |
+| services.exe              | Manages the operation of starting and stopping services.                                                                                                                                 |
+| winlogon.exe              |                                                                                                                                                                                          |
+| System                    |                                                                                                                                                                                          |
+| svchost.exe with RPCSS    |                                                                                                                                                                                          |
+| svchost.exe with Dcom/PnP |                                                                                                                                                                                          |
+
+
 # Service permissions 
