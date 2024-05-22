@@ -128,13 +128,21 @@
                 "file": "Windows Fundamentals.md"
               }
             }
+          },
+          {
+            "id": "3b805f5e62b53565",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -148,6 +156,10 @@
   },
   "active": "0619ee6f94b01ee3",
   "lastOpenFiles": [
-    "Windows Fundamentals.md"
+    "box1/writeup.md",
+    "box1/writeup-paste-1.png",
+    "box1/writeup-paste.png",
+    "Windows Fundamentals.md",
+    "box1"
   ]
 }
