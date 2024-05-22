@@ -107,6 +107,7 @@
 * Share access logs can be accessed in Event Viewer
 
 # Windows Services & Processes
+### Services
 * Services are managed via the Service Control Manager (SCM) system
 	* Accessible via the `services.msc` MMC add-in
 * Can also query and manage services through CLI using sc.exe using powershell cmdlets like `Get-Service`. Ex:
@@ -118,20 +119,37 @@ Get-Service | ? {$_.Status -eq "Running"} | select -First 2 |fl
 	* Local services
 	* network services
 	* system services
-### Critical system services
+* **Critical system services:**
 
-| Service                   | Description                                                                                                                                                                              |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| smss.exe                  | Session Manager SubSystem. Responsible for handling sessions on the system.                                                                                                              |
-| csrss.exe                 | Client Server Runtime Process. The user-mode portion of the Windows subsystem.                                                                                                           |
-| wininit.exe               | Starts the Wininit file .ini file that lists all of the changes to be made to Windows when the computer is restarted after installing a program.                                         |
-| logonui.exe               | Used for facilitating user login into a PC                                                                                                                                               |
-| lsass.exe                 | The Local Security Authentication Server verifies the validity of user logons to a PC or server. It generates the process responsible for authenticating users for the Winlogon service. |
-| services.exe              | Manages the operation of starting and stopping services.                                                                                                                                 |
-| winlogon.exe              |                                                                                                                                                                                          |
-| System                    |                                                                                                                                                                                          |
-| svchost.exe with RPCSS    |                                                                                                                                                                                          |
-| svchost.exe with Dcom/PnP |                                                                                                                                                                                          |
-
+| Service                   | Description                                                                                                                                                                                                                                             |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| smss.exe                  | Session Manager SubSystem. Responsible for handling sessions on the system.                                                                                                                                                                             |
+| csrss.exe                 | Client Server Runtime Process. The user-mode portion of the Windows subsystem.                                                                                                                                                                          |
+| wininit.exe               | Starts the Wininit file .ini file that lists all of the changes to be made to Windows when the computer is restarted after installing a program.                                                                                                        |
+| logonui.exe               | Used for facilitating user login into a PC                                                                                                                                                                                                              |
+| lsass.exe                 | The Local Security Authentication Server verifies the validity of user logons to a PC or server. It generates the process responsible for authenticating users for the Winlogon service.                                                                |
+| services.exe              | Manages the operation of starting and stopping services.                                                                                                                                                                                                |
+| winlogon.exe              | Responsible for handling the secure attention sequence, loading a user profile on logon, and locking the computer when a screensaver is running.                                                                                                        |
+| System                    | A background system process that runs the Windows kernel.                                                                                                                                                                                               |
+| svchost.exe with RPCSS    | Manages system services that run from dynamic-link libraries (files with the extension .dll) such as "Automatic Updates," "Windows Firewall," and "Plug and Play." Uses the Remote Procedure Call (RPC) Service (RPCSS).                                |
+| svchost.exe with Dcom/PnP | Manages system services that run from dynamic-link libraries (files with the extension .dll) such as "Automatic Updates," "Windows Firewall," and "Plug and Play." Uses the Distributed Component Object Model (DCOM) and Plug and Play (PnP) services. |
+### Processes
+* **Local security authority subsystem service (LSASS)**
+	* `lsass.exe` is the process that is responsible for enforcing the security policy on Windows systems
+	* When a user attempts to log on to the system, this process verifies their log on attempt and creates access tokens based on the user's permission levels
+	* also responsible for user account password changes
+	* events associated with this process (logon/logoff attempts, etc.) are logged within the Windows Security Log
+	* HIGH VALUE TARGET
+		* can be used to extract cleartext and hashed creds that are stored in memory
+* Sysinternals
+	* Can be downloaded from the Microsoft website or can be loaded directly from an internet-accessible file share by typing `\\live.sysinternals.com\tools` into a Windows Explorer window
+	* Includes tools like Process Explorer, Task Manager, and Process Monitor
+		* also includes TCPView, which is used to monitor internet activity, and PSExec, which can be used to manage/connect to systems via the SMB protocol remotely
+* Task Manager
+	* provides information about running processes, system performance, running services, startup programs, logged-in users/logged in user processes, and services
+* Process Explorer
+	* part of sysinternals tool suite
+	* can show which handles and DLL processes are loaded when a program runs
 
 # Service permissions 
+* 
