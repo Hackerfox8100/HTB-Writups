@@ -178,3 +178,39 @@ sc stop wuauserv
 	* easier to read output
 
 # Windows Sessions
+* Interactive 
+	* local logon session
+	* initiated by a user authenticating to a local or domain system by entering their credentials
+	* can be initiated by logging directly into the system, by requesting a secondary logon session using the `runas` command via the command line, or through a Remote Desktop connection
+* Non-interactive
+	* differ from standard user accounts as they do not require login credentials
+	* 3 types of non-interactive accounts: 
+		* Local System Account: `NT AUTHORITY\SYSTEM`
+			* most powerful account in Windows systems. It is used for a variety of OS-related tasks, such as starting Windows services. This account is more powerful than accounts in the local administrators group
+		* Local Service Account: `NT AUTHORITY\LocalService`
+			* less privileged version of the SYSTEM account and has similar privileges to a local user account. It is granted limited functionality and can start some services
+		* Network Service Account: `NT AUTHORITY\NetworkService`
+			* similar to a standard domain user account. It has similar privileges to the Local Service Account on the local machine. It can establish authenticated sessions for certain network services.
+	* used by the Windows operating system to automatically start services and applications without requiring user interaction
+	* These accounts have no password associated with them and are usually used to start services when the system boots or to run scheduled tasks
+
+# Interacting with the Windows Operating System
+* GUI
+* RDP (port 3389)
+* Windows Command Line
+	* main two ways to interact with the system from the command line are via the Command Prompt (CMD) and PowerShell
+	* CMD
+		* certain commands have their own help menus, which can be accessed by typing `<command> /?` 
+	* PowerShell
+		* utilizes cmdlets
+			*  in the form of `Verb-Noun`
+			* Ex: `Get-ChildItem` can be used to list our current directory
+			* can add flags
+			* Ex: `Get-ChildItem -Recurse` will show us the contents of our current working directory and all subdirectories
+		* aliases
+			* Ex: `Get-ChildItem -Recurse` will show us the contents of our current working directory and all subdirectories
+### Scripts
+* One common way to work with a script in PowerShell is to import it so that all functions are then available within our current PowerShell console session: `Import-Module .\PowerView.ps1`
+*  can then either start a command and cycle through the options or type `Get-Module` to list all loaded modules and their associated commands
+* `execution policy` attempts to prevent the execution of malicious scripts, and can sometimes stop you from running scripts
+* 
