@@ -111,7 +111,7 @@
 * Services are managed via the Service Control Manager (SCM) system
 	* Accessible via the `services.msc` MMC add-in
 * Can also query and manage services through CLI using sc.exe using powershell cmdlets like `Get-Service`. Ex:
-```
+```powershell
 Get-Service | ? {$_.Status -eq "Running"} | select -First 2 |fl
 ```
 * Service statuses can appear as Running, Stopped, or Paused, and they can be set to start manually, automatically, or on a delay at system boot
@@ -152,4 +152,29 @@ Get-Service | ? {$_.Status -eq "Running"} | select -First 2 |fl
 	* can show which handles and DLL processes are loaded when a program runs
 
 # Service permissions 
-* 
+* be mindful of service permissions and the permissions of the directories they execute from because it is possible to replace the path to an executable with a malicious DLL or executable file
+* Can use `services.msc` to view and manage almost all details regarding services
+* Most services run with LocalSystem privileges by default which is the highest level of access allowed on an individual Windows OS
+* Notable built-in service accounts in Windows:
+	* LocalService
+	* NetworkService
+	* LocalSystem
+* The `sc qc` command is used to query the service
+* If we wanted to query a service on a device over the network, we could specify the hostname or IP address immediately after `sc`
+```cmd-session
+sc //hostname or ip of box query ServiceName
+```
+* can also use sc to start and stop services
+```cmd-session
+sc stop wuauserv
+```
+* Another helpful way we can examine service permissions using `sc` is through the `sdshow` command
+	* amalgamation of characters crunched together and delimited by opened and closed parentheses is in a format known as the `Security Descriptor Definition Language` (`SDDL`)
+* Every named object in Windows is a securable object, and even some unnamed objects are securable
+	* If it's securable in a Windows OS, it will have a security descriptor. Security descriptors identify the object’s owner and a primary group containing a `Discretionary Access Control List` (`DACL`) and a `System Access Control List` (`SACL`) 
+		* DACL is used for controlling access to an object
+		* SACL is used to account for and log access attempts
+* Using the `Get-Acl` PowerShell cmdlet, we can examine service permissions by targeting the path of a specific service in the registry
+	* easier to read output
+
+# Windows Sessions
