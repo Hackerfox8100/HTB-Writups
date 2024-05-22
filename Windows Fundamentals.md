@@ -227,3 +227,34 @@ sc stop wuauserv
 - WMI can be run via the Windows command prompt by typing `WMIC` to open an interactive shell or by running a command directly such as `wmic computersystem get name` to get the hostname
 - view a listing of WMIC commands and aliases by typing `WMIC /?`
 - WMI can be leveraged offensively for both enumeration and lateral movement.
+
+# Microsoft Management Console (MMC)
+* can be used to group snap-ins, or administrative tools, to manage hardware, software, and network components within a Windows host
+* can also use MMC to create custom tools and distribute them to users
+* works with the concept of snap-ins, allowing administrators to create a customized console with only the administrative tools needed to manage several services
+	* These snap-ins can be added to manage both local and remote systems
+* Can add or remove snap-ins to begin customizing admin console
+
+# Windows Subsystem for Linux (WSL)
+* allows Linux binaries to be run natively on Windows 10 and Windows Server 2019
+* WSL can be installed by running the PowerShell command `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux` as an Administrator
+	* Once this feature is enabled, we can either download a Linux distro from the Microsoft Store and install it or manually download the Linux distro of our choice and unpack and install it from the command line
+*  can access the C$ volume and other volumes on the host operating system via the `mnt` directory
+
+# Windows Security
+* Windows follows certain security principles
+	* units in the system that can be authorized or authenticated for a particular action
+	* units include users, computers on the network, threads, or processes
+* Each of the security principals on the system has a unique security identifier (SID)
+	* SIDs are string values with different lengths, which are stored in the security database
+	* SIDs are added to the user's access token to identify all actions that the user is authorized to take
+	* consists of the Identifier Authority and the Relative ID (RID)
+	* In an Active Directory (AD) domain environment, the SID also includes the domain SID.
+	* The SID is broken down into this pattern
+		* (SID)-(revision level)-(identifier-authority)-(subauthority1)-(subauthority2)-(etc)
+		* SID: Identifies the string as a SID.
+		* Revision level: To date, this has never changed and has always been `1`.
+		* Identifier-authority: A 48-bit string that identifies the authority (the computer or network) that created the SID.
+		* Subauthority1: This is a variable number that identifies the user's relation or group described by the SID to the authority that created it. It tells us in what order this authority created the user's account.
+		* Subauthority2:
+		* Subauthority3:
