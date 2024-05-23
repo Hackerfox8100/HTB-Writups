@@ -32,4 +32,32 @@
 * Bloodhound was released
 
 # AD Structure
+* Active Directory Domain Services (AD DS) stores information such as usernames and passwords and manages the rights needed for authorized users to access this information
+* A basic AD user account with no added privileges can be used to enumerate the majority of objects contained within AD, including but not limited to:
+	* Domain Computers
+	* Domain Users
+	* Domain Group Information
+	* Organizational Units (OUs)
+	* Default Domain Policy
+	* Functional Domain Levels
+	* Password Policy
+	* Group Policy Objects (GPOs)
+	* Domain Trusts
+	* Access Control Lists (ACLs)
+* At a very (simplistic) high level, an AD structure may look as follows:
+```
+INLANEFREIGHT.LOCAL/
+├── ADMIN.INLANEFREIGHT.LOCAL
+│   ├── GPOs
+│   └── OU
+│       └── EMPLOYEES
+│           ├── COMPUTERS
+│           │   └── FILE01
+│           ├── GROUPS
+│           │   └── HQ Staff
+│           └── USERS
+│               └── barbara.jones
+├── CORP.INLANEFREIGHT.LOCAL
+└── DEV.INLANEFREIGHT.LOCAL
+```
 * 
