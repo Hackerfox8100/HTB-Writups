@@ -275,4 +275,7 @@ sc stop wuauserv
 * The entire system registry is stored in several files on the operating system. You can find these under `C:\Windows\System32\Config\`
 * The user-specific registry hive (HKCU) is stored in the user folder (i.e., `C:\Users\<USERNAME>\Ntuser.dat`)
 ### Local Group Policy
+* allows administrators to set, configure, and adjust a variety of settings
+* group policies are pushed down from a Domain Controller onto all domain-joined machines that Group Policy objects (GPOs) are linked to
+* can be configured locally, in both domain environments and non-domain environments
 * 
