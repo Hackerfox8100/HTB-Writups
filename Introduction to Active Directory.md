@@ -107,3 +107,5 @@ INLANEFREIGHT.LOCAL/
 	* FSMO roles are typically set when domain controllers are created, but sysadmins can transfer these roles if needed
 * **Global Catalog (GC):** a domain controller that stores copies of ALL objects in an Active Directory forest
 	* stores a full copy of all objects in the current domain and a partial copy of objects that belong to other domains in the forest
+	*  a feature that is enabled on a domain controller and performs the following functions:
+		* Authentication (provided authorization for all groups that a user account belongs to, which is included when an access token is generated)
