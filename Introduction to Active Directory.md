@@ -20,4 +20,16 @@
 	* critical flaw that allowed an attacker to impersonate any unpatched domain controller in a network
 2019
 * ["Kerberoasting Revisited"](https://www.slideshare.net/harmj0y/derbycon-2019-kerberoasting-revisited)
+2018
 * "Printer Bug" bug was discovered and the SpoolSample PoC tool was released which leverages this bug to coerce Windows hosts to authenticate to other machines via the MS-RPRN RPC interface
+*  Rubeus toolkit for attacking Kerberos
+* DCShadow Attack Technique
+* Ping Castle tool 
+	* for performing security audits of Active Directory by looking for misconfigurations and other flaws that can raise the risk level of a domain and producing a report that can be used to identify ways to further harden the environment
+2017
+*  ASREPRoast technique was introduced for attacking user accounts that don't require Kerberos preauthentication
+2016
+* Bloodhound was released
+
+# AD Structure
+* 
