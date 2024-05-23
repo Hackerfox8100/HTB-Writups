@@ -95,4 +95,9 @@ INLANEFREIGHT.LOCAL/
 	* Every account, group, or process has its own unique SID, which, in an AD environment, is issued by the domain controller and stored in a secure database
 	* can only be used once
 	* Even if the security principle is deleted, it can never be used again in that environment to identify another user or group
-	* 
+	* When a user logs in, the system creates an access token for them which contains the user's SID, the rights they have been granted, and the SIDs for any groups that the user is a member of
+		* This token is used to check rights whenever the user performs an action on the computer
+* **Distinguished Name (DN):** describes the full path to an object in AD (such as `cn=bjones, ou=IT, ou=Employees, dc=inlanefreight, dc=local`)
+* **Relative Distinguished Name (RDN):** a single component of the Distinguished Name that identifies the object as unique from other objects at the current level in the naming hierarchy
+* **sAMAccountName:** the user's logon name. Here it would just be `bjones`. It must be a unique value and 20 or fewer characters
+* **userPrincipalName:** 
