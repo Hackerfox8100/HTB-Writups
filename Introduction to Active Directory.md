@@ -177,6 +177,17 @@ INLANEFREIGHT.LOCAL/
 	* a container that systems administrators can use to store similar objects for ease of administration
 	* A few OU attributes include its name, members, security settings, and more
 * Domain
+	* the structure of an AD network
+	*  Every domain has its own separate database and sets of policies that can be applied to any and all objects within the domain
 * Domain Controllers
+	* essentially the brains of an AD network
+	* They handle authentication requests, verify users on the network, and control who can access the various resources in the domain
+	* It also enforces security policies and stores information about every other object in the domain
 * Sites
-* 
+	* a set of computers across one or more subnets connected using high-speed links
+	* They are used to make replication across domain controllers run efficiently
+* Built-in
+	*  a container that holds default groups in an AD domain
+	* They are predefined when an AD domain is created
+* Foreign Security Principals
+	*  an object created in AD to represent a security principal that belongs to a trusted external forest
