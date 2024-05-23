@@ -20,4 +20,4 @@
 	* critical flaw that allowed an attacker to impersonate any unpatched domain controller in a network
 2019
 * ["Kerberoasting Revisited"](https://www.slideshare.net/harmj0y/derbycon-2019-kerberoasting-revisited)
-* 
+* "Printer Bug" bug was discovered and the SpoolSample PoC tool was released which leverages this bug to coerce Windows hosts to authenticate to other machines via the MS-RPRN RPC interface
