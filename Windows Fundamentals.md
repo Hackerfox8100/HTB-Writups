@@ -338,5 +338,24 @@ sc stop wuauserv
 	1. remove the default group that is present
 	2. Disable Inheritance before issuing specific NTFS perms
 	3. NTFS perms: `Modify, Read & Execute, List folder contents, Read, Write`
-* 
-1. **Using PowerShell to list details about a service**
+* In the Company Data folder, right click the HR folder and select "Properties"
+* In the Sharing tab select Advanced Sharing
+* check the "Share this folder" box and select Permissions
+* Remove the Everyone group and add the HR group
+* In the Security tab, under Permissions for SYSTEM, click on Advanced and click "Disable Inheritance"
+*  Select edit under the Groups or user names section
+* Add HR
+* Select HR and set the NTFS permissions to `Modify, Read & Execute, List folder contents, Read, Write`
+8. **Using PowerShell to list details about a service**
+```powershell
+Get-Service | ? {$_.Status -eq "Running"}
+```
+*What is the name of the service associated with Windows Update?* - wuauserv
+```powershell
+wmic useraccount get name,sid
+```
+*List the SID associated with the user account Jim you created.* - `S-1-5-21-2614195641-1726409526-3792725429-1006`
+```powershell
+ (Get-Localgroup HR).SID
+```
+*List the SID associated with the HR security group you created.* - `S-1-5-21-2614195641-1726409526-3792725429-1007`
