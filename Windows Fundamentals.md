@@ -289,3 +289,16 @@ sc stop wuauserv
 * comes with several features such as real-time protection, which protects the device from known threats in real-time and cloud-delivered protection, which works in conjunction with automatic sample submission to upload suspicious files for analysis
 * managed from the Security Center
 * can use the PowerShell cmdlet `Get-MpComputerStatus` to check which protection settings are enabled
+
+# Skills Assessment
+1. Creating a shared folder called Company Data
+2. Creating a subfolder called HR inside of the Company Data folder
+3. Creating a user called Jim
+	1. Uncheck: `User must change password at logon`
+4. Creating a security group called HR
+5. Adding Jim to the HR security group
+6. Adding the HR security group to the shared Company Data folder and NTFS permissions list
+	1. Remove the default group that is present
+	2. Share permissions: `Allow Change & Read`
+	3. Disable Inheritance before issuing specific NTFS perms
+	4. NTFS perms: `Modify, Read & `
