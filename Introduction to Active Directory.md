@@ -191,3 +191,5 @@ INLANEFREIGHT.LOCAL/
 	* They are predefined when an AD domain is created
 * Foreign Security Principals
 	*  an object created in AD to represent a security principal that belongs to a trusted external forest
+
+# Active Directory Functionality
