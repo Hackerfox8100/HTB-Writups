@@ -287,4 +287,5 @@ sc stop wuauserv
 * built-in antivirus that ships for free with Windows operating systems
 * comes with several features such as real-time protection, which protects the device from known threats in real-time and cloud-delivered protection, which works in conjunction with automatic sample submission to upload suspicious files for analysis
 * managed from the Security Center
+* can use the PowerShell cmdlet `Get-MpComputerStatus` to check which protection settings are enabled
 * 
