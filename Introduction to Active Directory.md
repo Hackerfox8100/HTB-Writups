@@ -100,4 +100,10 @@ INLANEFREIGHT.LOCAL/
 * **Distinguished Name (DN):** describes the full path to an object in AD (such as `cn=bjones, ou=IT, ou=Employees, dc=inlanefreight, dc=local`)
 * **Relative Distinguished Name (RDN):** a single component of the Distinguished Name that identifies the object as unique from other objects at the current level in the naming hierarchy
 * **sAMAccountName:** the user's logon name. Here it would just be `bjones`. It must be a unique value and 20 or fewer characters
-* **userPrincipalName:** 
+* **userPrincipalName:** another way to identify users in AD. This attribute consists of a prefix (the user account name) and a suffix (the domain name) in the format of `bjones@inlanefreight.local` 
+	* This attribute is not mandatory
+* **FSMO Roles:** Flexible Single Master Operation roles. give Domain Controllers (DC) the ability to continue authenticating users and granting permissions without interruption (authorization and authentication)
+	* There are five FSMO roles: `Schema Master` and `Domain Naming Master` (one of each per forest), `Relative ID (RID) Master` (one per domain), `Primary Domain Controller (PDC) Emulator` (one per domain), and `Infrastructure Master` (one per domain)
+	* FSMO roles are typically set when domain controllers are created, but sysadmins can transfer these roles if needed
+* **Global Catalog (GC):** a domain controller that stores copies of ALL objects in an Active Directory forest
+	* stores a full copy of all objects in the current domain and a partial copy of objects that belong to other domains in the forest
