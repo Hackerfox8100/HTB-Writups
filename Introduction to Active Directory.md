@@ -118,4 +118,26 @@ INLANEFREIGHT.LOCAL/
 * **Service Principal Name (SPN):** uniquely identifies a service instance 
 	* They are used by Kerberos authentication to associate an instance of a service with a logon account, allowing a client application to request the service to authenticate an account without needing to know the account name
 * **Group Policy Objects (GPO):** virtual collections of policy settings 
-	* Each GPO has a unique GUID. A GPO can contain local file system settings or Active Directory settings. GPO settings can be applied to both user and computer objects. They can be applied to all users and computers within the domain or defined more granularly at the OU level
+	* Each GPO has a unique GUID
+	* A GPO can contain local file system settings or Active Directory settings
+	* GPO settings can be applied to both user and computer objects
+	* They can be applied to all users and computers within the domain or defined more granularly at the OU level
+* **Access Control List (ACL):** the ordered collection of Access Control Entries (ACEs) that apply to an object
+* **Access Control Entries (ACEs):** identifies a trustee (user account, group account, or logon session) and lists the access rights that are allowed, denied, or audited for the given trustee
+* **Discretionary Access Control List (DACL):** define which security principles are granted or denied access to an object; it contains a list of ACEs
+* **System Access Control Lists (SACL):** Allows for administrators to log access attempts that are made to secured objects
+	* specify the types of access attempts that cause the system to generate a record in the security event log
+* **Fully Qualified Domain Name (FQDN):** the complete name for a specific computer or host. It is written with the hostname and domain name in the format `[host name].[domain name].[tld]`
+	* used to specify an object's location in the tree hierarchy of DNS
+* **Tombstone:** a container object in AD that holds deleted AD objects
+	* When an object is deleted from AD, the object remains for a set period of time known as the `Tombstone Lifetime,` and the `isDeleted` attribute is set to `TRUE`. Once an object exceeds the `Tombstone Lifetime`, it will be entirely removed
+* **SYSVOL:** stores copies of public files in the domain such as system policies, Group Policy settings, logon/logoff scripts, and often contains other types of scripts that are executed to perform various tasks in the AD environment
+* **AdminSDHolder:** object used to manage ACLs for members of built-in groups in AD marked as privileged
+* **dsHeuristics:** a string value set on the Directory Service object used to define multiple forest-wide configuration settings
+	* Groups in this list are protected from modification via the `AdminSDHolder` object
+	* If a group is excluded via the `dsHeuristics` attribute, then any changes that affect it will not be reverted when the SDProp process runs
+* **adminCount:** attribute determines whether or not the SDProp process protects a user. If the value is set to `0` or not specified, the user is not protected. If the attribute value is set to `value`, the user is protected
+* **Active Directory Users and Computers (ADUC):** a GUI console commonly used for managing users, groups, computers, and contacts in AD
+* **ADSI Edit:** a GUI tool used to manage objects in AD. It provides access to far more than is available in ADUC and can be used to set or delete any attribute available on an object, add, remove, and move objects as well
+* **sIDHistory:** attribute holds any SIDs that an object was assigned previously
+* **NTDS.DIT:** 
