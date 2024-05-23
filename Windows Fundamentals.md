@@ -320,9 +320,23 @@ sc stop wuauserv
 	2. Share permissions: `Allow Change & Read`
 	3. Disable Inheritance before issuing specific NTFS perms
 	4. NTFS perms: `Modify, Read & Execute, List folder contents, Read, Write`
-* In File Explorer, right click on the Company Data folder
-1. **Adding the HR security group to the NTFS permissions list of the HR subfolder**
+* In File Explorer, right click the folder, click "Properties", Click on the Sharing tab
+* Select Advanced Sharing, select permissions
+* Remove Everyone
+* Add "HR" to the Groups or user names section
+* With the HR group selected, set the permissions to `Allow Change & Read`, select apply and then ok, twice
+* Click on the Security tab
+* Select edit under the Groups or user names section
+* select Add and enter in HR, click ok
+* Under Permissions for SYSTEM, click on Advanced and click "Disable Inheritance"
+	* If you see "Enable Inheritance", it was already selected and nothing more needs to be done
+* Select edit under the Groups or user names section
+* Select HR and set the NTFS permissions to `Modify, Read & Execute, List folder contents, Read, Write`
+* Select apply and then ok
+* Select ok
+7. **Adding the HR security group to the NTFS permissions list of the HR subfolder**
 	1. remove the default group that is present
 	2. Disable Inheritance before issuing specific NTFS perms
 	3. NTFS perms: `Modify, Read & Execute, List folder contents, Read, Write`
-2. **Using PowerShell to list details about a service**
+* 
+1. **Using PowerShell to list details about a service**
