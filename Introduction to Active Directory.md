@@ -60,4 +60,19 @@ INLANEFREIGHT.LOCAL/
 ├── CORP.INLANEFREIGHT.LOCAL
 └── DEV.INLANEFREIGHT.LOCAL
 ```
-* 
+* *What Active Directory structure can contain one or more domains?*
+	* forest
+* *True or False; It can be common to see multiple domains linked together by trust relationships?*
+	* true
+* *Active Directory provides authentication and <> within a Windows domain environment.*
+	* authorization
+
+# AD Terminology
+* **Object:** ANY resource present within an Active Directory environment such as OUs, printers, users, domain controllers, etc
+	* Every object in Active Directory has an associated set of attributes
+* **Attributes:** used to define characteristics of the given object
+	* All attributes in AD have an associated LDAP name that can be used when performing LDAP queries, such as `displayName` for `Full Name` and `given name` for `First Name`
+* **Schema:** the blueprint of any enterprise environment. 
+	* defines what types of objects can exist in the AD database and their associated attributes
+	* lists definitions corresponding to AD objects and holds information about each object
+	* 
