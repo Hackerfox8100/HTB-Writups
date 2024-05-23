@@ -140,4 +140,43 @@ INLANEFREIGHT.LOCAL/
 * **Active Directory Users and Computers (ADUC):** a GUI console commonly used for managing users, groups, computers, and contacts in AD
 * **ADSI Edit:** a GUI tool used to manage objects in AD. It provides access to far more than is available in ADUC and can be used to set or delete any attribute available on an object, add, remove, and move objects as well
 * **sIDHistory:** attribute holds any SIDs that an object was assigned previously
-* **NTDS.DIT:** 
+* **NTDS.DIT:** file can be considered the heart of Active Directory. It is stored on a Domain Controller at `C:\Windows\NTDS\` and is a database that stores AD data such as information about user and group objects, group membership, and, most important to attackers and penetration testers, the password hashes for all users in the domain
+	* Once full domain compromise is reached, an attacker can retrieve this file, extract the hashes, and either use them to perform a pass-the-hash attack or crack them offline using a tool such as Hashcat to access additional resources in the domain
+	* If the setting Store password with reversible encryption is enabled, then the NTDS.DIT will also store the cleartext passwords for all users created or who changed their password after this policy was set
+* **MSBROWSE:** is a Microsoft networking protocol that was used in early versions of Windows-based local area networks (LANs) to provide browsing services
+
+# Active Directory Objects
+* ANY resource present within an Active Directory environment such as OUs, printers, users, domain controllers
+* Users: 
+	* considered `leaf objects`, which means that they cannot contain any other objects within them
+	* considered a security principal and has a security identifier (SID) and a global unique identifier (GUID)
+	* have many possible attributes, such as their display name, last login time, date of last password change, email address, account description, manager, address, and more
+* Contacts
+	* usually used to represent an external user and contains informational attributes such as first name, last name, email address, telephone number, etc
+	* leaf objects, NOT security principles
+		* no SID only GUID
+* Printers
+	* points to a printer accessible within the AD network
+	* leaf objects, NOT security principles
+	* Printers have attributes such as the printer's name, driver information, port number, etc.
+* Computers
+	* any computer joined to the AD network (workstation or server)
+	* leaf object AND security principles
+	* prime targets for attackers since full administrative access to a computer (as the all-powerful `NT AUTHORITY\SYSTEM` account) grants similar rights to a standard domain user and can be used to perform the majority of the enumeration tasks that a user account can (save for a few exceptions across domain trusts)
+* Shared Folders
+	* points to a shared folder on the specific computer where the folder resides
+	* NOT security principals and only have a GUID
+	* attributes can include the name, location on the system, security access rights
+* Groups
+	* considered a `container object` because it can contain other objects, including users, computers, and even other groups
+	* regarded as a security principle and has both a SUID and GUID
+	* can have nested groups which are often used to obtain unintended rights
+		* bloodhound helps find these
+	*  most common attributes are the name, description, membership, and other groups that the group belongs to
+* Organizational Units (OUs)
+	* a container that systems administrators can use to store similar objects for ease of administration
+	* A few OU attributes include its name, members, security settings, and more
+* Domain
+* Domain Controllers
+* Sites
+* 
