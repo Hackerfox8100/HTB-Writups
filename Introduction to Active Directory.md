@@ -109,3 +109,13 @@ INLANEFREIGHT.LOCAL/
 	* stores a full copy of all objects in the current domain and a partial copy of objects that belong to other domains in the forest
 	*  a feature that is enabled on a domain controller and performs the following functions:
 		* Authentication (provided authorization for all groups that a user account belongs to, which is included when an access token is generated)
+		* Object search (making the directory structure within a forest transparent, allowing a search to be carried out across all domains in a forest by providing just one attribute about an object.)
+* **Read-Only Domain Controller (RODC):** has a read-only Active Directory database 
+	* No AD account passwords are cached on an RODC (other than the RODC computer account & RODC KRBTGT passwords) 
+	* No changes are pushed out via an RODC's AD database, SYSVOL, or DNS 
+	* RODCs also include a read-only DNS server, allow for administrator role separation, reduce replication traffic in the environment, and prevent SYSVOL modifications from being replicated to other DCs
+* **Replication:** happens in AD when AD objects are updated and transferred from one Domain Controller to another
+* **Service Principal Name (SPN):** uniquely identifies a service instance 
+	* They are used by Kerberos authentication to associate an instance of a service with a logon account, allowing a client application to request the service to authenticate an account without needing to know the account name
+* **Group Policy Objects (GPO):** virtual collections of policy settings 
+	* Each GPO has a unique GUID. A GPO can contain local file system settings or Active Directory settings. GPO settings can be applied to both user and computer objects. They can be applied to all users and computers within the domain or defined more granularly at the OU level
