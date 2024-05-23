@@ -256,5 +256,23 @@ sc stop wuauserv
 		* Revision level: To date, this has never changed and has always been `1`.
 		* Identifier-authority: A 48-bit string that identifies the authority (the computer or network) that created the SID.
 		* Subauthority1: This is a variable number that identifies the user's relation or group described by the SID to the authority that created it. It tells us in what order this authority created the user's account.
-		* Subauthority2:
-		* Subauthority3:
+		* Subauthority2: Tells us which computer (or domain) created the number
+		* Subauthority3: The RID that distinguishes one account from another. Tells us whether this user is a normal user, a guest, an administrator, or part of some other group
+### Security Accounts Manager (SAM) & Access Control Entries (ACE)
+* SAM grants rights to a network to execute specific processes
+* The access rights themselves are managed by Access Control Entries (ACE) in Access Control Lists (ACL)
+* two types of ACLs: the `Discretionary Access Control List (DACL)` or `System Access Control List (SACL)`
+* Every thread and process started or initiated by a user goes through an authorization process
+	* An integral part of this process is access tokens, validated by the Local Security Authority (LSA). In addition to the SID, these access tokens contain other security-relevant information
+### User Account Control (UAC)
+* security feature in Windows to prevent malware from running or manipulating processes that could damage the computer or its contents
+* visualization:
+![](Windows%20Fundamentals-paste-1.png)
+### Registry
+* hierarchical database in Windows critical for the operating system
+* stores low-level settings for the Windows operating system and applications that choose to use it
+* divided into computer-specific and user-specific data
+* The entire system registry is stored in several files on the operating system. You can find these under `C:\Windows\System32\Config\`
+* The user-specific registry hive (HKCU) is stored in the user folder (i.e., `C:\Users\<USERNAME>\Ntuser.dat`)
+### Local Group Policy
+* 
