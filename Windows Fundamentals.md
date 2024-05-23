@@ -291,14 +291,38 @@ sc stop wuauserv
 * can use the PowerShell cmdlet `Get-MpComputerStatus` to check which protection settings are enabled
 
 # Skills Assessment
-1. Creating a shared folder called Company Data
-2. Creating a subfolder called HR inside of the Company Data folder
-3. Creating a user called Jim
+1. **Creating a shared folder called Company Data**
+* Right click in the C: drive and click new folder
+* name it "Company Data"
+* Right click the folder, click "Give access to", click "Specific people..."
+* Add the default group (Everyone)
+*What is the name of the group that is present in the Company Data Share Permissions ACL by default?* - Everyone
+2. **Creating a subfolder called HR inside of the Company Data folder**
+* Click into the Company Data folder
+* Right click and select new folder, naming it "HR"
+3. **Creating a user called Jim**
 	1. Uncheck: `User must change password at logon`
-4. Creating a security group called HR
-5. Adding Jim to the HR security group
-6. Adding the HR security group to the shared Company Data folder and NTFS permissions list
+* Still in File Explorer, right click on " This PC" and select "Manage"
+* In Computer Management, under System Tools > Local Users and Groups select the Users folder
+* Right click and select "New user..."
+* Fill in the information for Jim
+	* uncheck the password change at logon
+4. **Creating a security group called HR**
+* Still in Computer Management, under System Tools > Local Users and Groups select the Groups folder
+* Right click and select "New Group..."
+* Name the group HR
+5. **Adding Jim to the HR security group**
+* Under "Members" type in Jim's username and click Add
+* Click create
+6. **Adding the HR security group to the shared Company Data folder and NTFS permissions list**
+*What is the name of the tab that allows you to configure NTFS permissions?* - Security
 	1. Remove the default group that is present
 	2. Share permissions: `Allow Change & Read`
 	3. Disable Inheritance before issuing specific NTFS perms
-	4. NTFS perms: `Modify, Read & `
+	4. NTFS perms: `Modify, Read & Execute, List folder contents, Read, Write`
+* In File Explorer, right click on the Company Data folder
+1. **Adding the HR security group to the NTFS permissions list of the HR subfolder**
+	1. remove the default group that is present
+	2. Disable Inheritance before issuing specific NTFS perms
+	3. NTFS perms: `Modify, Read & Execute, List folder contents, Read, Write`
+2. **Using PowerShell to list details about a service**
