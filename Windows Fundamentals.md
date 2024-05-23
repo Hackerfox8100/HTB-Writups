@@ -246,6 +246,7 @@ sc stop wuauserv
 	* units in the system that can be authorized or authenticated for a particular action
 	* units include users, computers on the network, threads, or processes
 * Each of the security principals on the system has a unique security identifier (SID)
+* `wmic useraccount get name,sid`
 	* SIDs are string values with different lengths, which are stored in the security database
 	* SIDs are added to the user's access token to identify all actions that the user is authorized to take
 	* consists of the Identifier Authority and the Relative ID (RID)
