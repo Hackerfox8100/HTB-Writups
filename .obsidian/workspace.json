@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Introduction to Active Directory.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Introduction to Active Directory.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Introduction to Active Directory.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Introduction to Active Directory.md"
+                "file": "README.md"
               }
             }
           },
@@ -169,8 +169,11 @@
   },
   "active": "1b9c33a12b6eed0e",
   "lastOpenFiles": [
+    "Windows.md",
+    "README.md",
     "Windows Fundamentals.md",
     "Introduction to Active Directory.md",
+    "Introduction to Active Directory-paste.png",
     "Windows Fundamentals-paste-1.png",
     "Windows Fundamentals-paste.png",
     "box1/writeup.md",
