@@ -278,4 +278,13 @@ sc stop wuauserv
 * allows administrators to set, configure, and adjust a variety of settings
 * group policies are pushed down from a Domain Controller onto all domain-joined machines that Group Policy objects (GPOs) are linked to
 * can be configured locally, in both domain environments and non-domain environments
+* can open the Local Group Policy Editor by opening the Start menu and typing `gpedit.msc`
+*  split into two categories under Local Computer Policy - `Computer Configuration` and `User Configuration`
+* ex:  split into two categories under Local Computer Policy - `Computer Configuration` and `User Configuration`
+*  can also enable fine-tuned account auditing and configure AppLocker from the Local Group Policy Editor
+
+### Windows Defender AV
+* built-in antivirus that ships for free with Windows operating systems
+* comes with several features such as real-time protection, which protects the device from known threats in real-time and cloud-delivered protection, which works in conjunction with automatic sample submission to upload suspicious files for analysis
+* managed from the Security Center
 * 
