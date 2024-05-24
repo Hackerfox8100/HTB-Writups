@@ -193,3 +193,4 @@ INLANEFREIGHT.LOCAL/
 	*  an object created in AD to represent a security principal that belongs to a trusted external forest
 
 # Active Directory Functionality
+*  five Flexible Single Master Operation (FSMO) roles
