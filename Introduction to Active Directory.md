@@ -239,3 +239,42 @@ INLANEFREIGHT.LOCAL/
 	* can be used to identify DCs
 ### DNS
 * AD DS) uses DNS to allow clients (workstations, servers, and other systems that communicate with the domain) to locate Domain Controllers and for Domain Controllers that host the directory service to communicate amongst themselves
+* AD maintains a database of services running on the network in the form of service records (SRV)
+* When a client joins the network, it locates the Domain Controller by sending a query to the DNS service, retrieving an SRV record from the DNS database, and transmitting the Domain Controller's hostname to the client
+* Uses port 53 (TCP and UDP)
+* Forward DNS Lookup
+```powershell-session
+PS C:\htb> nslookup INLANEFREIGHT.LOCAL
+
+Server:  172.16.6.5
+Address:  172.16.6.5
+
+Name:    INLANEFREIGHT.LOCAL
+Address:  172.16.6.5
+```
+* Reverse DNS Lookup
+```powershell-session
+PS C:\htb> nslookup 172.16.6.5
+
+Server:  172.16.6.5
+Address:  172.16.6.5
+
+Name:    ACADEMY-EA-DC01.INLANEFREIGHT.LOCAL
+Address:  172.16.6.5
+```
+* Finding IP Address of a Host
+```powershell-session
+PS C:\htb> nslookup ACADEMY-EA-DC01
+
+Server:   172.16.6.5
+Address:  172.16.6.5
+
+Name:    ACADEMY-EA-DC01.INLANEFREIGHT.LOCAL
+Address:  172.16.6.5
+```
+
+### LDAP
+* For directory lookups in AD
+* Open-source and cross-platform protocol used for authentication against various directory services (such as AD)
+* uses port 389, and LDAP over SSL (LDAPS) communicates over port 636
+* 
