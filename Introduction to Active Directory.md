@@ -305,6 +305,58 @@ Address:  172.16.6.5
 * Kerberos is often the authentication protocol of choice wherever possible
 * Hash protocol comparison
 
-| Hash/Protocol | Cryptographic Technique | Mutual Authenication | Mes |
-| ------------- | ----------------------- | -------------------- | --- |
-|               |                         |                      |     |
+| Hash/Protocol | Cryptographic Technique                              | Mutual Authenication | Message Type                    | Trusted Third Party                             |
+| ------------- | ---------------------------------------------------- | -------------------- | ------------------------------- | ----------------------------------------------- |
+| NTLM          | Symmetric key cryptography                           | No                   | Random number                   | Domain Controller                               |
+| NTLMv1        | Symmetric key cryptography                           | No                   | MD4 hash, random number         | Domain Controller                               |
+| NTLMv2        | Symmetric key cryptography                           | No                   | MD4 hash, random number         | Domain Controller                               |
+| Kerberos      | Symmetric key cryptography & asymmetric cryptography | Yes                  | Encrypted ticket using DES, MD5 | Domain Controller/Key Distribution Center (KDC) |
+### LM
+* `LAN Manager` (LM or LANMAN) hashes are the oldest password storage mechanism used by the Windows operating system
+* If in use, they are stored in the SAM database on a Windows host and the NTDS.DIT database on a Domain Controller
+* Passwords using LM are limited to a maximum of `14` characters
+	* Passwords are not case sensitive and are converted to uppercase before generating the hashed value, limiting the keyspace to a total of 69 characters making it relatively easy to crack these hashes using a tool such as Hashcat
+	* Before hashing, a 14 character password is first split into two seven-character chunks
+		* If the password is less than fourteen characters, it will be padded with NULL characters to reach the correct value
+		* Two DES keys are created from each chunk
+			* These chunks are then encrypted using the string `KGS!@#$%`, creating two 8-byte ciphertext values
+* This hashing algorithm means that an attacker only needs to brute force seven characters twice instead of the entire fourteen characters
+* An LM hash takes the form of `299bd128c1101fd6`
+* Windows operating systems prior to Windows Vista and Windows Server 2008 (Windows NT4, Windows 2000, Windows 2003, Windows XP) stored both the LM hash and the NTLM hash of a user's password by default
+### NTHash (NTLM)
+* `NT LAN Manager` (NTLM) hashes are used on modern Windows systems
+* challenge-response authentication protocol and uses three messages to authenticate
+	*  a client first sends a `NEGOTIATE_MESSAGE` to the server
+	* response is a `CHALLENGE_MESSAGE` to verify the client's identity
+	* the client responds with an `AUTHENTICATE_MESSAGE`
+* These hashes are stored locally in the SAM database or the NTDS.DIT database file on a Domain Controller
+* The protocol has two hashed password values to choose from to perform authentication: the LM hash (as discussed above) and the NT hash, which is the MD4 hash of the little-endian UTF-16 value of the password
+* The algorithm can be visualized as: `MD4(UTF-16-LE(password))`
+![](Introduction%20to%20Active%20Directory-paste-3.png)
+* GPU attacks have shown that the entire NTLM 8 character keyspace can be brute-forced in under `3 hours`
+* NTLM is also vulnerable to the pass-the-hash attack, which means an attacker can use just the NTLM hash (after obtaining via another successful attack) to authenticate to target systems where the user is a local admin without needing to know the cleartext value of the password
+* An NT hash takes the form of `b4b9b02e6f09a9bd760f388b67351e2b`, which is the second half of the full NTLM hash. An NTLM hash looks like this:
+```shell-session
+Rachel:500:aad3c435b514a4eeaad3b935b51304fe:e46b9e548fa0d122de7f59fb6d48eaa2:::
+```
+* Rachel is the username
+* 500 is the RID
+	* 500 is the known RID for the `administrator` account
+* `aad3c435b514a4eeaad3b935b51304fe` is the LM hash and, if LM hashes are disabled on the system, can not be used for anything
+* `e46b9e548fa0d122de7f59fb6d48eaa2` is the NT hash. This hash can either be cracked offline to reveal the cleartext value (depending on the length/strength of the password) or used for a pass-the-hash attack
+* Below is an example of a successful pass-the-hash attack using the [CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) tool:
+
+```shell-session
+$ crackmapexec smb 10.129.41.19 -u rachel -H e46b9e548fa0d122de7f59fb6d48eaa2
+
+SMB         10.129.43.9     445    DC01      [*] Windows 10.0 Build 17763 (name:DC01) (domain:INLANEFREIGHT.LOCAL) (signing:True) (SMBv1:False)
+SMB         10.129.43.9     445    DC01      [+] INLANEFREIGHT.LOCAL\rachel:e46b9e548fa0d122de7f59fb6d48eaa2 (Pwn3d!)
+
+```
+
+### NTLMv1 (Net-NTLMv1)
+* 
+### NTLMv2 (Net-NTLMv2)
+* 
+### Domain Cached Credentials (MSCache2)
+* 
