@@ -409,8 +409,35 @@ admin::N46iSNekpT:08ca45b7d7ea58ee:88dcbe4446168966a153a0064958dac6:5c7830315c78
 ### Domain Users
 * granted rights from the domain to access resources such as file servers, printers, intranet hosts, and other objects based on the permissions granted to their user account or the group that account is a member of
 * One account to keep in mind is the `KRBTGT` account
-	* 
+	* a type of local account built into the AD infrastructure
+	* This account acts as a service account for the Key Distribution service providing authentication and access for domain resources
+	* common target of many attackers since gaining control or access will enable an attacker to have unconstrained access to the domain
+		* can be leveraged for privilege escalation and persistence in a domain through attacks such as the golden ticket attack
 ### User Naming Attributes
-* 
+
+| Naming Attribute        | Description                                                                                                                                                                                                                                                                      |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| UserPrincipalName (UPN) | This is the primary logon name for the user. By convention, the UPN uses the email address of the user.                                                                                                                                                                          |
+| ObjectGUID              | This is a unique identifier of the user. In AD, the ObjectGUID attribute name never changes and remains unique even if the user is removed.                                                                                                                                      |
+| SAMAccountName          | This is a logon name that supports the previous version of Windows clients and servers.                                                                                                                                                                                          |
+| objectSID               | The user's Security Identifier (SID). This attribute identifies a user and its group memberships during security interactions with the server.                                                                                                                                   |
+| sIDHistory              | This contains previous SIDs for the user object if moved from another domain and is typically seen in migration scenarios from domain to domain. After a migration occurs, the last SID will be added to the `sIDHistory` property, and the new SID will become its `objectSID`. |
+
 ### Domain-joined vs Non-domain-joined Machines
-* 
+* Domain joined
+	* Hosts joined to a domain have greater ease of information sharing within the enterprise and a central management point (the DC) to gather resources, policies, and updates from
+* Non-domain joined
+	* Non-domain joined computers or computers in a `workgroup` are not managed by domain policy
+	* It is important to note that a machine account (`NT AUTHORITY\SYSTEM` level access) in an AD environment will have most of the same rights as a standard domain user account
+	* access in the context of the `SYSTEM` account will allow us read access to much of the data within the domain and is a great launching point for gathering as much information about the domain as possible before proceeding with applicable AD-related attacks
+
+# Active Directory Groups
+### Types of Groups
+
+### Group Scopes
+
+### Built-in vs Custom Groups
+
+### Nested Group Membership
+
+### Important Group Attributes
