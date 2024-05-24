@@ -227,4 +227,6 @@ INLANEFREIGHT.LOCAL/
 	* MSRPC
 		* Microsoft implementation of remote procedure call
 ### Kerberos
+* Kerberos is a stateless authentication protocol based on tickets instead of transmitting user passwords over the network
+* Domain Controllers have a Kerberos Key Distribution Center (KDC) that issues tickets
 * 
