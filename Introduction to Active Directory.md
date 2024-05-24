@@ -351,12 +351,36 @@ $ crackmapexec smb 10.129.41.19 -u rachel -H e46b9e548fa0d122de7f59fb6d48eaa2
 
 SMB         10.129.43.9     445    DC01      [*] Windows 10.0 Build 17763 (name:DC01) (domain:INLANEFREIGHT.LOCAL) (signing:True) (SMBv1:False)
 SMB         10.129.43.9     445    DC01      [+] INLANEFREIGHT.LOCAL\rachel:e46b9e548fa0d122de7f59fb6d48eaa2 (Pwn3d!)
-
 ```
 
 ### NTLMv1 (Net-NTLMv1)
-* 
+* NTLMv1 uses both the NT and the LM hash, which can make it easier to "crack" offline after capturing a hash using a tool such as Responder or via an NTLM relay attack
+* used for network authentication
+* . The server sends the client an 8-byte random number (challenge), and the client returns a 24-byte response
+	* These hashes can NOT be used for pass-the-hash attacks
+* NTLMv1 Hash ex:
+```shell-session
+u4-netntlm::kNS:338d08f8e26de93300000000000000000000000000000000:9526fb8c23a90751cdd619b6cea564742e1e4bf33006ba41:cb8086049ec4736c
+```
 ### NTLMv2 (Net-NTLMv2)
-* 
+*  default in Windows since Server 2000
+* It is hardened against certain spoofing attacks that NTLMv1 is susceptible to
+* sends two responses to the 8-byte challenge received by the server
+	* responses contain a 16-byte HMAC-MD5 hash of the challenge, a randomly generated challenge from the client, and an HMAC-MD5 hash of the user's credentials
+	* A second response is sent, using a variable-length client challenge including the current time, an 8-byte random value, and the domain name
+* NTLMv2 Hash ex:
+```shell-session
+admin::N46iSNekpT:08ca45b7d7ea58ee:88dcbe4446168966a153a0064958dac6:5c7830315c7830310000000000000b45c67103d07d7b95acd12ffa11230e0000000052920b85f78d013c31cdb3b92f5d765c783030
+```
 ### Domain Cached Credentials (MSCache2)
+* does not require a persistent network connection to work
+* developed to solve the potential issue of a domain-joined host being unable to communicate with a domain controller (i.e., due to a network outage or other technical issue) and, hence, NTLM/Kerberos authentication not working to access the host in question
+* Hosts save the last `ten` hashes for any domain users that successfully log into the machine in the `HKEY_LOCAL_MACHINE\SECURITY\Cache` registry key
+* hashes cannot be used in pass-the-hash attacks
+* the hash is very slow to crack with a tool such as Hashcat, even when using an extremely powerful GPU cracking rig
+* Hashes have the following format: `$DCC2$10240#bjones#e4e938d12fe5974dc42a90120bd9c90f`
+
+# User and Machine Accounts
+* When a user logs in, the system verifies their password and creates an access token
+	* token describes the security content of a process or thread and includes the user's security identity and group membership
 * 
