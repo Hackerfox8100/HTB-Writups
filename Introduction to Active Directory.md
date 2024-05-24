@@ -432,12 +432,37 @@ admin::N46iSNekpT:08ca45b7d7ea58ee:88dcbe4446168966a153a0064958dac6:5c7830315c78
 	* access in the context of the `SYSTEM` account will allow us read access to much of the data within the domain and is a great launching point for gathering as much information about the domain as possible before proceeding with applicable AD-related attacks
 
 # Active Directory Groups
-### Types of Groups
-
-### Group Scopes
-
-### Built-in vs Custom Groups
-
+### Types of Groups & Group Scopes
+* Groups in Active Directory have two fundamental characteristics: `type` and `scope`
+	* `group type` defines the group's purpose
+		* There are two main types: `security` and `distribution` groups
+			* `Security groups` type is primarily for ease of assigning permissions and rights to a collection of users instead of one at a time
+				* All users added to a security group will inherit any permissions assigned to the group, making it easier to move users in and out of groups while leaving the group's permissions unchanged
+			* `Distribution groups` type is used by email applications such as Microsoft Exchange to distribute messages to group members
+				* This type of group cannot be used to assign permissions to resources in a domain environment
+	* `group scope` shows how the group can be used within the domain or forest
+		* There are three different `group scopes` that can be assigned when creating a new group
+			* `Domain Local Group`: can only be used to manage permissions to domain resources in the domain where it was created
+			* `Global Group`: can be used to grant access to resources in `another domain`
+				* can only contain accounts from the domain where it was created
+			* `Universal Group`: can be used to manage resources distributed across multiple domains and can be given permissions to any object within the same `forest`
+				* available to all domains within an organization and can contain users from any domain
+				* stored in the Global Catalog (GC), and adding or removing objects from a universal group triggers forest-wide replication
+		* Group scopes can be changed, but there are a few caveats:
+			* A Global Group can only be converted to a Universal Group if it is NOT part of another Global Group.
+			* A Domain Local Group can only be converted to a Universal Group if the Domain Local Group does NOT contain any other Domain Local Groups as members.
+			* A Universal Group can be converted to a Domain Local Group without any restrictions.
+			* A Universal Group can only be converted to a Global Group if it does NOT contain any other Universal Groups as members.
 ### Nested Group Membership
-
+* Tools such as BloodHound are particularly useful in uncovering privileges that a user may inherit through one or more nestings of groups
 ### Important Group Attributes
+* Some of the most important group attributes include:
+	- `cn`: The `cn` or Common-Name is the name of the group in Active Directory Domain Services.
+	- `member`: Which user, group, and contact objects are members of the group.
+	- `groupType`: An integer that specifies the group type and scope.
+	- `memberOf`: A listing of any groups that contain the group as a member (nested group membership).
+	- `objectSid`: This is the security identifier or SID of the group, which is the unique value used to identify the group as a security principal.
+
+# Active Directory Rights and Priviledges
+* `Rights` are typically assigned to users or groups and deal with permissions to `access` an object such as a file
+* `privileges` grant a user permission to `perform an action` such as run a program, shut down a system, reset passwords, etc
