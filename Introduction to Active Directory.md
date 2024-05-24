@@ -383,4 +383,34 @@ admin::N46iSNekpT:08ca45b7d7ea58ee:88dcbe4446168966a153a0064958dac6:5c7830315c78
 # User and Machine Accounts
 * When a user logs in, the system verifies their password and creates an access token
 	* token describes the security content of a process or thread and includes the user's security identity and group membership
+* Typically, every company we encounter will have at least one AD user account provisioned per user
+* Aside from standard user and admin accounts tied back to a specific user, we will often see many service accounts used to run a particular application or service in the background or perform other vital functions
+* We may also see organizations with hundreds of disabled accounts from former employees, temporary/seasonal employees, interns, etc
+### Local Accounts
+*  stored locally on a particular server or workstation
+* Any rights assigned can only be granted to that specific host and will not work across the domain
+* several default local user accounts that are created on a Windows system:
+	* Administrator
+		* SID `S-1-5-domain-500` and is the first account created with a new Windows installation
+	* Guest
+		* account is disabled by default
+		* By default, it has a blank password and is generally recommended to be left disabled
+	* SYSTEM
+		* SYSTEM (or `NT AUTHORITY\SYSTEM`) account on a Windows host is the default account installed and used by the operating system to perform many of its internal functions
+		* a profile for it does not exist, but it will have permissions over almost everything on the host
+		* does not appear in User Manager and cannot be added to any groups
+		* A `SYSTEM` account is the highest permission level one can achieve on a Windows host
+	* Network Service
+		* a predefined local account used by the Service Control Manager (SCM) for running Windows services
+		* When a service runs in the context of this particular account, it will present credentials to remote services
+	* Local Service
+		* another predefined local account used by the Service Control Manager (SCM) for running Windows services
+		* It is configured with minimal privileges on the computer and presents anonymous credentials to the network
+### Domain Users
+* granted rights from the domain to access resources such as file servers, printers, intranet hosts, and other objects based on the permissions granted to their user account or the group that account is a member of
+* One account to keep in mind is the `KRBTGT` account
+	* 
+### User Naming Attributes
+* 
+### Domain-joined vs Non-domain-joined Machines
 * 
