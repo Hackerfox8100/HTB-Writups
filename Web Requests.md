@@ -66,3 +66,12 @@
 	* In the first `Headers` tab, we see both the HTTP request and HTTP response headers
 	* devtools automatically arrange the headers into sections, but we can click on the `Raw` button to view their details in their raw format
 	* we can check the `Cookies` tab to see any cookies used by the request, as discussed in an upcoming section
+
+# HTTP Methods and Codes
+* **Note:** Most modern web applications mainly rely on the `GET` and `POST` methods. However, any web application that utilizes REST APIs also rely on `PUT` and `DELETE`, which are used to update and delete data on the API endpoint
+
+# GET
+* To provide the credentials through cURL, we can use the `-u` flag
+* There is another method we can provide the `basic HTTP auth` credentials, which is directly through the URL as (`username:password@URL`)
+* As we are using `basic HTTP auth`, we see that our HTTP request sets the `Authorization` header to `Basic YWRtaW46YWRtaW4=`, which is the base64 encoded value of `admin:admin`
+	* If we were using a modern method of authentication (e.g. `JWT`), the `Authorization` would be of type `Bearer` and would contain a longer encrypted token
