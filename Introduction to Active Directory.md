@@ -511,4 +511,15 @@ Get-ADGroup -Identity "Domain Admins" -Properties * | select DistinguishedName,G
 * After logging into a host, typing the command `whoami /priv` will give us a listing of all user rights assigned to the current user
 
 # Security in Active Directory
-* 
+* General Active Directory Hardening Measures
+	* LAPS (Microsoft Local Administrator Solution): used to randomize and rotate local administrator passwords on Windows hosts and prevent lateral movement
+		* Accounts can be set up to have their password rotated on a fixed interval (i.e., 12 hours, 24 hours, etc.)
+	* Audit policy settings (logging and monitoring)
+	* Group policy security settings: GPOs are virtual collections of policy settings that can be applied to specific users, groups, and computers at the OU level
+		* Account policies
+		* Local policies
+		* software restriction policies
+		* application control policies
+		* Advanced audit policy configuration
+	* Update management (SCCM/WSUS)
+		* Windows server update service
