@@ -571,4 +571,10 @@ Get-ADGroup -Identity "Domain Admins" -Properties * | select DistinguishedName,G
 	* enter the name, domain local,  and security
 * Back in the `IT` folder right click the new users and add to the new group
 3. Manage Group Policy Objects
-* Now in Group Policy Management 
+* Now in Group Policy Management right click logon banner and paste it into group policy objects
+	* rename it to `Security Analysts Control`
+* Right click the new gpo and under `User Configuration > Policies > Administrative Templates > System > Removable Storage Access` right click `All removeable storage classes: deny all access` 
+	* select enable and then apply, then ok
+* Under `User Configuration > Policies > Administrative Templates > System` right click `prevent access to the command prompt`
+	* select disable and then apply, then ok
+* Under `Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options` 
