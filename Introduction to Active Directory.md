@@ -540,3 +540,19 @@ Get-ADGroup -Identity "Domain Admins" -Properties * | select DistinguishedName,G
 	* Limiting Local Admin and RDP Rights
 
 # Examining Group Policy
+* A Group Policy Object (GPO) is a virtual collection of policy settings that can be applied to `user(s)` or `computer(s)`
+* GPO settings are processed using the hierarchical structure of AD and are applied using the `Order of Precedence` rule
+	* Local Group Policy
+	* Site Policy
+	* Domain-wide Policy
+	* Organizational Unit (OU)
+	* Any OU Policies nested within other OUs
+![](Introduction%20to%20Active%20Directory-paste-4.png)
+* When a new GPO is created, the settings are not automatically applied right away
+	* periodic Group Policy updates by default is done every 90 minutes with a randomized offset of +/- 30 minutes for users and computers
+	* it could take up to 2 hours (120 minutes) until the settings take effect
+	* we can issue the command `gpupdate /force` to kick off the update process
+		* command will compare the GPOs currently applied on the machine against the domain controller and either modify or skip them depending on if they have changed since the last automatic update
+	* can modify the refresh interval via Group Policy by clicking on `Computer Configuration --> Policies --> Administrative Templates --> System --> Group Policy` and selecting `Set Group Policy refresh interval for computers`
+
+# AD Administration: Guided Lab Part 1
