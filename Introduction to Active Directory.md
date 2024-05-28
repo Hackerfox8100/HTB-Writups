@@ -562,7 +562,13 @@ Get-ADGroup -Identity "Domain Admins" -Properties * | select DistinguishedName,G
 	* add name, email, and have user change password at next logon
 * Right click the `Employees` and select find
 	* enter the names of the user you want to remove and then delete the user
+	* find name of user you need to unlock, right click and select reset password
+		* change password and select unlock user's account
 2. Manage Groups and Other Organizational Units
-* TODO
+* Right click the `IT` folder and select new, then OU
+	* Enter the name and hit ok
+* Right click the new OU and select new, group
+	* enter the name, domain local,  and security
+* Back in the `IT` folder right click the new users and add to the new group
 3. Manage Group Policy Objects
-* TODO
+* Now in Group Policy Management 
