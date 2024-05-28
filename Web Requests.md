@@ -23,3 +23,46 @@
 	* To open the browser devtools in either Chrome or Firefox, we can click `CTRL+SHIFT+I` or simply click `F12`
 	* mostly be focusing on the `Network` tab as it is responsible for web requests
 		*  we can use `Filter URLs` to search for a specific request, in case the website loads too many to go through
+
+# HTTP Headers
+* Headers can be divided into the following categories
+	* General Headers
+		* used in both HTTP requests and responses
+		* contextual and are used to `describe the message rather than its contents`
+			* Date
+			* Connection
+	* Entity Headers
+		* can be `common to both the request and response`
+		* used to `describe the content` (entity) transferred by a message
+		* usually found in responses and POST or PUT requests
+			* Content-Type
+			* Media-Type
+			* Boundary
+			* Content-Length
+			* Content-Encoding
+	* Request Headers
+		* `used in an HTTP request and do not relate to the content` of the message
+			* Host
+			* User-Agent
+			* Referer
+			* Accept
+			* Cookie
+			* Authorization
+	* Response Headers
+		* can be `used in an HTTP response and do not relate to the content`
+			* Server
+			* Set-Cookie
+			* WWW-Authenticate
+	* Security Headers
+		* `a class of response headers used to specify certain rules and policies` to be followed by the browser while accessing the website
+			* Content-Security-Policy
+			* Strict-Transport-Security
+			* Referrer-Policy
+* If we were only interested in seeing the response headers, then we can use the `-I` flag to send a `HEAD` request and only display the response headers
+	* we can use the `-i` flag to display both the headers and the response body (e.g. HTML code)
+* cURL also allows us to set request headers with the `-H` flag
+	* cURL also allows us to set request headers with the `-H` flag
+*  can go to the `Network` tab to view the different requests made by the page
+	* In the first `Headers` tab, we see both the HTTP request and HTTP response headers
+	* devtools automatically arrange the headers into sections, but we can click on the `Raw` button to view their details in their raw format
+	* we can check the `Cookies` tab to see any cookies used by the request, as discussed in an upcoming section
