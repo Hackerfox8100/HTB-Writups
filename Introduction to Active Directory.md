@@ -577,4 +577,17 @@ Get-ADGroup -Identity "Domain Admins" -Properties * | select DistinguishedName,G
 	* select enable and then apply, then ok
 * Under `User Configuration > Policies > Administrative Templates > System` right click `prevent access to the command prompt`
 	* select disable and then apply, then ok
-* Under `Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options` 
+* Under `Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options` and right click `interactive logon: message text for users attempting to logon`
+	* make sure that the radial to define the policy setting is enabled and there is a Banner in the text box
+	* right click `Interactive logon: message title for users attempting to logon` and make sure the title is defined and the radical is selected
+* Now under account policies select password policy
+	* configure a password policy
+		* pass history: 5
+		* min pass age: 7 days
+		* max pass age: 30 days
+		* min pass length: 10 chars
+		* pass must meet complexity reqs
+
+# AD Administration: Guided Lab Part 2
+4. Add and Remove Computers to the Domain
+* 
