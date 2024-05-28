@@ -522,4 +522,21 @@ Get-ADGroup -Identity "Domain Admins" -Properties * | select DistinguishedName,G
 		* application control policies
 		* Advanced audit policy configuration
 	* Update management (SCCM/WSUS)
-		* Windows server update service
+		* Windows server update service: can be installed as a role on a Windows Server and can be used to minimize the manual task of patching Windows systems
+		* System Center Configuration Manager: paid solution that relies on the WSUS Windows Server role being installed and offers more features than WSUS on its own
+	* group managed service accounts (gMSA)
+		* An account managed by the domain that offers a higher level of security than other types of service accounts for use with non-interactive applications, services, processes, and tasks that are run automatically but require credentials to run
+	* security groups
+		* Active Directory automatically creates some default security groups during installation
+			* Some examples are Account Operators, Administrators, Backup Operators, Domain Admins, and Domain Users
+	* Account separation
+	* password complexity policies + passphrase + 2fa
+	* limiting domain admin account usage
+	* Periodically Auditing and Removing Stale Users and Objects
+	* Auditing Permissions and Access
+	* Audit Policies & Logging
+	* Using Restricted Groups
+	* Limiting Server Roles
+	* Limiting Local Admin and RDP Rights
+
+# Examining Group Policy
