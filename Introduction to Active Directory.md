@@ -556,3 +556,9 @@ Get-ADGroup -Identity "Domain Admins" -Properties * | select DistinguishedName,G
 	* can modify the refresh interval via Group Policy by clicking on `Computer Configuration --> Policies --> Administrative Templates --> System --> Group Policy` and selecting `Set Group Policy refresh interval for computers`
 
 # AD Administration: Guided Lab Part 1
+1. Managing Users
+* TODO
+2. Manage Groups and Other Organizational Units
+* TODO
+3. Manage Group Policy Objects
+* TODO
