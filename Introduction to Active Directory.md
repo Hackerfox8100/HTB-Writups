@@ -557,8 +557,10 @@ Get-ADGroup -Identity "Domain Admins" -Properties * | select DistinguishedName,G
 
 # AD Administration: Guided Lab Part 1
 1. Managing Users
+* Need to add new-hires to AD
+* open MMC and create new users in `inlanefreight.local > corp > Employees > HQ-NYC > IT`
+	* 
+1. Manage Groups and Other Organizational Units
 * TODO
-2. Manage Groups and Other Organizational Units
-* TODO
-3. Manage Group Policy Objects
+2. Manage Group Policy Objects
 * TODO
