@@ -558,10 +558,11 @@ Get-ADGroup -Identity "Domain Admins" -Properties * | select DistinguishedName,G
 # AD Administration: Guided Lab Part 1
 1. Managing Users
 * Need to add new-hires to AD
-* create users with `New-ADUser` and then the name
-* 
-* Right click on each new user and add the full name, email, display name, and check that the user must change password at next logon
-1. Manage Groups and Other Organizational Units
+* In Active Directory Users and computers create new users in `Inlanefreight.local > Corp > Employees > HQ-NYC > IT`
+	* add name, email, and have user change password at next logon
+* Right click the `Employees` and select find
+	* enter the names of the user you want to remove and then delete the user
+2. Manage Groups and Other Organizational Units
 * TODO
-2. Manage Group Policy Objects
+3. Manage Group Policy Objects
 * TODO
