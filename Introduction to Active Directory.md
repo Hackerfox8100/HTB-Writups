@@ -590,4 +590,11 @@ Get-ADGroup -Identity "Domain Admins" -Properties * | select DistinguishedName,G
 
 # AD Administration: Guided Lab Part 2
 4. Add and Remove Computers to the Domain
-* 
+* From the control panel select `system and security`, and `system`
+	* click change settings under the computer name, domain, and workgroup settings
+	* Under `Computer Name` select change its domain
+		* make the domain `inlanefreight.local` and click ok
+	* Enter the domain administrator credentials provided to join the host to the domain
+* Looking in the Computers OU, select our newly joined host and right click it. Select the option to "Move"
+	* In the popup, drill down to the Security Analysts OU
+	* Select the Security Analysts OU and hit OK
