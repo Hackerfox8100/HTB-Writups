@@ -41,3 +41,25 @@
 * Typically, we can only specify numbers in the `IP` field using the browser, as the web page prevents us from sending any non-numeric characters using front-end JavaScript
 * with the power of intercepting and manipulating HTTP requests, we can try using other characters to "break" the application
 * Ex: let us change the `ip` parameter's value from `1` to `;ls;` and see how the web application handles our input
+
+# Intercepting Responses
+* This can be useful when we want to change how a specific web page looks, like enabling certain disabled fields or showing certain hidden fields, which may help us in our penetration testing activities
+* In Burp, we can enable response interception by going to (`Proxy>Options`) and enabling `Intercept Response` under `Intercept Server Responses`
+* Ex: try changing the `type="number"` on line 27 to `type="text"`, which should enable us to write any value we want
+	* also change the `maxlength="3"` to `maxlength="100"` so we can enter longer input
+* we could change the way the page is rendered by the browser and can now input any value we want
+	* We may use the same technique to persistently enable any disabled HTML buttons by modifying their HTML code
+* `Burp` also has a similar feature, which we can enable under `Proxy>Options>Response Modification`, then select one of the options, like `Unhide hidden form fields`
+
+# Automatic Modification
+* we can utilize automatic modifications based on rules we set, so the web proxy tools will automatically apply them
+* Burp `Match and Replace`
+	* go to (`Proxy>Options>Match and Replace`) and click on `Add`
+
+| Option                                        | Description                                                                                                                                      |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Type`: `Request header`                      | Since the change we want to make will be in the request header and not in its body.                                                              |
+| `Match`: `^User-Agent.*$`                     | The regex pattern that matches the entire line with `User-Agent` in it.                                                                          |
+| `Replace`: `User-Agent: HackTheBox Agent 1.0` | This is the value that will replace the line we matched above.                                                                                   |
+| `Regex match`: True                           | We don't know the exact User-Agent string we want to replace, so we'll use regex to match any value that matches the pattern we specified above. |
+* 
