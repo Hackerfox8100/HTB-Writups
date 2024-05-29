@@ -76,4 +76,13 @@
 	* can't actually change the directory, but you can print out the contents of different directories with `ls /path/to/search -la`
 	* to print from another directory, need to specify full path: not `ls /path | cat file` but `cat /path/file`
 
-# Encoding
+# Encoding/Decoding
+* It is essential to ensure that our request data is URL-encoded and our request headers are correctly set. Otherwise, we may get a server error in the response
+* Key characteristics we need to encode:
+	* `spaces`: may indicate the end of request data if not encoded
+	* `&`: otherwise interpreted as a parameter delimiter
+	* `#`: otherwise interpreted as a fragment identifier
+* To URL-encode text in Burp Repeater, we can select that text and right-click on it, then select (`Convert Selection>URL>URL encode key characters`)
+* There are other types of URL-encoding, like `Full URL-Encoding` or `Unicode URL` encoding, which may also be helpful for requests with many special characters
+* To access the full encoder in Burp, we can go to the `Decoder` tab
+	* we can also use the `Burp Inspector` tool to perform encoding and decoding (among other things), which can be found in various places like `Burp Proxy` or `Burp Repeater`
