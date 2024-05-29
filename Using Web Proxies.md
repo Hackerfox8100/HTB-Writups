@@ -62,4 +62,12 @@
 | `Match`: `^User-Agent.*$`                     | The regex pattern that matches the entire line with `User-Agent` in it.                                                                          |
 | `Replace`: `User-Agent: HackTheBox Agent 1.0` | This is the value that will replace the line we matched above.                                                                                   |
 | `Regex match`: True                           | We don't know the exact User-Agent string we want to replace, so we'll use regex to match any value that matches the pattern we specified above. |
-* 
+
+# Repeating Requests
+* If we want to repeat the same process with a different command, we would have to intercept the request again, provide a different payload, forward it again, and finally check our browser to get the final result
+	* Request repeating allows us to resend any web request that has previously gone through the web proxy
+* we can view the HTTP requests history in `Burp` at (`Proxy>HTTP History`)
+* Burp provides the ability to examine both the original request and the modified request
+* Once we locate the request we want to repeat, we can click `CTRL+R` in Burp to send it to the `Repeater` tab, and then we can either navigate to the `Repeater` tab or click `CTRL+SHIFT+R` to go to it directly
+	* Once in `Repeater`, we can click on `Send` to send the request
+* Tip: We can also right-click on the request and select `Change Request Method` to change the HTTP method between POST/GET without having to rewrite the entire request.
