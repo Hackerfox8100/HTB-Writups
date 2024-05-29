@@ -127,4 +127,22 @@ curl -H 'Cookie: PHPSESSID=c1nsa6op7vtk7kdis7bcnbadf1' http://<SERVER_IP>:<PORT>
 {"search":"london"}
 ```
 *  POST data appear to be in JSON format, so our request must have specified the `Content-Type` header to be `application/json`
-* 
+*  try to replicate this request as we did earlier, but include both the cookie and content-type headers, and send our request to `search.php`
+```shell-session
+curl -X POST -d '{"search":"london"}' -b 'PHPSESSID=c1nsa6op7vtk7kdis7bcnbadf1' -H 'Content-Type: application/json' http://<SERVER_IP>:<PORT>/search.php
+["London (UK)"]
+```
+* can right-click on the request and select `Copy>Copy as Fetch`, and then go to the `Console` tab and execute our code there
+
+# CRUD API
+* This section will look at how such a web application may utilize APIs to perform the same thing, and we will directly interact with the API endpoint
+* several types of APIs
+* Many APIs are used to interact with a database, such that we would be able to specify the requested table and the requested row within our API query, and then use an HTTP method to perform the operation needed
+* we can easily specify the table and the row we want to perform an operation on through such APIs
+	* we may utilize different HTTP methods to perform different operations on that row
+
+| Operation | HTTP Method | Description |
+| --------- | ----------- | ----------- |
+| `Create`  |             |             |
+| `Read`    |             |             |
+| ``        |             |             |
