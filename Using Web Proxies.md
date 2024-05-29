@@ -71,3 +71,9 @@
 * Once we locate the request we want to repeat, we can click `CTRL+R` in Burp to send it to the `Repeater` tab, and then we can either navigate to the `Repeater` tab or click `CTRL+SHIFT+R` to go to it directly
 	* Once in `Repeater`, we can click on `Send` to send the request
 * Tip: We can also right-click on the request and select `Change Request Method` to change the HTTP method between POST/GET without having to rewrite the entire request.
+* *Try using request repeating to be able to quickly test commands. With that, try looking for the other flag*
+	* Need to replace spaces with `+`
+	* can't actually change the directory, but you can print out the contents of different directories with `ls /path/to/search -la`
+	* to print from another directory, need to specify full path: not `ls /path | cat file` but `cat /path/file`
+
+# Encoding
