@@ -141,8 +141,47 @@ curl -X POST -d '{"search":"london"}' -b 'PHPSESSID=c1nsa6op7vtk7kdis7bcnbadf1' 
 * we can easily specify the table and the row we want to perform an operation on through such APIs
 	* we may utilize different HTTP methods to perform different operations on that row
 
-| Operation | HTTP Method | Description |
-| --------- | ----------- | ----------- |
-| `Create`  |             |             |
-| `Read`    |             |             |
-| ``        |             |             |
+| Operation | HTTP Method | Description                                        |
+| --------- | ----------- | -------------------------------------------------- |
+| `Create`  | `POST`      | Adds the specified data to the database table      |
+| `Read`    | `GET`       | Reads the specified entity from the database table |
+| `Update`  | `PUT`       | Updates the data of the specified database table   |
+| `Delete`  | `DELETE`    | Removes the specified row from the database table  |
+* These four operations are mainly linked to the commonly known CRUD APIs, but the same principle is also used in REST APIs and several other types of APIs
+* we can simply specify the table name after the API (e.g. `/city`) and then specify our search term (e.g. `/london`), as follows:
+```shell-session
+curl http://<SERVER_IP>:<PORT>/api.php/city/london
+```
+* To have it properly formatted in JSON format, we can pipe the output to the `jq` utility, which will format it properly. We will also silent any unneeded cURL output with `-s`, as follows:
+```shell-session
+curl -s http://<SERVER_IP>:<PORT>/api.php/city/london | jq
+```
+* we can pass an empty string to retrieve all entries in the table
+```shell-session
+curl -s http://<SERVER_IP>:<PORT>/api.php/city/ | jq
+```
+
+### Create
+* To add a new entry, we can use an HTTP POST request
+* can simply POST our JSON data, and it will be added to the table
+	* As this API is using JSON data, we will also set the `Content-Type` header to JSON, as follows:
+```shell-session
+curl -X POST http://<SERVER_IP>:<PORT>/api.php/city/ -d '{"city_name":"HTB_City", "country_name":"HTB"}' -H 'Content-Type: application/json'
+```
+
+### Update
+* `PUT` is used to update API entries and modify their details
+* **Note:** The HTTP `PATCH` method may also be used to update API entries instead of `PUT`. To be precise, `PATCH` is used to partially update an entry (only modify some of its data "e.g. only city_name"), while `PUT` is used to update the entire entry
+* Using `PUT` is quite similar to `POST` in this case, with the only difference being that we have to specify the name of the entity we want to edit in the URL, otherwise the API will not know which entity to edit
+* all we have to do is specify the `city` name in the URL, change the request method to `PUT`, and provide the JSON data like we did with POST, as follows:
+```shell-session
+curl -X PUT http://<SERVER_IP>:<PORT>/api.php/city/london -d '{"city_name":"New_HTB_City", "country_name":"HTB"}' -H 'Content-Type: application/json'
+```
+*  replaced the old city name with the new city
+
+### DELETE
+*  try to delete a city, which is as easy as reading a city
+* simply specify the city name for the API and use the HTTP `DELETE` method, and it would delete the entry, as follows:
+```shell-session
+curl -X DELETE http://<SERVER_IP>:<PORT>/api.php/city/New_HTB_City
+```
