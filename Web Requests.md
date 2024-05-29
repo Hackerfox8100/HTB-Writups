@@ -75,3 +75,14 @@
 * There is another method we can provide the `basic HTTP auth` credentials, which is directly through the URL as (`username:password@URL`)
 * As we are using `basic HTTP auth`, we see that our HTTP request sets the `Authorization` header to `Basic YWRtaW46YWRtaW4=`, which is the base64 encoded value of `admin:admin`
 	* If we were using a modern method of authentication (e.g. `JWT`), the `Authorization` would be of type `Bearer` and would contain a longer encrypted token
+* As the page returns our results, it may be contacting a remote resource to obtain the information, and then display them on the page
+	* we can open the browser devtools and go to the Network tab
+		* Before we enter our search term and view the requests, we may need to click on the `trash` icon on the top left, to ensure we clear any previous requests and only monitor newer requests
+		* Ex: When we click on the request, it gets sent to `search.php` with the GET parameter `search=le` used in the URL. This helps us understand that the search function requests another page for the results
+	* Can right-click on the request and select `Copy>Copy as cURL`. Then, we can paste the copied command in our terminal and execute it, and we should get the exact same response
+		* **Note:** The copied command will contain all headers used in the HTTP request. However, we can remove most of them and only keep necessary authentication headers, like the `Authorization` header.
+* can also repeat the exact request right within the browser devtools, by selecting `Copy>Copy as Fetch`
+	* will copy the same HTTP request using the JavaScript Fetch library
+
+# POST
+* 
