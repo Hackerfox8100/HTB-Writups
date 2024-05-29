@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "95e5039c81bbb96b",
+        "id": "15858fcb86e4ce69",
         "type": "tabs",
         "children": [
           {
-            "id": "8173b5d7ed98696e",
+            "id": "8c8f456609b4ef16",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Windows Fundamentals.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1b9c33a12b6eed0e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Web Requests.md",
+                "file": "Using Web Proxies.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Web Requests.md",
+                "file": "Using Web Proxies.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Web Requests.md",
+                "file": "Using Web Proxies.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Web Requests.md"
+                "file": "Using Web Proxies.md"
               }
             }
           },
@@ -167,17 +154,18 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1b9c33a12b6eed0e",
+  "active": "8c8f456609b4ef16",
   "lastOpenFiles": [
+    "Using Web Proxies.md",
+    "README.md",
+    "Windows Fundamentals.md",
+    "Web Requests.md",
     "Web Requests-paste-3.png",
     "Web Requests-paste-2.png",
     "Web Requests-paste-1.png",
-    "README.md",
     "Introduction to Active Directory.md",
     "[Web.md",
-    "Web Requests.md",
     "Web Requests-paste.png",
-    "Windows Fundamentals.md",
     "Introduction to Active Directory-paste-4.png",
     "Introduction to Active Directory-paste-3.png",
     "Introduction to Active Directory-paste-2.png",
@@ -185,7 +173,6 @@
     "Windows.md",
     "Introduction to Active Directory-paste.png",
     "Windows Fundamentals-paste-1.png",
-    "Windows Fundamentals-paste.png",
     "box1/writeup.md",
     "box1"
   ]
