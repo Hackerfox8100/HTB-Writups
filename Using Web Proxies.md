@@ -86,3 +86,18 @@
 * There are other types of URL-encoding, like `Full URL-Encoding` or `Unicode URL` encoding, which may also be helpful for requests with many special characters
 * To access the full encoder in Burp, we can go to the `Decoder` tab
 	* we can also use the `Burp Inspector` tool to perform encoding and decoding (among other things), which can be found in various places like `Burp Proxy` or `Burp Repeater`
+
+# Proxying Tools
+* An important aspect of using web proxies is enabling the interception of web requests made by command-line tools and thick client applications
+* To route all web requests made by a specific tool through our web proxy tools, we have to set them up as the tool's proxy (i.e. `http://127.0.0.1:8080`)
+* One very useful tool in Linux is **proxychains**, which routes all traffic coming from any command-line tool to any proxy we specify
+	* To use `proxychains`, we first have to edit `/etc/proxychains.conf`, comment out the final line and add the following line at the end of it:
+```shell-session
+#socks4         127.0.0.1 9050
+http 127.0.0.1 8080
+```
+* should also enable `Quiet Mode` to reduce noise by un-commenting `quiet_mode`
+* Once that's done, we can prepend `proxychains` to any command, and the traffic of that command should be routed through `proxychains` (i.e., our web proxy)
+```shell-session
+proxychains curl http://SERVER_IP:PORT
+```
