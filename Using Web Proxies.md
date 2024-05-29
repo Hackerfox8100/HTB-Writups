@@ -24,4 +24,20 @@
 * Instead of manually switching the proxy, we can utilize the Firefox extension Foxy Proxy to easily and quickly change the Firefox proxy
 
 ### Installing CA Certificate
-* *
+* We can install Burp's certificate once we select Burp as our proxy in `Foxy Proxy`, by browsing to `http://burp`, and download the certificate from there by clicking on `CA Certificate`
+* To get ZAP's certificate, we can go to (`Tools>Options>Dynamic SSL Certificate`), then click on `Save`
+	* We can also change our certificate by generating a new one with the `Generate` button
+* Once we have our certificates, we can install them within Firefox by browsing to about:preferences#privacy, scrolling to the bottom, and clicking `View Certificates`
+* After that, we can select the `Authorities` tab, and then click on `import`, and select the downloaded CA certificate
+* Finally, we must select `Trust this CA to identify websites` and `Trust this CA to identify email users`, and then click OK
+
+# Intercepting Web Requests
+* In Burp, we can navigate to the `Proxy` tab, and request interception should be on by default
+	* If we want to turn request interception on or off, we may go to the `Intercept` sub-tab and click on `Intercept is on/off` button to do so
+* In ZAP, interception is off by default, as shown by the green button on the top bar (green indicates that requests can pass and not be intercepted)
+	* `CTRL+B` toggles on/off
+
+### Manipulating Intercepted Requests
+* Typically, we can only specify numbers in the `IP` field using the browser, as the web page prevents us from sending any non-numeric characters using front-end JavaScript
+* with the power of intercepting and manipulating HTTP requests, we can try using other characters to "break" the application
+* Ex: let us change the `ip` parameter's value from `1` to `;ls;` and see how the web application handles our input
