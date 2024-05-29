@@ -85,4 +85,46 @@
 	* will copy the same HTTP request using the JavaScript Fetch library
 
 # POST
+* whenever web applications need to transfer files or move the user parameters from the URL, they utilize `POST` requests
+* HTTP `POST` places user parameters within the HTTP Request body
+	* lack of logging
+	* less encoding requirements
+	* more data can be sent
+
+### Login Forms
+* We can click on the request, click on the `Request` tab (which shows the request body), and then click on the `Raw` button to show the raw request data. We see the following data is being sent as the POST request data
+```bash
+username=admin&password=admin
+```
+* With the request data at hand, we can try to send a similar request with cURL, to see whether this would allow us to login as well
+	* use the `-X POST` flag to send a `POST` request
+	*  to add our POST data, we can use the `-d` flag and add the above data after it
+```shell-session
+curl -X POST -d 'username=admin&password=admin' http://<SERVER_IP>:<PORT>/
+```
+* **Tip:** Many login forms would redirect us to a different page once authenticated (e.g. /dashboard.php). If we want to follow the redirection with cURL, we can use the `-L` flag
+
+### Authenticated Cookies
+* can use the `-v` or `-i` flags to view the response, which should contain the `Set-Cookie` header with our authenticated cookie
+* we can set the above cookie with the `-b` flag in cURL, as follows
+```shell-session
+curl -b 'PHPSESSID=c1nsa6op7vtk7kdis7bcnbadf1' http://<SERVER_IP>:<PORT>/
+```
+* It is also possible to specify the cookie as a header
+```bash
+curl -H 'Cookie: PHPSESSID=c1nsa6op7vtk7kdis7bcnbadf1' http://<SERVER_IP>:<PORT>/
+```
+* Can use an earlier authenticated cookie to see if you can get in without needing to provide creds
+	* in devtools > storage > cookies replace the cookie value with your previous one
+		* or right-click on the cookie and select `Delete All`, and the click on the `+` icon to add a new cookie
+		* After that, we need to enter the cookie name, which is the part before the `=` (`PHPSESSID`), and then the cookie value, which is the part after the `=` (`c1nsa6op7vtk7kdis7bcnbadf1`)
+* *having a valid cookie may be enough to get authenticated into many web applications. This can be an essential part of some web attacks, like Cross-Site Scripting*
+
+### JSON Data
+* we can make any search query to see what requests get sent
+* the search form sends a POST request to `search.php`, with the following data:
+```json
+{"search":"london"}
+```
+*  POST data appear to be in JSON format, so our request must have specified the `Content-Type` header to be `application/json`
 * 
