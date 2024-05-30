@@ -130,4 +130,10 @@ msf6 auxiliary(scanner/http/robots_txt) > run
 ```
 
 # Burp Intruder
-* 
+* Burp's web fuzzer is called `Burp Intruder`, and can be used to fuzz pages, directories, sub-domains, parameters, parameters values, and many other things
+	* need the pro version to not be slow af
+* can go to the Proxy History, locate our request, then right-click on the request and select `Send to Intruder`
+	* On the first tab, `Target`, we see the details of the target we will be fuzzing, which is fed from the request we sent to `Intruder`
+* The second tab, `Positions`, is where we place the payload position pointer, which is the point where words from our wordlist will be placed and iterated over
+	* To check whether a web directory exists, our fuzzing should be in '`GET /DIRECTORY/`', such that existing pages would return `200 OK`, otherwise we'd get `404 NOT FOUND`
+		* we will need to select `DIRECTORY` as the payload position, by either wrapping it with `§` or by selecting the word `DIRECTORY` and clicking on the the `Add §` button
