@@ -137,3 +137,6 @@ msf6 auxiliary(scanner/http/robots_txt) > run
 * The second tab, `Positions`, is where we place the payload position pointer, which is the point where words from our wordlist will be placed and iterated over
 	* To check whether a web directory exists, our fuzzing should be in '`GET /DIRECTORY/`', such that existing pages would return `200 OK`, otherwise we'd get `404 NOT FOUND`
 		* we will need to select `DIRECTORY` as the payload position, by either wrapping it with `§` or by selecting the word `DIRECTORY` and clicking on the the `Add §` button
+	* The `Attack Type` defines how many payload pointers are used and determines which payload is assigned to which position
+		* simplest is `sniper`
+* 
