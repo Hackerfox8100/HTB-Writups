@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Using Web Proxies.md",
+                "file": "Using Web Proxies/Using Web Proxies.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Using Web Proxies.md",
+                "file": "Using Web Proxies/Using Web Proxies.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Using Web Proxies.md",
+                "file": "Using Web Proxies/Using Web Proxies.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Using Web Proxies.md"
+                "file": "Using Web Proxies/Using Web Proxies.md"
               }
             }
           },
@@ -156,23 +156,27 @@
   },
   "active": "8c8f456609b4ef16",
   "lastOpenFiles": [
-    "Using Web Proxies.md",
     "README.md",
-    "Windows Fundamentals.md",
-    "Web Requests.md",
-    "Web Requests-paste-3.png",
-    "Web Requests-paste-2.png",
-    "Web Requests-paste-1.png",
-    "Introduction to Active Directory.md",
+    "Using Web Proxies/Using Web Proxies.md",
+    "Windows Fundamentals",
+    "Web Requests",
+    "Introduction to Active Directory",
+    "Using Web Proxies",
+    "Windows Fundamentals/Windows Fundamentals.md",
+    "Web Requests/Web Requests.md",
+    "Web Requests/Web Requests-paste-3.png",
+    "Web Requests/Web Requests-paste-2.png",
+    "Web Requests/Web Requests-paste-1.png",
+    "Introduction to Active Directory/Introduction to Active Directory.md",
     "[Web.md",
-    "Web Requests-paste.png",
-    "Introduction to Active Directory-paste-4.png",
-    "Introduction to Active Directory-paste-3.png",
-    "Introduction to Active Directory-paste-2.png",
-    "Introduction to Active Directory-paste-1.png",
+    "Web Requests/Web Requests-paste.png",
+    "Introduction to Active Directory/Introduction to Active Directory-paste-4.png",
+    "Introduction to Active Directory/Introduction to Active Directory-paste-3.png",
+    "Introduction to Active Directory/Introduction to Active Directory-paste-2.png",
+    "Introduction to Active Directory/Introduction to Active Directory-paste-1.png",
     "Windows.md",
-    "Introduction to Active Directory-paste.png",
-    "Windows Fundamentals-paste-1.png",
+    "Introduction to Active Directory/Introduction to Active Directory-paste.png",
+    "Windows Fundamentals/Windows Fundamentals-paste-1.png",
     "box1/writeup.md",
     "box1"
   ]
