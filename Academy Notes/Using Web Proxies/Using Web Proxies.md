@@ -157,5 +157,11 @@ msf6 auxiliary(scanner/http/robots_txt) > run
 			* click on the `Add` button and then selecting `Skip if matches regex`
 			* provide a regex pattern that matches lines starting with `.`, which is: `^\..*$`
 	* encoding
-		* 
-* 
+		* enables us to enable or disable Payload URL-encoding
+*  customize attack options from the `Options` tab
+	* ex: when fuzzing web directories we are often only interested in `200 OK`, so we can use the `Grep - Match` option to only flag those results
+		* enable it and then click `Clear` to clear the current list
+		* type `200 OK` to match any requests with this string and click `Add` to add the new rule
+		* disable `Exclude HTTP Headers`, as what we are looking for is in the HTTP header
+* We may also use the `Resource Pool` tab to specify how much network resources Intruder will use, which may be useful for very large attacks. For our example, we'll leave it at its default values.
+* After everything is set up we can click on the `Start Attack` buttin
