@@ -206,4 +206,11 @@ In all honesty gobuster was easier to use for directory/web fuzzing :/
 * Task: Run ZAP Scanner on the target above to identify directories and potential vulnerabilities. Once you find the high-level vulnerability, try to use it to read the flag at '/flag.txt'
 * Steps for completion:
 	* ran the active scan and looked for alerts flagged as high
-	* 
+	* Sent the remote OS Command Injection alert to requester
+	* changed `etc%2Fpasswd` to `flag.txt` and hit send
+
+# Skills Assessmet
+1. The /lucky.php page has a button that appears to be disabled. Try to enable the button, and then click it to get the flag.
+2. The /admin.php page uses a cookie that has been encoded multiple times. Try to decode the cookie until you get a value with 31-characters. Submit the value as the answer.
+3. Once you decode the cookie, you will notice that it is only 31 characters long, which appears to be an md5 hash missing its last character. So, try to fuzz the last character of the decoded md5 cookie with all alpha-numeric characters, while encoding each request with the encoding methods you identified above. (You may use the "alphanum-case.txt" wordlist from Seclist for the payload)
+4. You are using the 'auxiliary/scanner/http/coldfusion_locale_traversal' tool within Metasploit, but it is not working properly for you. You decide to capture the request sent by Metasploit so you can manually verify it and repeat it. Once you capture the request, what is the 'XXXXX' directory being called in '/XXXXX/administrator/..'?
