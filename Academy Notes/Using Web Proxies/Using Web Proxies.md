@@ -216,5 +216,15 @@ In all honesty gobuster was easier to use for directory/web fuzzing :/
 		1. replace "disabled" with nothing
 	3. resend the request
 2. The /admin.php page uses a cookie that has been encoded multiple times. Try to decode the cookie until you get a value with 31-characters. Submit the value as the answer.
+	1. The cookie: `4d325268597a6b7a596a686a5a4449314d4746684f474d7859544d325a6d5a6d597a63355954453359513d3d`
+	2. decode as ascii hex
+	3. decode as base 64
+	4. submit the 31 char string as the flag
 3. Once you decode the cookie, you will notice that it is only 31 characters long, which appears to be an md5 hash missing its last character. So, try to fuzz the last character of the decoded md5 cookie with all alpha-numeric characters, while encoding each request with the encoding methods you identified above. (You may use the "alphanum-case.txt" wordlist from Seclist for the payload)
-4. You are using the 'auxiliary/scanner/http/coldfusion_locale_traversal' tool within Metasploit, but it is not working properly for you. You decide to capture the request sent by Metasploit so you can manually verify it and repeat it. Once you capture the request, what is the 'XXXXX' directory being called in '/XXXXX/administrator/..'?
+	1. add a character to the cracked cookie and wrap it with pointers
+	2. set the payload in `payload options`
+	3. in `payload processing` add the prefix of the cracked cookie
+	4. encode in base 64
+	5. encode in ascii hex
+![](Using%20Web%20Proxies-paste.png)
+1. You are using the 'auxiliary/scanner/http/coldfusion_locale_traversal' tool within Metasploit, but it is not working properly for you. You decide to capture the request sent by Metasploit so you can manually verify it and repeat it. Once you capture the request, what is the 'XXXXX' directory being called in '/XXXXX/administrator/..'?
