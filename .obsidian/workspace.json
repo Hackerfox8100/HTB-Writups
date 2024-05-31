@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md"
               }
             }
           },
@@ -154,13 +154,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3d215a6024155b77",
+  "active": "8c8f456609b4ef16",
   "lastOpenFiles": [
+    "README.md",
     "Academy Notes/Using Web Proxies/Using Web Proxies.md",
     "TTPs",
     "Lab Notes",
     "Academy Notes",
-    "README.md",
     "Academy Notes/Windows Fundamentals",
     "Academy Notes/Web Requests",
     "Academy Notes/Introduction to Active Directory",
