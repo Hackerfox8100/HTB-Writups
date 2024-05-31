@@ -165,3 +165,7 @@ msf6 auxiliary(scanner/http/robots_txt) > run
 		* disable `Exclude HTTP Headers`, as what we are looking for is in the HTTP header
 * We may also use the `Resource Pool` tab to specify how much network resources Intruder will use, which may be useful for very large attacks. For our example, we'll leave it at its default values.
 * After everything is set up we can click on the `Start Attack` buttin
+In all honesty gobuster was easier to use for directory/web fuzzing, so I'm not gonna take notes on Zap fuzzer
+
+
+
