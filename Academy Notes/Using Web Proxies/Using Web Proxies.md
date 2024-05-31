@@ -165,7 +165,25 @@ msf6 auxiliary(scanner/http/robots_txt) > run
 		* disable `Exclude HTTP Headers`, as what we are looking for is in the HTTP header
 * We may also use the `Resource Pool` tab to specify how much network resources Intruder will use, which may be useful for very large attacks. For our example, we'll leave it at its default values.
 * After everything is set up we can click on the `Start Attack` buttin
-In all honesty gobuster was easier to use for directory/web fuzzing, so I'm not gonna take notes on Zap fuzzer
+In all honesty gobuster was easier to use for directory/web fuzzing :/
 
+# Zap Fuzzer
+* Task: Visit '/skills/' to get a request with a cookie, then try to use ZAP Fuzzer to fuzz the cookie for different md5 hashed usernames to get the flag. Use the "top-usernames-shortlist.txt" wordlist from Seclists.
+* Steps for completion:
+	* In OWASP ZAP click on the firefox button and navigate to `IP:PORT/skills/`
+	* reload the page a few times and go back to ZAP
+	* click on a request that has the `Set-Cookie` field present
+		* right click the request and click `Attack > fuzz`
+	* in fuzz highlight the cookie (starting after the "=")
+		* click add, then add the "top-usernames-shortlist.txt" wordlist from Seclists as type `file`
+		* click on processors and change the processor type to `MD5 Hash`
+		* hit ok, ok, change the scanning threads to 20, then start fuzzer
+	* The request with the larger message body has the flag in it
 
-
+# Burp Scanner
+* Burp Suite comes with `Burp Scanner`, a powerful scanner for various types of web vulnerabilities, using a `Crawler` for building the website structure, and `Scanner` for passive and active scanning
+* To start a scan in Burp Suite, we have the following options:
+	1. Start scan on a specific request from Proxy History
+	2. Start a new scan on a set of targets
+	3. Start a scan on items in-scope
+* 
