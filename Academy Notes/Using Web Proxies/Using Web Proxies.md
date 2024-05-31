@@ -139,4 +139,23 @@ msf6 auxiliary(scanner/http/robots_txt) > run
 		* we will need to select `DIRECTORY` as the payload position, by either wrapping it with `§` or by selecting the word `DIRECTORY` and clicking on the the `Add §` button
 	* The `Attack Type` defines how many payload pointers are used and determines which payload is assigned to which position
 		* simplest is `sniper`
+* In the `Payloads` tab we get to choose and customize our payloads/wordlists
+* need to configure:
+	* sets
+		* identifies the Payload number
+		* example payload types:
+			* `Simple List`: The basic and most fundamental type. We provide a wordlist, and Intruder iterates over each line in it.
+			* `Runtime file`: Similar to `Simple List`, but loads line-by-line as the scan runs to avoid excessive memory usage by Burp.
+				* In case you wanted to use a very large wordlist, it's best to use `Runtime file` as the Payload Type instead of `Simple List`, so that Burp Intruder won't have to load the entire wordlist in advance, which may throttle memory usage
+			* `Character Substitution`: Lets us specify a list of characters and their replacements, and Burp Intruder tries all potential permutations.
+	* options
+		* different for each Payload Type we select in `Payload Sets`
+		* wordlist(s) go here
+	* processing
+		* allows us to determine fuzzing rules over the loaded wordlist
+		* ex: adding a rule that skips lines starting with a `.` 
+			* click on the `Add` button and then selecting `Skip if matches regex`
+			* provide a regex pattern that matches lines starting with `.`, which is: `^\..*$`
+	* encoding
+		* 
 * 
