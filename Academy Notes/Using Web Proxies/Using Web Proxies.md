@@ -205,4 +205,5 @@ In all honesty gobuster was easier to use for directory/web fuzzing :/
 # Zap Scanner
 * Task: Run ZAP Scanner on the target above to identify directories and potential vulnerabilities. Once you find the high-level vulnerability, try to use it to read the flag at '/flag.txt'
 * Steps for completion:
+	* ran the active scan and looked for alerts flagged as high
 	* 
