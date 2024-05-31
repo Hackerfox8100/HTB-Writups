@@ -229,4 +229,13 @@ In all honesty gobuster was easier to use for directory/web fuzzing :/
 	6. Run the attack
 		1. when the length gets shorter, click on a request and look at the response, the flag is there
 ![](Using%20Web%20Proxies-paste.png)
-1. You are using the 'auxiliary/scanner/http/coldfusion_locale_traversal' tool within Metasploit, but it is not working properly for you. You decide to capture the request sent by Metasploit so you can manually verify it and repeat it. Once you capture the request, what is the 'XXXXX' directory being called in '/XXXXX/administrator/..'?
+4. You are using the 'auxiliary/scanner/http/coldfusion_locale_traversal' tool within Metasploit, but it is not working properly for you. You decide to capture the request sent by Metasploit so you can manually verify it and repeat it. Once you capture the request, what is the 'XXXXX' directory being called in '/XXXXX/administrator/..'?
+```bash
+msfconsole
+use auxiliary/scanner/http/coldfusion_locale_traversal
+set RHOSTS http://94.237.63.201
+set RPORT 58688
+set Proxies http:127.0.0.1:8080
+run
+```
+*If you set proxies as `http://127.0.0.1:8080` it will hate you and not work*

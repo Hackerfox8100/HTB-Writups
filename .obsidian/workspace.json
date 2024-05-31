@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md"
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md"
               }
             }
           },
@@ -156,9 +156,11 @@
   },
   "active": "8c8f456609b4ef16",
   "lastOpenFiles": [
+    "Academy Notes/Using Web Proxies/Using Web Proxies.md",
+    "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
+    "Academy Notes/Attacking Common Applications",
     "Academy Notes/Using Web Proxies/Using Web Proxies-paste.png",
     "README.md",
-    "Academy Notes/Using Web Proxies/Using Web Proxies.md",
     "TTPs",
     "Lab Notes",
     "Academy Notes",
@@ -180,7 +182,6 @@
     "Academy Notes/Introduction to Active Directory/Introduction to Active Directory-paste-1.png",
     "Windows.md",
     "Academy Notes/Introduction to Active Directory/Introduction to Active Directory-paste.png",
-    "Academy Notes/Windows Fundamentals/Windows Fundamentals-paste-1.png",
     "box1/writeup.md",
     "box1"
   ]
