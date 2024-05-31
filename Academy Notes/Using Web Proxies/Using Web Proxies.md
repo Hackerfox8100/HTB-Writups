@@ -186,4 +186,23 @@ In all honesty gobuster was easier to use for directory/web fuzzing :/
 	1. Start scan on a specific request from Proxy History
 	2. Start a new scan on a set of targets
 	3. Start a scan on items in-scope
-* 
+* To add an item to our scope, we can right-click on it and select `Add to scope`
+	* When you add the first item to your scope, Burp will give you the option to restrict its features to in-scope items only, and ignore any out-of-scope items
+* To exclude an item from our scope, we can right-click on any in-scope item and select `Remove from scope`
+* Once we have our scope ready, we can go to the `Dashboard` tab and click on `New Scan` to configure our scan, which would be automatically populated with our in-scope items
+* A Web Crawler navigates a website by accessing any links found in its pages, accessing any forms, and examining any requests it makes to build a comprehensive map of the website
+	* Burp Scanner presents us with a map of the target, showing all publicly accessible data in a single place
+	* A Crawl scan only follows and maps links found in the page we specified, and any pages found on it. It does not perform a fuzzing scan to identify pages that are never referenced, like what dirbuster or ffuf would do. This can be done with Burp Intruder or Content Discovery, and then added to scope, if needed
+* Passive Scanner
+	* does not send any new requests but analyzes the source of pages already visited in the target/scope and then tries to identify `potential` vulnerabilities
+* Active Scanner
+	1. It starts by running a Crawl and a web fuzzer (like dirbuster/ffuf) to identify all possible pages
+	2. It runs a Passive Scan on all identified pages
+	3. It checks each of the identified vulnerabilities from the Passive Scan and sends requests to verify them
+	4. It performs a JavaScript analysis to identify further potential vulnerabilities
+	5. It fuzzes various identified insertion points and parameters to look for common vulnerabilities like XSS, Command Injection, SQL Injection, and other common web vulnerabilities
+
+# Zap Scanner
+* Task: Run ZAP Scanner on the target above to identify directories and potential vulnerabilities. Once you find the high-level vulnerability, try to use it to read the flag at '/flag.txt'
+* Steps for completion:
+	* 
