@@ -20,6 +20,7 @@ eyewitness --web -x web_discovery.xml -d inlanefreight_eyewitness
 ```
 
 # Wordpress
+### Discovery
 Typical `/robots.txt` file:
 ```
 User-agent: *
@@ -37,4 +38,15 @@ Sitemap: https://inlanefreight.local/wp-sitemap.xml
 	* Subscriber
 * Another way to identify a wp site is to curl it and grep for `wordpress`
 * can identify plugins by running `curl -s http://blog.inlanefreight.local/ | grep plugins`
-* 
+
+### Enum on users
+* A valid username and an invalid password results in the following message:
+	* ***Error:** The password you entered for the username **USER** is incorrect*
+* an invalid username returns that the user was not found
+
+### WPScan
+* `--enumerate` flag is used to enumerate various components of the WordPress application, such as plugins, themes, and users
+	* all plugins can be enumerated using the arguments `--enumerate ap`
+	* Can pass in in API tokens from WPVulnDB with `--api-token` flag
+* default number of threads is `5`
+	* can be changed with `-t` flag
