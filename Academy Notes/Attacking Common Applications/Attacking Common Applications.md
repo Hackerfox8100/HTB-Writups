@@ -38,6 +38,8 @@ Sitemap: https://inlanefreight.local/wp-sitemap.xml
 	* Subscriber
 * Another way to identify a wp site is to curl it and grep for `wordpress`
 * can identify plugins by running `curl -s http://blog.inlanefreight.local/ | grep plugins`
+* most plugins have a readme.txt file where you can find version and more info
+* can find them at `http://blog.inlanefreight.local/wp-content/plugins` OR `http://blog.inlanefreight.local/?p=1/wp-content/pplugins`
 
 ### Enum on users
 * A valid username and an invalid password results in the following message:
@@ -50,3 +52,8 @@ Sitemap: https://inlanefreight.local/wp-sitemap.xml
 	* Can pass in in API tokens from WPVulnDB with `--api-token` flag
 * default number of threads is `5`
 	* can be changed with `-t` flag
+
+### Login Bruteforce
+* WPscan can do this
+* two kinds of attacks 
+	* `wp-login` will attempt to 
