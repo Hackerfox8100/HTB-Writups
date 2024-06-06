@@ -14,4 +14,7 @@ nmap -p 80,443,8000,8080,8180,8888,1000 --open -oA web_discovery -iL scope_list
 * scope list could look like this:
 	* app.inlanefreight.local
 	* 10.129.201.50
-* 
+* Example Eyewitness oneliner:
+```bash
+eyewitness --web -x web_discovery.xml -d inlanefreight_eyewitness
+```
