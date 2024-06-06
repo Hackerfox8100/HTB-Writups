@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "15858fcb86e4ce69",
+        "id": "d9f59559cddc5f3f",
         "type": "tabs",
         "children": [
           {
-            "id": "8c8f456609b4ef16",
+            "id": "88a4ac1faeac26d1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Academy Notes/Active Directory LDAP/Active Directory LDAP.md",
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Academy Notes/Active Directory LDAP/Active Directory LDAP.md",
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Academy Notes/Active Directory LDAP/Active Directory LDAP.md",
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Academy Notes/Active Directory LDAP/Active Directory LDAP.md"
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md"
               }
             }
           },
@@ -154,10 +154,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8c8f456609b4ef16",
+  "active": "88a4ac1faeac26d1",
   "lastOpenFiles": [
-    "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
+    "Academy Notes/Network Enumeration with Nmap/Network Enumeration with Nmap.md",
     "Academy Notes/Active Directory LDAP/Active Directory LDAP.md",
+    "Academy Notes/Network Enumeration with Nmap",
+    "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
     "Academy Notes/Active Directory LDAP/Untitled",
     "Academy Notes/Active Directory LDAP",
     "Academy Notes/Using Web Proxies/Using Web Proxies.md",
@@ -170,7 +172,6 @@
     "Academy Notes/Windows Fundamentals",
     "Academy Notes/Web Requests",
     "Academy Notes/Introduction to Active Directory",
-    "Academy Notes/Using Web Proxies",
     "Academy Notes/Windows Fundamentals/Windows Fundamentals.md",
     "Academy Notes/Web Requests/Web Requests.md",
     "Academy Notes/Web Requests/Web Requests-paste-3.png",
