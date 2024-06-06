@@ -18,3 +18,23 @@ nmap -p 80,443,8000,8080,8180,8888,1000 --open -oA web_discovery -iL scope_list
 ```bash
 eyewitness --web -x web_discovery.xml -d inlanefreight_eyewitness
 ```
+
+# Wordpress
+Typical `/robots.txt` file:
+```
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /wp-content/uploads/wpforms/
+
+Sitemap: https://inlanefreight.local/wp-sitemap.xml
+```
+* 5 types of users on standard WP install:
+	* Administrator
+	* Editor
+	* Author
+	* Contributor
+	* Subscriber
+* Another way to identify a wp site is to curl it and grep for `wordpress`
+* can identify plugins by running `curl -s http://blog.inlanefreight.local/ | grep plugins`
+* 
