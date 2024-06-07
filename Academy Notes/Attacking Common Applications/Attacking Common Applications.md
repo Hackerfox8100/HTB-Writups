@@ -422,4 +422,20 @@ tar -cvzf updater.tar.gz splunk_shell/
 	* hit save
 	* click the `Test` button to run our notification and execute the command
 * Since this is a blind command execution, we won't get any feedback, so we'd have to either check our listener for a connection back or, in our case, check to see if we can authenticate to the host as a local admin
-* 
+
+# osTicket
+* open-source support ticketing system
+* written in PHP and uses a MySQL backend
+* most osTicket installs will showcase the osTicket logo with the phrase `powered by` in front of it in the page's footer. The footer may also contain the words `Support Ticket System`
+* main function layers:
+	* User input
+		* only staff and users with administrator privileges can access the admin panel
+	* processing
+		* Processing is finally done internally in an isolated environment that will have very similar settings to the systems in production
+	* solution
+
+###  Attacking osTicket
+* Suppose we find an exposed service such as a company's Slack server or GitLab, which requires a valid company email address to join
+	* Many companies have a support email such as `support@inlanefreight.local`, and emails sent to this are available in online support portals that may range from Zendesk to an internal custom tool
+	* may also get an email specific to the ticket put in
+* may be able to use this email to register an account and the help desk support portal to receive a sign-up confirmation email
