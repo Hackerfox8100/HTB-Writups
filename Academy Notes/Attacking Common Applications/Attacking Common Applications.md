@@ -451,6 +451,7 @@ tar -cvzf updater.tar.gz splunk_shell/
 ### Attacking GitLab
 * [User enum](https://www.exploit-db.com/exploits/49821)
 	* GitLab's defaults are set to 10 failed attempts resulting in an automatic unlock after 10 minutes
+	* [python 3 version](https://github.com/dpgg101/GitLabUserEnum)
 *  GitLab Community Edition version 13.10.2 and lower suffered from an authenticated remote code execution [vulnerability](https://hackerone.com/reports/1154542) due to an issue with ExifTool handling metadata in uploaded image files
 	* https://www.exploit-db.com/exploits/49951
 	* need a valid username and password
