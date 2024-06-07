@@ -158,4 +158,14 @@ Disallow: /modules/
 Disallow: /plugins/
 Disallow: /tmp/
 ```
-* can fingerprint version id the readme.txt 
+* can fingerprint version if the readme.txt is present
+* can use `droopscan` for limited enumeration
+	* can git clone it or install via pip
+* `joomscan` is now out of date and needs python 2.7 to run, but can still be helpful
+* administrator login portal located at `http://dev.inlanefreight.local/administrator/index.php`
+* default admin account is `admin`
+	* password set at install time
+* script to brute force the login:
+```bash
+sudo python3 joomla-brute.py -u http://dev.inlanefreight.local -w /usr/share/metasploit-framework/data/wordlists/http_default_pass.txt -usr admin
+```
