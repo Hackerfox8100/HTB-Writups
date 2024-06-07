@@ -376,4 +376,17 @@ def cmd = "cmd.exe /c dir".execute();
 println("${cmd.text}");
 ```
 * could also use [this](https://gist.githubusercontent.com/frohoff/fed1ffaab9b9beeb1c76/raw/7cfa97c7dc65e2275abfb378101a505bfb754a95/revsh.groovy) Java reverse shell to gain command execution on a Windows host, swapping out `localhost` and the port for our IP address and listener port
+
+# Splunk
+* The biggest focus of Splunk during an assessment would be weak or null authentication because admin access to Splunk gives us the ability to deploy custom applications that can be used to quickly compromise a Splunk server and possibly other hosts in the network depending on the way Splunk is set up
+* Splunk web server runs by default on port 8000
+* default credentials are `admin:changeme`
+* Once logged in to Splunk (or having accessed an instance of Splunk Free), we can browse data, run reports, create dashboards, install applications from the Splunkbase library, and install custom applications
+* A common method of gaining remote code execution on a Splunk server is through the use of a scripted input
+	* As Splunk can be installed on Windows or Linux hosts, scripted inputs can be created to run Bash, PowerShell, or Batch scripts
+	* every Splunk installation comes with Python installed, so Python scripts can be run on any Splunk system
+	* A quick way to gain RCE is by creating a scripted input that tells Splunk to run a Python reverse shell script
+
+### Attacking Splunk
+* can use [this](https://github.com/0xjpuff/reverse_shell_splunk) Splunk package to assist us
 * 
