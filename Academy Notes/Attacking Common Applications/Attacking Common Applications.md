@@ -439,3 +439,10 @@ tar -cvzf updater.tar.gz splunk_shell/
 	* Many companies have a support email such as `support@inlanefreight.local`, and emails sent to this are available in online support portals that may range from Zendesk to an internal custom tool
 	* may also get an email specific to the ticket put in
 * may be able to use this email to register an account and the help desk support portal to receive a sign-up confirmation email
+
+# Gitlab
+* web-based Git-repository hosting tool that provides wiki capabilities, issue tracking, and continuous integration and deployment pipeline functionality
+* originally written in Ruby, but the current technology stack includes Go, Ruby on Rails, and Vue.js
+* The only way to footprint the GitLab version number in use is by browsing to the `/help` page when logged in
+	* not much we can do without the version number or being logged in
+* first thing we should try is browsing to `/explore` and see if there are any public projects that may contain something interesting
