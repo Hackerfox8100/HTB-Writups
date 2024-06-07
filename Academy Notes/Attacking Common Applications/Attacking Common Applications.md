@@ -461,3 +461,35 @@ python3 gitlab_13_10_2_rce.py -t http://gitlab.inlanefreight.local:8081 -u mrb3n
 
 # Attacking Tomcat CGI
 * `CVE-2019-0232` is a critical security issue that could result in remote code execution. This vulnerability affects Windows systems that have the `enableCmdLineArguments` feature enabled
+	* can exploit this vulnerability by exploiting a command injection flaw resulting from a Tomcat CGI Servlet input validation error
+* The CGI Servlet is a vital component of Apache Tomcat that enables web servers to communicate with external applications beyond the Tomcat JVM
+* These external applications are typically CGI scripts written in languages like Perl, Python, or Bash
+* The `enableCmdLineArguments` setting for Apache Tomcat's CGI Servlet controls whether command line arguments are created from the query string
+	* If set to true, the CGI Servlet parses the query string and passes it to the CGI script as arguments
+* By using command line arguments, the CGI script can easily switch between different search actions based on user input
+* a problem arises when `enableCmdLineArguments` is enabled on Windows systems because the CGI Servlet fails to properly validate the input from the web browser before passing it to the CGI script
+	* This can lead to an operating system command injection attack, which allows an attacker to execute arbitrary commands on the target system by injecting them into another command
+		* an attacker can append `dir` to a valid command using `&` as a separator to execute `dir` on a Windows system
+* One way to uncover web server content is by utilising the `ffuf` web enumeration tool along with the `dirb common.txt` wordlist
+```bash
+ffuf -w /usr/share/dirb/wordlists/common.txt -u http://10.129.204.227:8080/cgi/FUZZ.cmd
+```
+and/or
+```bash
+ffuf -w /usr/share/dirb/wordlists/common.txt -u http://10.129.204.227:8080/cgi/FUZZ.bat
+```
+* Apache Tomcat introduced a patch that utilises a regular expression to prevent the use of special characters. However, the filter can be bypassed by URL-encoding the payload
+```http
+http://10.129.204.227:8080/cgi/welcome.bat?&c%3A%5Cwindows%5Csystem32%5Cwhoami.exe
+```
+
+# Attacking Common Gateway Interface (CGI) Applications - Shellshock
+* CGIs are used to help a web server render dynamic pages and create a customized response for the user making a request via a web application
+	* essentially middleware between web servers, external databases, and information sources
+![](Attacking%20Common%20Applications-paste.png)
+* CGI scripts and programs are kept in the `/CGI-bin` directory on a web server and can be written in C, C++, Java, PERL, etc
+* The Shellshock vulnerability ([CVE-2014-6271](https://nvd.nist.gov/vuln/detail/CVE-2014-6271)) is a security flaw in the Bash shell (GNU Bash up until version 4.3) that can be used to execute unintentional commands using environment variables
+	* ex: 
+```bash
+env y='() { :;}; echo vulnerable-shellshock' bash -c "echo not vulnerable"
+```
