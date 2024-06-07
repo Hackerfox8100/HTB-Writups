@@ -188,4 +188,22 @@ curl -s http://dev.inlanefreight.local/templates/protostar/error.php?dcfdd5e021a
 
 # Drupal
 * another CMS
-* 
+* for discovery check out `robots.txt` or just grep for drupal in the initial curl
+* Drupal indexes its content using nodes
+	* A node can hold anything such as a blog post, poll, article, etc
+	* The page URIs are usually of the form `/node/<nodeid>`
+* 3 types of users by default:
+	* `Administrator`
+	* `Authenticatd User`
+	* `Anonymous`
+* For enum check the `changelog.txt` and `readme.txt` files
+	* may be blocked though
+* version number enum script for older versions:
+```bash
+curl -s http://drupal-acc.inlanefreight.local/CHANGELOG.txt | grep -m2 ""
+```
+ * Can use `droopescan` for further enum
+	 * Has much more functionality than it does for joomla
+```bash
+droopescan scan drupal -u http://drupal.inlanefreight.local
+```
