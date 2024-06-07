@@ -275,5 +275,14 @@ curl -s http://app-dev.inlanefreight.local:8080/docs/ | grep Tomcat
 * The `lib` folder holds the various JAR files needed for the correct functioning of Tomcat
 * The `logs` and `temp` folders store temporary log files
 * The `webapps` folder is the default webroot of Tomcat and hosts all the applications
+	* The most important file among these is `WEB-INF/web.xml`, which is known as the deployment descriptor
 * The `work` folder acts as a cache and is used to store data during runtime
-* 
+* The `tomcat-users.xml` file is used to allow or disallow access to the `/manager` and `host-manager` admin pages
+	* creds can be stored here
+* common creds
+	* tomcat:tomcat
+	* admin:admin
+
+### Attacking Tomcat
+* can use the `auxiliary/scanner/http/tomcat_mgr_login` metasploit module to see if we can access /manager or /host-manager by getting creds
+	* should also set `STOP_ON_SUCCESS` to `true` so the scanner stops when we get a successful login
