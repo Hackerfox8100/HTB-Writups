@@ -410,9 +410,16 @@ tar -cvzf updater.tar.gz splunk_shell/
 * only four vulns have easy-to-find public exploit PoCs, two cross-site scripting (XSS), one Denial of Service, and one authenticated command injection
 * use nmap scan for discovery
 * default creds are `prtgadmin:prtgadmin`
+
+### Attacking PRTG
 * CVE-2018-9276: When creating a new notification, the `Parameter` field is passed directly into a PowerShell script without any type of input sanitization
 	* mouse over `Setup` in the top right and then the `Account Settings` menu and finally click on `Notifications`
 	* click on `Add new notification`
 	* name it
-	* Under `Program File`, select `Demo exe notification - outfile.ps1` from the drop-down
-	* 
+	* in execute program, Under `Program File`, select `Demo exe notification - outfile.ps1` from the drop-down
+	* in the parameter field, enter a command
+		* ex: add a new local admin user by entering `test.txt;net user prtgadm1 Pwn3d_by_PRTG! /add;net localgroup administrators prtgadm1 /add`
+	* hit save
+	* click the `Test` button to run our notification and execute the command
+* Since this is a blind command execution, we won't get any feedback, so we'd have to either check our listener for a connection back or, in our case, check to see if we can authenticate to the host as a local admin
+* 
