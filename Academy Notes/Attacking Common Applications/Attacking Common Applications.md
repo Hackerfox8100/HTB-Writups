@@ -40,7 +40,7 @@ Sitemap: https://inlanefreight.local/wp-sitemap.xml
 * Another way to identify a wp site is to curl it and grep for `wordpress`
 * can identify plugins by running `curl -s http://blog.inlanefreight.local/ | grep plugins`
 * most plugins have a readme.txt file where you can find version and more info
-* can find them at `http://blog.inlanefreight.local/wp-content/plugins` OR `http://blog.inlanefreight.local/?p=1/wp-content/pplugins`
+* can find them at `http://blog.inlanefreight.local/wp-content/plugins` OR `http://blog.inlanefreight.local/?p=1/wp-content/plugins`
 
 ### Enum on users
 * A valid username and an invalid password results in the following message:
