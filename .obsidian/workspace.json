@@ -18,19 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "b0c2baf9064d81ac",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.6.3"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -165,7 +154,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b0c2baf9064d81ac",
+  "active": "88a4ac1faeac26d1",
   "lastOpenFiles": [
     "Academy Notes/Attacking Common Applications/Attacking Common Applications-paste-1.png",
     "Academy Notes/Attacking Common Applications/Attacking Common Applications-paste.png",
