@@ -54,8 +54,17 @@ Host script results:
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 91.16 seconds
 ```
+* can assume that certified.htb is the domain and that this is the DC
+	* should see mssql but don't, will need to rescan
 * Investigating SMB first because I have no clue what else to do
 	* installed smbclient: `sudo apt install cifs-utils smbclient`
-	* 
+	* nope I lied this: `sudo apt install cifs-utils
+* The fuck is ldapsearch
+	* `ldapsearch -h 10.129.229.25 -p 389 -x -b "dc=certified,dc=htb"`
+	* something is wrong! 
+* ad set attributed = bad
+	* userpasswt
+	* pw=
+	* pass
 
 # Root 
