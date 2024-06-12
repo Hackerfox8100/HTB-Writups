@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lab Notes/Broker.md",
+                "file": "Lab Notes/Influence.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lab Notes/Broker.md",
+                "file": "Lab Notes/Influence.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Lab Notes/Broker.md",
+                "file": "Lab Notes/Influence.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Lab Notes/Broker.md"
+                "file": "Lab Notes/Influence.md"
               }
             }
           },
@@ -156,10 +156,11 @@
   },
   "active": "88a4ac1faeac26d1",
   "lastOpenFiles": [
+    "Lab Notes/Broker.md",
+    "Lab Notes/Influence.md",
     "Lab Notes/Broker-paste-1.png",
     "Lab Notes/Broker-paste.png",
     "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
-    "Lab Notes/Broker.md",
     "Academy Notes/Attacking Common Applications/Attacking Common Applications-paste-1.png",
     "Academy Notes/Attacking Common Applications/Attacking Common Applications-paste.png",
     "Academy Notes/Network Enumeration with Nmap/Network Enumeration with Nmap.md",
@@ -186,7 +187,6 @@
     "[Web.md",
     "Academy Notes/Web Requests/Web Requests-paste.png",
     "Academy Notes/Introduction to Active Directory/Introduction to Active Directory-paste-4.png",
-    "Academy Notes/Introduction to Active Directory/Introduction to Active Directory-paste-3.png",
     "Windows.md",
     "box1/writeup.md"
   ]
