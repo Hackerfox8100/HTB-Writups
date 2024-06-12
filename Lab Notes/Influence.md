@@ -24,5 +24,12 @@ Nmap done: 1 IP address (1 host up) scanned in 100.49 seconds
 * no default creds exist and `administrator:password` did not work
 * looked up the version (8.5.1)
 	* https://confluence.atlassian.com/security/cve-2023-22522-rce-vulnerability-in-confluence-data-center-and-confluence-server-1319570362.html
-	* 
+		* Dead end!
+	* https://confluence.atlassian.com/security/cve-2023-22515-broken-access-control-vulnerability-in-confluence-data-center-and-server-1295682276.html
+		* https://www.vicarius.io/vsociety/posts/understanding-the-confluence-vulnerability-cve-2023-22515
+* by appending `server-info.action?bootstrapStatusProvider.applicationConfig.setupComplete=false` to the url I was able to reinitiate the setup process
+![](Influence-paste-1.png)
+* I was then able to navigate to this `setup/setupadministrator-start.action` and create an account
+![](Influence-paste-2.png)
+![](Influence-paste-3.png)
 # Root
