@@ -66,5 +66,7 @@ Nmap done: 1 IP address (1 host up) scanned in 91.16 seconds
 	* userpasswt
 	* pw=
 	* pass
+	* literally just control f with it
+* Attempt to authenticate to the domain with this
 
 # Root 
