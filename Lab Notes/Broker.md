@@ -23,5 +23,14 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 9.47 seconds
 ```
-* Browsing to port 80 
+* Browsing to port 80 takes you to a login page
+	* looked up default creds for ActiveMQRealm (`admin:admin`)
+	* resulted in a successful login
+![](Broker-paste.png)
+* Seeing as the lab is called broker I decided to investigate the `Manage ActiveMQ broker` link
+![](Broker-paste-1.png)
+* I can see that the version is 5.15.15, so I decided to investigate potential vulnerabilities for this version
+	* https://nvd.nist.gov/vuln/detail/CVE-2023-46604
+* looked up CVE-2023-46604 poc and got https://github.com/evkl1d/CVE-2023-46604
+	* 
 # Root
