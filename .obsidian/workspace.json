@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
+                "file": "Lab Notes/Broker.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
+                "file": "Lab Notes/Broker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
+                "file": "Lab Notes/Broker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md"
+                "file": "Lab Notes/Broker.md"
               }
             }
           },
@@ -156,12 +156,13 @@
   },
   "active": "88a4ac1faeac26d1",
   "lastOpenFiles": [
+    "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
+    "Lab Notes/Broker.md",
     "Academy Notes/Attacking Common Applications/Attacking Common Applications-paste-1.png",
     "Academy Notes/Attacking Common Applications/Attacking Common Applications-paste.png",
     "Academy Notes/Network Enumeration with Nmap/Network Enumeration with Nmap.md",
     "Academy Notes/Active Directory LDAP/Active Directory LDAP.md",
     "Academy Notes/Network Enumeration with Nmap",
-    "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
     "Academy Notes/Active Directory LDAP/Untitled",
     "Academy Notes/Active Directory LDAP",
     "Academy Notes/Using Web Proxies/Using Web Proxies.md",
@@ -185,7 +186,6 @@
     "Academy Notes/Introduction to Active Directory/Introduction to Active Directory-paste-4.png",
     "Academy Notes/Introduction to Active Directory/Introduction to Active Directory-paste-3.png",
     "Academy Notes/Introduction to Active Directory/Introduction to Active Directory-paste-2.png",
-    "Academy Notes/Introduction to Active Directory/Introduction to Active Directory-paste-1.png",
     "Windows.md",
     "box1/writeup.md"
   ]
