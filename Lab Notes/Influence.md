@@ -1,4 +1,4 @@
-# User
+# Root
 * scanned the box: `nmap -sC -sV 10.129.231.16`
 ```
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-06-12 14:39 EDT
@@ -32,4 +32,3 @@ Nmap done: 1 IP address (1 host up) scanned in 100.49 seconds
 * I was then able to navigate to this `setup/setupadministrator-start.action` and create an account
 ![](Influence-paste-2.png)
 ![](Influence-paste-3.png)
-# Root
