@@ -19,5 +19,10 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 100.49 seconds
 ```
-* 
+* browsing to port 8090 results in a login page for confluence
+![](Influence-paste.png)
+* no default creds exist and `administrator:password` did not work
+* looked up the version (8.5.1)
+	* https://confluence.atlassian.com/security/cve-2023-22522-rce-vulnerability-in-confluence-data-center-and-confluence-server-1319570362.html
+	* 
 # Root
