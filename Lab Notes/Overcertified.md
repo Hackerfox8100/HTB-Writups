@@ -68,5 +68,5 @@ Nmap done: 1 IP address (1 host up) scanned in 91.16 seconds
 	* pass
 	* literally just control f with it
 * Attempt to authenticate to the domain with this
-
+`ldapsearch -x -H ldap://[IP] -D '' -w '' -b "DC=[DC],DC=[tld]"`
 # Root 
