@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lab Notes/Broker.md",
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lab Notes/Broker.md",
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Lab Notes/Broker.md",
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Lab Notes/Broker.md"
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md"
               }
             }
           },
@@ -156,6 +156,7 @@
   },
   "active": "88a4ac1faeac26d1",
   "lastOpenFiles": [
+    "Lab Notes/Broker.md",
     "Lab Notes/Influence.md",
     "Lab Notes/Overcertified.md",
     "Academy Notes/Windows Fundamentals/Windows Fundamentals.md",
@@ -164,7 +165,6 @@
     "Lab Notes/Influence-paste-2.png",
     "Lab Notes/Influence-paste-1.png",
     "Lab Notes/Influence-paste.png",
-    "Lab Notes/Broker.md",
     "Lab Notes/Broker-paste-1.png",
     "Lab Notes/Broker-paste.png",
     "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
