@@ -49,4 +49,6 @@ Nmap done: 1 IP address (1 host up) scanned in 9.47 seconds
 ![](Broker-paste-2.png)
 * I was able to see that the activemq user is able to run the nginx command with sudo privileges
 * I then researched nginx privilege escalation and found [this git repo](https://gist.github.com/DylanGrl/ab497e2f01c7d672a80ab9561a903406)
-* 
+	* I ran through all of the steps and then I realized that it does not include the exploit code :/
+	* A big issue I had with this exploit was that both`nano` and `vi` started looking and acting jank when I tried to use this
+* After looking for a little push, I saw that I could just make the exploit on my host kali box and through it up on the webserver I used to exploit user.
