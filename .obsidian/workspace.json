@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lab Notes/Broker.md",
+                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lab Notes/Broker.md",
+                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Lab Notes/Broker.md",
+                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Lab Notes/Broker.md"
+                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md"
               }
             }
           },
@@ -156,9 +156,9 @@
   },
   "active": "88a4ac1faeac26d1",
   "lastOpenFiles": [
+    "Lab Notes/Broker.md",
     "Lab Notes/Broker-paste-2.png",
     "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
-    "Lab Notes/Broker.md",
     "Lab Notes/Influence.md",
     "Lab Notes/Overcertified.md",
     "Academy Notes/Windows Fundamentals/Windows Fundamentals.md",
@@ -187,7 +187,6 @@
     "Academy Notes/Web Requests",
     "Academy Notes/Introduction to Active Directory",
     "Academy Notes/Web Requests/Web Requests.md",
-    "Academy Notes/Web Requests/Web Requests-paste-3.png",
     "[Web.md",
     "Windows.md",
     "box1/writeup.md"
