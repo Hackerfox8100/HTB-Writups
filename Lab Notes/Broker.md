@@ -44,4 +44,9 @@ Nmap done: 1 IP address (1 host up) scanned in 9.47 seconds
 	* the home directory has the user flag
 # Root
 * First thought is to see if root is not password protected with `sudo su` but no luck
-* I then decided to 
+* I then decided to list the allowed (and forbidden) commands for the invoking user on the current host with `sudo -l` 
+	* This command helps users understand what privileges they have when using sudo
+![](Broker-paste-2.png)
+* I was able to see that the activemq user is able to run the nginx command with sudo privileges
+* I then researched nginx privilege escalation and found [this git repo](https://gist.github.com/DylanGrl/ab497e2f01c7d672a80ab9561a903406)
+* 
