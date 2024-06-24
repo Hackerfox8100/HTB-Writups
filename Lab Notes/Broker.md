@@ -44,4 +44,4 @@ Nmap done: 1 IP address (1 host up) scanned in 9.47 seconds
 	* the home directory has the user flag
 # Root
 * First thought is to see if root is not password protected with `sudo su` but no luck
-* I de
+* I then decided to 
