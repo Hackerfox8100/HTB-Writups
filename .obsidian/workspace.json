@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
+                "file": "Lab Notes/Broker.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
+                "file": "Lab Notes/Broker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
+                "file": "Lab Notes/Broker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md"
+                "file": "Lab Notes/Broker.md"
               }
             }
           },
@@ -156,6 +156,7 @@
   },
   "active": "88a4ac1faeac26d1",
   "lastOpenFiles": [
+    "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
     "Lab Notes/Broker.md",
     "Lab Notes/Influence.md",
     "Lab Notes/Overcertified.md",
@@ -167,7 +168,6 @@
     "Lab Notes/Influence-paste.png",
     "Lab Notes/Broker-paste-1.png",
     "Lab Notes/Broker-paste.png",
-    "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
     "Academy Notes/Attacking Common Applications/Attacking Common Applications-paste-1.png",
     "Academy Notes/Attacking Common Applications/Attacking Common Applications-paste.png",
     "Academy Notes/Network Enumeration with Nmap/Network Enumeration with Nmap.md",
