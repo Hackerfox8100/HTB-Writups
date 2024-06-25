@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
+                "file": "Lab Notes/Broker.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
+                "file": "Lab Notes/Broker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
+                "file": "Lab Notes/Broker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md"
+                "file": "Lab Notes/Broker.md"
               }
             }
           },
@@ -156,6 +156,7 @@
   },
   "active": "88a4ac1faeac26d1",
   "lastOpenFiles": [
+    "Academy Notes/Using Web Proxies/Using Web Proxies.md",
     "Lab Notes/Broker.md",
     "Lab Notes/Broker-paste-2.png",
     "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
@@ -176,7 +177,6 @@
     "Academy Notes/Network Enumeration with Nmap",
     "Academy Notes/Active Directory LDAP/Untitled",
     "Academy Notes/Active Directory LDAP",
-    "Academy Notes/Using Web Proxies/Using Web Proxies.md",
     "Academy Notes/Attacking Common Applications",
     "Academy Notes/Using Web Proxies/Using Web Proxies-paste.png",
     "README.md",
