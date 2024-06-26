@@ -205,7 +205,13 @@ public static void main(String[] args) throws JDOMException, IOException, JpegPr
 * After a quick peak at the box description, I realized I needed to look into the [XXE vulnerability](https://book.hacktricks.xyz/pentesting-web/xxe-xee-xml-external-entity#read-file)
 * Reading this Hacktricks article showed me that I needed to edit an xml file, something I couldn't do with the web requests
 * I decided to take the `export.xml` from earlier and modify it with a payload that should return the ssh private key of the root user with the goal of sshing into root
-	* This took a lot of troubleshooting and review of how `App.java` works
+	* This took a lot of troubleshooting and review of how `App.java` works. My code analysis is below:
+		* The `isImage` function looks if the filename it is given as a parameter contains ".jpg"
+			* If it does, it is marked true
+			* This is bad input sanitization! Let's see if this can be used later
 		* The `getArtist` function returns the Artist name from the tag in the metadata of the image 
 		* The `addViewTo` function is void, so it does not return a value
-		* The `main` function uses the 
+		* The `main` function does the following:
+			* creates a new `.log` file in `/opt/panda_search/redpanda.log`
+			* uses a while loop to go through each line in the log file
+				* if the line is an image (checked by our hinky `isImage` function) the function will  get the uri of the image
