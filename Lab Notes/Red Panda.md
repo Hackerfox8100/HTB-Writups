@@ -130,4 +130,8 @@ gobuster dir -u http://10.129.227.207:8080 -w /usr/share/wordlists/dirbuster/dir
 * I wanted to see what else was a banned character, so I ran burp intruder fuzz against the search parameter:
 ![](Red%20Panda-paste-3.png)
 * I used the wordlist `/usr/share/wfuzz/wordlist/injections` and set the payload processing to be url encoded
+	* The following characters received the same error message:
+		* `$`
+		* `%`
+		* `_`
 # Root
