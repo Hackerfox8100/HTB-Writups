@@ -171,7 +171,7 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 ![](Red%20Panda-paste-5.png)
 * Ran linpeas and saw that rootlogin was enabled for ssh
 	* Looked in /etc/ssh for keys
-		* found private ssh key, but attempting to ssh as root still needed a passwordcd
+		* found private ssh key, but attempting to ssh as root still needed a password
 * Linpeas also identified the `/opt` folder as not being empty, so I decided to check this out next
 	* there was a `cleanup.sh` script that had `x` perms, but it looked to be of no use as it just removes `xml` and `jpg` files
 * Discovered the application [pspy64](https://github.com/DominicBreuker/pspy) which is a command line tool designed to snoop on processes without need for root permissions
