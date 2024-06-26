@@ -174,7 +174,7 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 		* found private ssh key, but attempting to ssh as root still needed a password
 * Linpeas also identified the `/opt` folder as not being empty, so I decided to check this out next
 	* there was a `cleanup.sh` script that had `x` perms, but it looked to be of no use as it just removes `xml` and `jpg` files
-* Discovered the application [pspy64](https://github.com/DominicBreuker/pspy) which is a command line tool designed to snoop on processes without need for root permissions
+* Discovered the application [pspy64](https://github.com/DominicBreuker/pspy) in the box description which is a command line tool designed to snoop on processes without need for root permissions
 ![](Red%20Panda-paste-6.png)
 * After running it I discovered that the cron that my shell is on runs every two minutes
 	* There is also a LogParser processes that runs as well, so I decided to find the file to see what it was doing
@@ -209,4 +209,5 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 		* knowing that what is returned is appended as `/credits/AUTHOR_creds.xml` I figured I could change this for path traversal
 		* I changed the Author tag from `woodenk` to `../home/woodenk/hackerfox` so that I can place my modified `.xml` file in the woodenk home directory with: `exiftool greg.jpg -Artist='../home/woodenk/hackerfox'`
 	* Now that I know the Java app will be looking for `hackerfox_creds.xml` in the home directory, I can create that with a previously downloaded export.xml file
-	* I added the XXE payload from hacktricks and changed the `ENTITY` to `hackerfox` and the `SYSTEM` to ``
+	* I added the XXE payload from hacktricks and changed the `ENTITY` to `hackerfox` and the `SYSTEM` to `"file:///root/.ssh/id_rsa"`
+	* I also changed the uri to 
