@@ -177,4 +177,8 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 * Discovered the application [pspy64](https://github.com/DominicBreuker/pspy) which is a command line tool designed to snoop on processes without need for root permissions
 ![](Red%20Panda-paste-6.png)
 * After running it I discovered that the cron that my shell is on runs every two minutes
-	* There is also a run_credits.sh processes that runs as well
+	* There is also a LogParser processes that runs as well, so I decided to find the file to see what it was doing
+	* after a lot of manual searching I found it at `/opt/credit-score/LogParser/final/src/main/java/com/logparser/App.java`
+	* I copied the file over to my host machine and started to review the code
+* The main method of `App.java` seems to access the `/credits` directory as it collects the `xmlPath`
+	* After a quick peak at the box description, I realized I needed to look into the XXE vulnerability.
