@@ -206,6 +206,7 @@ public static void main(String[] args) throws JDOMException, IOException, JpegPr
 * Reading this Hacktricks article showed me that I needed to edit an xml file, something I couldn't do with the web requests
 * I decided to take the `export.xml` from earlier and modify it with a payload that should return the ssh private key of the root user with the goal of sshing into root
 	* This took a lot of troubleshooting and review of how `App.java` works. My code analysis is below:
+		* The `parseLog` function makes a map with a status_code, ip, user_agent, and uri
 		* The `isImage` function looks if the filename it is given as a parameter contains ".jpg"
 			* If it does, it is marked true
 			* This is bad input sanitization! Let's see if this can be used later
@@ -213,5 +214,8 @@ public static void main(String[] args) throws JDOMException, IOException, JpegPr
 		* The `addViewTo` function is void, so it does not return a value
 		* The `main` function does the following:
 			* creates a new `.log` file in `/opt/panda_search/redpanda.log`
+			* looks like this:
+		
 			* uses a while loop to go through each line in the log file
-				* if the line is an image (checked by our hinky `isImage` function) the function will  get the uri of the image
+				* if the line is an image (checked by our hinky `isImage` function) the function will  get the uri of the image from the log using the `parseLog` function
+				* It will print the uri
