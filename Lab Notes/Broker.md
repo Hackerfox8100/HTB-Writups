@@ -43,6 +43,9 @@ Nmap done: 1 IP address (1 host up) scanned in 9.47 seconds
 * This will call back as a reverse shell for the user `activemq`
 	* the home directory has the user flag
 # Root
+#### Relavant TTPs:
+[Nginx Priv Esc](Nginx%20Priv%20Esc.md)
+
 * First thought is to see if root is not password protected with `sudo su` but no luck
 * I then decided to list the allowed (and forbidden) commands for the invoking user on the current host with `sudo -l` 
 	* This command helps users understand what privileges they have when using sudo

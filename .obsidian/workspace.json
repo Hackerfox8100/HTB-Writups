@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lab Notes/Broker.md",
+                "file": "Lab Notes/Overcertified.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lab Notes/Broker.md",
+                "file": "Lab Notes/Overcertified.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Lab Notes/Broker.md",
+                "file": "Lab Notes/Overcertified.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Lab Notes/Broker.md"
+                "file": "Lab Notes/Overcertified.md"
               }
             }
           },
@@ -158,6 +158,7 @@
   "lastOpenFiles": [
     "Lab Notes/Influence.md",
     "Lab Notes/Broker.md",
+    "TTPs/Nginx Priv Esc.md",
     "Academy Notes/Using Web Proxies/Using Web Proxies.md",
     "Lab Notes/Broker-paste-2.png",
     "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
