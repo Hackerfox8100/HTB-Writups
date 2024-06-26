@@ -123,5 +123,11 @@ gobuster dir -u http://10.129.227.207:8080 -w /usr/share/wordlists/dirbuster/dir
 	* saw nothing suspicious with the either
 * Looking at the search result for greg prints "Greg is a hacker. Watch out for his injection attacks!"
 	* Going to go out on a limb and say this might be vulnerable to an injection attack
-* 
+* My first thought was to try a sql injection, but that didn't make much sense since no sql database showed on the nmap scan and the table was an xml file
+* My second guess was to try SSTI, using the `${7*7}` parameter
+	* This resulted in "You searched for: Error occured: banned characters"
+* While the result did not return 49 like I had hoped, I was able to narrow down that `$` is a banned character
+* I wanted to see what else was a banned character, so I ran burp intruder fuzz against the search parameter:
+![](Red%20Panda-paste-3.png)
+* I used the wordlist `/usr/share/wfuzz/wordlist/injections` and set the payload processing to be url encoded
 # Root
