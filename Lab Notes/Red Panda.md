@@ -116,4 +116,12 @@ gobuster dir -u http://10.129.227.207:8080 -w /usr/share/wordlists/dirbuster/dir
 * The first can with a `200 OK` response is for `/stats`, so I browsed to it
 ![](Red%20Panda-paste-1.png)
 * The page seems to be for viewer statistics for the authors of the site; one of which is the target user, woodenk
+* clicking on woodenk, his stats page has the option to export a table:
+![](Red%20Panda-paste-2.png)
+* Exporting the table just allows you to see the site contents as an xml file
+* I decided to repeat my steps again in burpsuite to see if anything hinky was occurring with the requests and responses
+	* saw nothing suspicious with the either
+* Looking at the search result for greg prints "Greg is a hacker. Watch out for his injection attacks!"
+	* Going to go out on a limb and say this might be vulnerable to an injection attack
+* 
 # Root
