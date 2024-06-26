@@ -180,5 +180,27 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 	* There is also a LogParser processes that runs as well, so I decided to find the file to see what it was doing
 	* after a lot of manual searching I found it at `/opt/credit-score/LogParser/final/src/main/java/com/logparser/App.java`
 	* I copied the file over to my host machine and started to review the code
-* The main method of `App.java` seems to access the `/credits` directory as it collects the `xmlPath`
-	* After a quick peak at the box description, I realized I needed to look into the XXE vulnerability.
+* The main method of `App.java` seems to access the `/credits` directory as it collects the `xmlPath`:
+```java
+public static void main(String[] args) throws JDOMException, IOException, JpegProcessingException {
+        File log_fd = new File("/opt/panda_search/redpanda.log");
+        Scanner log_reader = new Scanner(log_fd);
+        while(log_reader.hasNextLine())
+        {
+            String line = log_reader.nextLine();
+            if(!isImage(line))
+            {
+                continue;
+            }
+            Map parsed_data = parseLog(line);
+            System.out.println(parsed_data.get("uri"));
+            String artist = getArtist(parsed_data.get("uri").toString());
+            System.out.println("Artist: " + artist);
+            String xmlPath = "/credits/" + artist + "_creds.xml";
+            addViewTo(xmlPath, parsed_data.get("uri").toString());
+        }
+
+    }
+```
+* After a quick peak at the box description, I realized I needed to look into the XXE vulnerability.
+* 
