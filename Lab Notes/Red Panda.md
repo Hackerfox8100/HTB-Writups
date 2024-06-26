@@ -170,8 +170,8 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 	* Only problem is I have no clue how to exploit that
 ![](Red%20Panda-paste-5.png)
 * Ran linpeas and saw that rootlogin was enabled for ssh
-	* Look in /etc/ssh for keys
+	* Looked in /etc/ssh for keys
 		* found private ssh key, but attempting to ssh as root still needed a passwordcd
-	* /credits
-	* /etc/pam.d/common-password 
-	* /var/lib/pam/password
+* Linpeas also identified the `/opt` folder as not being empty, so I decided to check this out next
+	* there was a `cleanup.sh` script that had `x` perms, but it looked to be of no use as it just removes `xml` and `jpg` files
+	* 
