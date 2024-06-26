@@ -211,7 +211,7 @@ public static void main(String[] args) throws JDOMException, IOException, JpegPr
 			* If it does, it is marked true
 			* This is bad input sanitization! Let's see if this can be used later
 		* The `getArtist` function returns the Artist name from the tag in the metadata of the image 
-		* The `addViewTo` function is void, so it does not return a value
+		* The `addViewTo` function is void, so it does not return a value, buts builds a file
 		* The `main` function does the following:
 			* creates a new `.log` file in `/opt/panda_search/redpanda.log`
 				* looks like this: ![](Red%20Panda-paste-8.png)
@@ -224,4 +224,7 @@ public static void main(String[] args) throws JDOMException, IOException, JpegPr
 				* It will create an `xmlPath` that is `/credits/` + the artist found earlier + `_creds.xml`
 				* It will use the function `addViewTo` to build the file from the `xmlpath`
 					* This seems to be how the XXE is run on the server
-	* **TLDR: From the code analysis I found that th
+	* **TLDR: From the code analysis I found that the *uri of the image in the xml file* and *the artist found in the metadata* need to be modified to execute the XXE**
+	* So the in addition to the xml file, I will need a modified image
+* Using `exiftool` on an image I downloaded from the site, I was able to see the Author tag
+	* knowing that what is returned is appended between `/credits/AUTHOR_cre`
