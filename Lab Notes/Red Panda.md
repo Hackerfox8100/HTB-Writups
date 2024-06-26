@@ -168,3 +168,4 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 * I tried `sudo -l` again, but I needed a password to run that :/
 * I looked at the running processes and saw that the site, and therefore my shell, was running off of a root cron job
 	* Only problem is I have no clue how to exploit that
+![](Red%20Panda-paste-5.png)
