@@ -174,4 +174,7 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 		* found private ssh key, but attempting to ssh as root still needed a passwordcd
 * Linpeas also identified the `/opt` folder as not being empty, so I decided to check this out next
 	* there was a `cleanup.sh` script that had `x` perms, but it looked to be of no use as it just removes `xml` and `jpg` files
-	* 
+* Discovered the application [pspy64](https://github.com/DominicBreuker/pspy) which is a command line tool designed to snoop on processes without need for root permissions
+![](Red%20Panda-paste-6.png)
+* After running it I discovered that the cron that my shell is on runs every two minutes
+	* There is also a run_credits.sh processes that runs as well
