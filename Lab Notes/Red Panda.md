@@ -214,8 +214,14 @@ public static void main(String[] args) throws JDOMException, IOException, JpegPr
 		* The `addViewTo` function is void, so it does not return a value
 		* The `main` function does the following:
 			* creates a new `.log` file in `/opt/panda_search/redpanda.log`
-			* looks like this:
-		
+				* looks like this: ![](Red%20Panda-paste-8.png)
+				* Has the contents that are parsed in `parseLog`
 			* uses a while loop to go through each line in the log file
-				* if the line is an image (checked by our hinky `isImage` function) the function will  get the uri of the image from the log using the `parseLog` function
+				* if the line is an image (checked by our hinky `isImage` function) the function will  get the **uri of the image (found in the xml file)** from the log using the `parseLog` function
 				* It will print the uri
+				* It will use the uri to get the supposed `.jpg` file and **use the metadata of that image to retrieve the artist** with the `getArtist` function
+				* it will print the artist
+				* It will create an `xmlPath` that is `/credits/` + the artist found earlier + `_creds.xml`
+				* It will use the function `addViewTo` to build the file from the `xmlpath`
+					* This seems to be how the XXE is run on the server
+	* **TLDR: From the code analysis I found that th
