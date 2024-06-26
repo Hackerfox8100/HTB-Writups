@@ -180,28 +180,7 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 	* There is also a LogParser processes that runs as well, so I decided to find the file to see what it was doing
 	* after a lot of manual searching I found it at `/opt/credit-score/LogParser/final/src/main/java/com/logparser/App.java`
 	* I copied the file over to my host machine and started to review the code
-* The main method of `App.java` seems to access the `/credits` directory as it collects the `xmlPath`:
-```java
-public static void main(String[] args) throws JDOMException, IOException, JpegProcessingException {
-        File log_fd = new File("/opt/panda_search/redpanda.log");
-        Scanner log_reader = new Scanner(log_fd);
-        while(log_reader.hasNextLine())
-        {
-            String line = log_reader.nextLine();
-            if(!isImage(line))
-            {
-                continue;
-            }
-            Map parsed_data = parseLog(line);
-            System.out.println(parsed_data.get("uri"));
-            String artist = getArtist(parsed_data.get("uri").toString());
-            System.out.println("Artist: " + artist);
-            String xmlPath = "/credits/" + artist + "_creds.xml";
-            addViewTo(xmlPath, parsed_data.get("uri").toString());
-        }
-
-    }
-```
+* The main method of `App.java` seems to access the `/credits` directory as it collects the `xmlPath`
 * After a quick peak at the box description, I realized I needed to look into the [XXE vulnerability](https://book.hacktricks.xyz/pentesting-web/xxe-xee-xml-external-entity#read-file)
 * Reading this Hacktricks article showed me that I needed to edit an xml file, something I couldn't do with the web requests
 * I decided to take the `export.xml` from earlier and modify it with a payload that should return the ssh private key of the root user with the goal of sshing into root
@@ -221,10 +200,13 @@ public static void main(String[] args) throws JDOMException, IOException, JpegPr
 				* It will print the uri
 				* It will use the uri to get the supposed `.jpg` file and **use the metadata of that image to retrieve the artist** with the `getArtist` function
 				* it will print the artist
-				* It will create an `xmlPath` that is `/credits/` + the artist found earlier + `_creds.xml`
+				* It will create an `xmlPath` that is `/credits/` + the **artist found earlier** + `_creds.xml`
 				* It will use the function `addViewTo` to build the file from the `xmlpath`
 					* This seems to be how the XXE is run on the server
 	* **TLDR: From the code analysis I found that the *uri of the image in the xml file* and *the artist found in the metadata* need to be modified to execute the XXE**
-	* So the in addition to the xml file, I will need a modified image
-* Using `exiftool` on an image I downloaded from the site, I was able to see the Author tag
-	* knowing that what is returned is appended between `/credits/AUTHOR_cre`
+		* So the in addition to the xml file, I will need a modified image
+	* Using `exiftool` on an image I downloaded from the site, I was able to see the Author tag
+		* knowing that what is returned is appended as `/credits/AUTHOR_creds.xml` I figured I could change this for path traversal
+		* I changed the Author tag from `woodenk` to `../home/woodenk/hackerfox` so that I can place my modified `.xml` file in the woodenk home directory with: `exiftool greg.jpg -Artist='../home/woodenk/hackerfox'`
+	* Now that I know the Java app will be looking for `hackerfox_creds.xml` in the home directory, I can create that with a previously downloaded export.xml file
+	* I added the XXE payload from hacktricks and changed the `ENTITY` to `hackerfox` and the `SYSTEM` to ``
