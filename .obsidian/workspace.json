@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "d9f59559cddc5f3f",
+        "id": "ca3a1b95c428094a",
         "type": "tabs",
         "children": [
           {
-            "id": "88a4ac1faeac26d1",
+            "id": "1f5a9e382fba34ef",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lab Notes/Red Panda.md",
+                "file": "Lab Notes/ADSelfService.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lab Notes/Red Panda.md",
+                "file": "Lab Notes/ADSelfService.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Lab Notes/Red Panda.md",
+                "file": "Lab Notes/ADSelfService.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Lab Notes/Red Panda.md"
+                "file": "Lab Notes/ADSelfService.md"
               }
             }
           },
@@ -154,41 +154,41 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "88a4ac1faeac26d1",
+  "active": "1f5a9e382fba34ef",
   "lastOpenFiles": [
-    "Lab Notes/Red Panda-paste-8.png",
-    "Lab Notes/Red Panda-paste-7.png",
-    "Lab Notes/Red Panda-paste-6.png",
-    "Lab Notes/Broker.md",
-    "Lab Notes/Red Panda.md",
-    "Lab Notes/Red Panda-paste-5.png",
-    "Lab Notes/Red Panda-paste-4.png",
-    "Lab Notes/Red Panda-paste-3.png",
-    "Lab Notes/Red Panda-paste-2.png",
-    "Lab Notes/Red Panda-paste-1.png",
-    "Lab Notes/Red Panda-paste.png",
     "Lab Notes/Overcertified.md",
+    "Lab Notes/ADSelfService.md",
+    "Lab Notes/Red Panda.md",
+    "Lab Notes/Assets/Red Panda-paste.png",
+    "README.md",
+    "Lab Notes/Assets",
+    "Lab Notes/Assets/Red Panda-paste-8.png",
+    "Lab Notes/Assets/Red Panda-paste-7.png",
+    "Lab Notes/Assets/Red Panda-paste-6.png",
+    "Lab Notes/Broker.md",
+    "Lab Notes/Assets/Red Panda-paste-5.png",
+    "Lab Notes/Assets/Red Panda-paste-4.png",
+    "Lab Notes/Assets/Red Panda-paste-3.png",
+    "Lab Notes/Assets/Red Panda-paste-2.png",
+    "Lab Notes/Assets/Red Panda-paste-1.png",
     "Lab Notes/Influence.md",
     "TTPs/Nginx Priv Esc.md",
     "Academy Notes/Using Web Proxies/Using Web Proxies.md",
-    "Lab Notes/Broker-paste-2.png",
+    "Lab Notes/Assets/Broker-paste-2.png",
     "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
     "Academy Notes/Windows Fundamentals/Windows Fundamentals.md",
     "Academy Notes/Introduction to Active Directory/Introduction to Active Directory.md",
-    "Lab Notes/Influence-paste-3.png",
     "Academy Notes/Network Enumeration with Nmap/Network Enumeration with Nmap.md",
     "Academy Notes/Active Directory LDAP/Active Directory LDAP.md",
     "Academy Notes/Network Enumeration with Nmap",
     "Academy Notes/Active Directory LDAP/Untitled",
     "Academy Notes/Active Directory LDAP",
     "Academy Notes/Attacking Common Applications",
-    "README.md",
     "TTPs",
     "Lab Notes",
     "Academy Notes",
     "Academy Notes/Windows Fundamentals",
     "Academy Notes/Web Requests",
-    "Academy Notes/Introduction to Active Directory",
     "Academy Notes/Web Requests/Web Requests.md",
     "[Web.md",
     "Windows.md",
