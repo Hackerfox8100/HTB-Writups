@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Academy Notes/Windows Fundamentals/Windows Fundamentals.md",
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Academy Notes/Windows Fundamentals/Windows Fundamentals.md",
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Academy Notes/Windows Fundamentals/Windows Fundamentals.md",
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Academy Notes/Windows Fundamentals/Windows Fundamentals.md"
+                "file": "Academy Notes/Attacking Common Applications/Attacking Common Applications.md"
               }
             }
           },
@@ -156,6 +156,7 @@
   },
   "active": "1f5a9e382fba34ef",
   "lastOpenFiles": [
+    "Academy Notes/Windows Fundamentals/Windows Fundamentals.md",
     "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
     "Lab Notes/ADSelfService.md",
     "Lab Notes/Broker.md",
@@ -176,7 +177,6 @@
     "TTPs/Nginx Priv Esc.md",
     "Academy Notes/Using Web Proxies/Using Web Proxies.md",
     "Lab Notes/Assets/Broker-paste-2.png",
-    "Academy Notes/Windows Fundamentals/Windows Fundamentals.md",
     "Academy Notes/Introduction to Active Directory/Introduction to Active Directory.md",
     "Academy Notes/Network Enumeration with Nmap/Network Enumeration with Nmap.md",
     "Academy Notes/Active Directory LDAP/Active Directory LDAP.md",
