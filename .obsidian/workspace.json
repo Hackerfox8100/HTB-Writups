@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Academy Notes/Windows Fundamentals/Windows Fundamentals.md",
+                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Academy Notes/Windows Fundamentals/Windows Fundamentals.md",
+                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Academy Notes/Windows Fundamentals/Windows Fundamentals.md",
+                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Academy Notes/Windows Fundamentals/Windows Fundamentals.md"
+                "file": "Academy Notes/Using Web Proxies/Using Web Proxies.md"
               }
             }
           },
@@ -156,8 +156,8 @@
   },
   "active": "1f5a9e382fba34ef",
   "lastOpenFiles": [
-    "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
     "Academy Notes/Windows Fundamentals/Windows Fundamentals.md",
+    "Academy Notes/Attacking Common Applications/Attacking Common Applications.md",
     "Lab Notes/ADSelfService.md",
     "Lab Notes/Broker.md",
     "README.md",
